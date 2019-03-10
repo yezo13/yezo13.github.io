@@ -1,23 +1,307 @@
-extends includes/layout.pug
+<!DOCTYPE html>
+<html lang="en">
 
-block content
-  article#post.article-entry
-    != page.content
-  // lincense
-  if(theme.copyright.enable === true && page.copyright !== false)
-    .license-wrapper
-      p 
-        span Author:  
-        a(href=config.url)= config.author
-      p 
-        span Link:  
-        a(href=page.permalink)= page.permalink
-      p 
-        span Copyright:  
-        span!= theme.copyright.license
-  include includes/partial/post-nav.pug
-  #comment
-    include includes/comment/livere.pug
-    include includes/comment/disqus.pug
-    include includes/comment/changyan.pug
-    include includes/comment/gitment.pug
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="【简答题】1.用简短的语言给出对分析、设计的理解。
+分析就是对用户给出的软件功能等方面的需求进行系统的研究，识别出主号问题，确定待开发软件的功能、性能、接口、数据、界面等具体的细节要求。设计就是基于需求分析中得到的需求，构造出目标系统的逻辑模型，最终得到一个可供编码过程参考的设计模型文档。
+
+软件分">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="yezo13">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="系统分析与设计—hw2">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="【简答题】1.用简短的语言给出对分析、设计的理解。
+分析就是对用户给出的软件功能等方面的需求进行系统的研究，识别出主号问题，确定待开发软件的功能、性能、接口、数据、界面等具体的细节要求。设计就是基于需求分析中得到的需求，构造出目标系统的逻辑模型，最终得到一个可供编码过程参考的设计模型文档。
+
+软件分">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Yezo13">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>系统分析与设计—hw2 - Yezo13</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="/img/head.jpg">
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>系统分析与设计—hw2</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-03-09
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 id="【简答题】"><a href="#【简答题】" class="headerlink" title="【简答题】"></a>【简答题】</h3><p><strong>1.用简短的语言给出对分析、设计的理解。</strong></p>
+<p>分析就是对用户给出的软件功能等方面的需求进行系统的研究，识别出主号问题，确定待开发软件的功能、性能、接口、数据、界面等具体的细节要求。<br>设计就是基于需求分析中得到的需求，构造出目标系统的逻辑模型，最终得到一个可供编码过程参考的设计模型文档。</p>
+<blockquote>
+<p>软件分析不是发现更多的功能与需求，而是确认有效的功能与需求，去伪存真不断满足客户需要。软件设计也不是追求最先进技术，而是控制变化附加的成本，使得软件生产的预算、时间等能在掌控之中。</p>
+</blockquote>
+<hr>
+<p><strong>2.用一句话描述面向对象的分析与设计的优势。</strong></p>
+<p>面向对象的分析与设计能够通过分析现实世界中存在的问题，并构建相对应的问题模型，保持了他们的结构、关系和行为模式，具有易理解和易维护的特性。</p>
+<hr>
+<p><strong>3.简述 UML（统一建模语言）的作用。考试考哪些图？</strong></p>
+<p>UML（Unified Modeling Language）用于说明、可视化、构建和编写一个正在开发的、面向对象的、软件密集系统的制品。 它可以将面向对象分析（OOA）和面向对象设计（OOD）使用统一定义的符号表示出来，并将对象自身的属性、对象与对象之间的关联关系可视化，提升项目结构的可读性。</p>
+<p>考试的重点图形: 🔺  ⭐</p>
+<hr>
+<p><strong>4.从软件本质的角度，解释软件范围（需求）控制的可行性</strong></p>
+<p>软件的本质包括复杂性、一致性、可变性和不可视性。基于IEEE中给出的软件特点：</p>
+<blockquote>
+<ul>
+<li>Software requirements are prone to frequent change</li>
+<li>In many cases, requirements allocated to software must be renegotiated and reprioritized</li>
+<li>Small changes to software can have large negative effects（There are no small software changes） </li>
+</ul>
+</blockquote>
+<p>对于软件的需求可能会因为不一致、不可使、易于变化的环境而更改，需求的更改会带来软件的改动，这就可能会产生巨大的负面影响，包括开发难度的增加，开发周期的增长等。为了尽可能避免以上情况的发生，我们必须对软件需求进行范围的划定和控制。即在需求分析与设计的过程中，我们必须在给定的范围内围绕软件开发的成本进行调控，允许范围内、不造成巨大影响的需求变更和迭代，最终保证软件开发周期和成本是可控的，在约定的时间内交付出可满足客户的软件成品。因此，软件范围需求控制是可行且必须的。</p>
+<hr>
+<p>###【看板使用练习】</p>
+<p><img src="https://img-blog.csdnimg.cn/20190309233035419.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70" alt="img"></p>
+<p>###【UML绘图工具练习】</p>
+<p>图选自  《UML和模式应用（中文第三版）》 P193  </p>
+<p> <strong>图16-16 UML中的关联类</strong><br><img src="https://img-blog.csdnimg.cn/20190310105912508.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>图16-17 表示单实例类</strong><br><img src="https://img-blog.csdnimg.cn/20190310110454876.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 yezo13<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>
