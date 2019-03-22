@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl">
+  
+  
+  
+  
+  <title>系统分析与设计—hw3 | Yezo13</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="【简答题】1.简述瀑布模型、增量模型、螺旋模型（含原型方法）的优缺点（从项目特点、风险特征、人力资源利用角度思考）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="系统分析与设计—hw3">
+<meta property="og:url" content="http://yoursite.com/2019/03/13/swsadHw/swsadhw3/index.html">
+<meta property="og:site_name" content="Yezo13">
+<meta property="og:description" content="【简答题】1.简述瀑布模型、增量模型、螺旋模型（含原型方法）的优缺点（从项目特点、风险特征、人力资源利用角度思考）">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190313144706784.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-03-13T07:00:50.136Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="系统分析与设计—hw3">
+<meta name="twitter:description" content="【简答题】1.简述瀑布模型、增量模型、螺旋模型（含原型方法）的优缺点（从项目特点、风险特征、人力资源利用角度思考）">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190313144706784.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70">
+  
+    <link rel="alternative" href="/atom.xml" title="Yezo13" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/fa.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">yezo13</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">2Vegetable</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl google" target="_blank" href="https://www.google.com/search?ei=h-SEXNypF5CO_wSys76AAg&q=%E9%85%B8%E8%8F%9C%E9%B1%BC&oq=%E9%85%B8%E8%8F%9C%E9%B1%BC&gs_l=psy-ab.3...10396.10396..10636...0.0..0.0.0.......0....1..gws-wiz.oiWapWupTLE" title="google">google</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/yezo13" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://zhihu.com" title="zhihu">zhihu</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">人生总是一如既往的艰难。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">yezo13</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">yezo13</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">2Vegetable</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="google" target="_blank" href="https://www.google.com/search?ei=h-SEXNypF5CO_wSys76AAg&q=%E9%85%B8%E8%8F%9C%E9%B1%BC&oq=%E9%85%B8%E8%8F%9C%E9%B1%BC&gs_l=psy-ab.3...10396.10396..10636...0.0..0.0.0.......0....1..gws-wiz.oiWapWupTLE" title="google">google</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/yezo13" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://zhihu.com" title="zhihu">zhihu</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-swsadHw/swsadhw3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/13/swsadHw/swsadhw3/" class="article-date">
+      <time datetime="2019-03-13T02:04:00.010Z" itemprop="datePublished">2019-03-13</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      系统分析与设计—hw3
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="【简答题】"><a href="#【简答题】" class="headerlink" title="【简答题】"></a>【简答题】</h3><p><strong>1.简述瀑布模型、增量模型、螺旋模型（含原型方法）的优缺点（从项目特点、风险特征、人力资源利用角度思考）</strong></p>
+<a id="more"></a>
+<ul>
+<li><p>瀑布模型:</p>
+<ul>
+<li>简述：瀑布模型设置了一系列的阶段，按顺序进行开发，项目开发进程从一个阶段流动到下一个阶段，形式上与物理世界中的瀑布非常相像。同时，每个阶段都会产生循环反馈，对临近阶段进行影响。</li>
+<li>优点：<ul>
+<li>降低软件开发的复杂程度，提高软件开发过程的透明性；同时，由于开发的基本流程和活动都是易理解的，因此提高了软件开发过程的可管理性。</li>
+<li>推迟软件实现，强调在软件实现前必须进行分析和设计工作。</li>
+<li>以项目的阶段评审和文档控制为手段有效地对整个开发过程进行指导，保证了阶段之间的正确衔接，能够及时发现并纠正开发过程中存在的缺陷，使产品达到预期的质量要求。</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>强调过程活动的线性顺序，因此理论上需要保证需求明确，且短期内可获得，每个阶段是无差错的。</li>
+<li>缺乏灵活性，尤其无法解决软件需求不明确或不准确的问题。同时，在后期发现需求问题，更改的工作量十分巨大。</li>
+<li>风险控制能力较弱，当前面需求模糊/前方成果不完善，会对后阶段产生巨大影响。</li>
+<li>瀑布模型中的软件活动是文档驱动的，当阶段之间规定过多的文档时，会极大地增加系统的工作量。</li>
+<li>管理人员如果仅仅以文档的完成情况来评估项目完成进度，往往会产生错误的结论，容易被人为误导。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>增量模型:</p>
+<ul>
+<li>简述：增量模型是把待开发的软件系统模块化，将每个模块作为一个增量组件，分批次地分析、设计、编码和测试这些组块，具有一个递增式的开发过程。</li>
+<li>优点：<ul>
+<li>将待开发的软件系统模块化，可以分批次地提交软件产品，进行迭代式的开发，遵循“先做出来可以用的软件，再把软件做好。”的原则，因此对开发方较友好。</li>
+<li>由于软件产品模块化交付，因此用户可以及时了解软件项目的进展并给出反馈，使得用户可以及时了解到项目进展，提升其在软件开发阶段的参与度和对项目的信息。</li>
+<li>开发顺序灵活，开发人员可以对组件的实现顺序进行选择和优先级排序，先完成需求稳定的核心组件。当组件的优先级发生变化时，还能及时地对实现顺序进行调整。</li>
+<li>降低了软件开发的风险，出现在组件中的错误可以被灵活解决，而不会对整个软件系统造成巨大的影响。</li>
+</ul>
+</li>
+<li>缺点:<ul>
+<li>待开发的软件系统需要可以被模块化；使用增量模型对难以模块化的软件系统进行开发会导致很多的问题：如模块划分，功能交付等。</li>
+<li>增量粒度难以选择。</li>
+<li>为了将软件系统分成多个模块，需要增加额外的工作量。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>螺旋模型（含原型方法）：</p>
+<ul>
+<li>简述：螺旋模型采用周期性的方法进行开发，以进化的开发方式为中心，在不断迭代的过程中完成开发，且强调风险分析。</li>
+<li><p>优点：</p>
+<ul>
+<li>设计上具有灵活性，可以在项目的各个阶段中或是下一次迭代中完成变更，可以不需要在一开始就给出具体明确的需求。</li>
+<li>以小的分段来构造大型的系统，易于计算成本。</li>
+<li>进行了风险分析，使得项目具有更高的可靠性。</li>
+<li>由于快速原型法需要客户使用并提供反馈，因此提升了客户的参与度，保证了项目与客户需求是一致的，项目是可控的。同时提升了客户对项目的信心，对开发团队的认可。</li>
+</ul>
+</li>
+<li><p>缺点：</p>
+<ul>
+<li>没有明确的项目终点，需要根据项目的具体进度进行判断。</li>
+<li>建设周期长，可能导致软件开发的需求或核心技术与现实产生差距，无法满足当前用户的需求。</li>
+<li>需要使用户确信这种模型的开发方法的结果是可以控制的。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>2.简述统一过程三大特点，与面向对象的方法有什么关系？</strong></p>
+<p>统一过程（Unified Process，UP）是一种以用例驱动的、以体系结构为核心的、迭代和增量的软件过程模型。由UML方法和工具支持，广泛应用于各类面向对象项目。<br>统一过程的三大特点分别是：</p>
+<ol>
+<li>软件开发是一个迭代的过程，是一种受控的迭代和增量式开发。</li>
+<li>软件开发是由用例（Use Case）驱动的，也就是通过测试来推动整个开发过程的进行，在测试中完成需求分析、设计、质量控制等过程。这为整个开发过程提供了高效的驱动力。</li>
+<li>软件开发是以体系结构为核心的。</li>
+</ol>
+<p><strong>3.简述统一过程四个阶段的划分准则是什么？每个阶段关键的里程碑是什么？</strong></p>
+<p>UP项目将其工作和迭代组织为四个主要阶段： </p>
+<ol>
+<li>初始（Inception）：大体上的构想、业务案例、范围和模糊评估。 <ul>
+<li>里程碑：生命周期目标里程碑，包括一些重要的文档，如：项目构想(Vision)、原始用例模型、原始业务风险评估、一个或者多个原型、原始业务案例等。需要对这些文档进行评审，以确定正确理解用例需求、项目风险评估合理、阶段计划可行等。 </li>
+</ul>
+</li>
+<li>细化（Elaboration）：已精化的构想、核心架构的迭代实现、高风险的解决、确定大多数需求和范围以及进行更为实际的评估。 <ul>
+<li>里程碑：生命周期体系结构(Lifecycle Architecture) 里程碑。包括风险分析文档、软件体系结构基线、项目计划、可执行的进化原型、初始版本的用户手册等。通过评审确定软件体系结构已经稳定、高风险的业务需求和技术机制已经解决、修订的项目计划可行等。 </li>
+</ul>
+</li>
+<li>构造（Construction）：对遗留下来的风险较低和比较简单的元素进行迭代实现，准备部署。 <ul>
+<li>里程碑：初始运行能力(Initial Operational Capability) 里程碑。包括可以运行的软件产品、用户手册等，它决定了产品是否可以在测试环境中进行部署。此刻，要确定软件、环境、用户是否可以开始系统的运行。 </li>
+</ul>
+</li>
+<li>移交（Transition）：进行beta测试和部署。 <ul>
+<li>里程碑：产品发布(Product Release) 里程碑。确定最终目标是否实现，是否应该开始产品下一个版本的另一个开发周期。在一些情况下这个里程碑可能与下一个周期的初始阶段的相重合。</li>
+</ul>
+</li>
+</ol>
+<p>下图提供了一个可视化的循环过程：<br><img src="https://img-blog.csdnimg.cn/20190313144706784.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>4.软件企业为什么能按固定节奏生产、固定周期发布软件产品？它给企业项目管理带来哪些好处？</strong></p>
+<p>当企业使用UP进行软件开发时，基于UP迭代式、增量式的开发特点，整个开发过程可以被划分为几个固定的阶段和多次迭代的过程。也就是说，整个开发过程被划分成了固定的开发周期，因此企业就可以按照固定的节奏进行软件生产，也可以得到预期的生产周期并以此来形成一个发布软件产品的固定周期。<br>UP本身的特性，使得其可应用于各种领域的软件开发和不同的项目规模。其带来的好处有：</p>
+<ul>
+<li>企业可以将项目格式化、流程化，并对每一个流程标定固定的工作内容，使得整个系统架构更具有鲁棒性。</li>
+<li>项目管理者以及客户都可以更了解开发进度、存在的问题和预期的目标，有利于开发者和使用者的交流，使得项目开发不会与需求偏差过大</li>
+<li>开发过程可以进行风险分析和需求理解，降低了项目失败的概率</li>
+</ul>
+<hr>
+<p>###【实践题】</p>
+<p>了解使用 TAPD 的最佳实践</p>
+<ul>
+<li>比较完善 backlog 支持（树结构）</li>
+<li>迭代（sprint）安排</li>
+<li>较好的缺陷管理</li>
+<li>Kanban</li>
+<li>统计</li>
+</ul>
+<p>###【大作业准备】</p>
+<ul>
+<li>按大作业要求组件团队、思考项目题目与内容</li>
+<li>将团队暂时分为技术研究、业务调研两个部分<ul>
+<li>技术团队初步确定技术方法，力争做一些技术原型，如 基于 MVC 框架的的用户登陆实现</li>
+<li>业务调研团队调查竞争性产品，分析它们的基础、共性业务以及竞争优势</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/03/13/swsadHw/swsadhw3/">系统分析与设计—hw3</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 yezo13 的个人博客">yezo13</a></p>
+        <p><span>发布时间:</span>2019年03月13日 - 10时04分</p>
+        <p><span>最后更新:</span>2019年03月13日 - 15时00分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/03/13/swsadHw/swsadhw3/" title="系统分析与设计—hw3">http://yoursite.com/2019/03/13/swsadHw/swsadhw3/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/13/swsadHw/swsadhw3/　　作者: yezo13" title></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2019/03/21/vueLearning/vueLearning1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Vue学习笔记（1）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/09/swsadHw/swsadhw2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">系统分析与设计—hw2</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#【简答题】"><span class="toc-number">1.</span> <span class="toc-text">【简答题】</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'xxxx',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/03/21/vueLearning/vueLearning1/" title="上一篇: Vue学习笔记（1）">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2019/03/09/swsadHw/swsadhw2/" title="下一篇: 系统分析与设计—hw2">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/vueLearning/vueLearning1/">Vue学习笔记（1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/swsadHw/swsadhw3/">系统分析与设计—hw3</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/swsadHw/swsadhw2/">系统分析与设计—hw2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/swsadHw/swsadhw1/">系统分析与设计—hw1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/Personal/hello-world/">BringMeFly</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2019 yezo13
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit">极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 2;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".jpg)";
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":200},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

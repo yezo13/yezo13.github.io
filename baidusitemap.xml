@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://yoursite.com/2019/03/21/vueLearning1/</loc>
+    <loc>http://yoursite.com/2019/03/21/vueLearning/vueLearning1/</loc>
     <lastmod>2019-03-22</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/09/swsadhw2/</loc>
+    <loc>http://yoursite.com/2019/03/09/swsadHw/swsadhw2/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/swsadhw3/</loc>
+    <loc>http://yoursite.com/2019/03/13/swsadHw/swsadhw3/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/06/swsadhw1/</loc>
+    <loc>http://yoursite.com/2019/03/06/swsadHw/swsadhw1/</loc>
     <lastmod>2019-03-10</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/02/27/hello-world/</loc>
+    <loc>http://yoursite.com/2019/02/27/Personal/hello-world/</loc>
     <lastmod>2019-03-10</lastmod>
   </url>
 </urlset>
