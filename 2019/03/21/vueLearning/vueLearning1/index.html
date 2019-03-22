@@ -17,7 +17,7 @@
 <meta property="og:description" content="我是一条酸菜鱼。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://www.runoob.com/wp-content/uploads/2016/10/1476690217-1155-854231-1d2947692fba4957.png">
-<meta property="og:updated_time" content="2019-03-22T09:42:04.926Z">
+<meta property="og:updated_time" content="2019-03-22T10:07:51.217Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue学习笔记（1）">
 <meta name="twitter:description" content="我是一条酸菜鱼。">
@@ -329,34 +329,36 @@ put here
 <ul>
 <li>script</li>
 </ul>
-<pre><code>    export default {
-      name: &apos;app&apos;,  //给整个vue组件定义变量名，可调用
-      data () { //vue实例中引用到的变量名
-        return {
-          msg: &apos;Welcome to Your Vue.js App&apos;,
-          abc: &apos;something&apos;,
-          new2: &apos;currentTime: &apos; + new Date().toLocaleString()
+<pre><code>export default {
+  name: &apos;app&apos;,  //给整个vue组件定义变量名，可调用
+  data () { //vue实例中引用到的变量名
+    return {
+      msg: &apos;Welcome to Your Vue.js App&apos;,
+      abc: &apos;something&apos;,
+      new2: &apos;currentTime: &apos; + new Date().toLocaleString()
+}
+  },
+  methods: { //vue实例中使用到的函数（方法）
+    change: function(){
+      this.abc = &quot;you&quot;
     }
-      },
-      methods: { //vue实例中使用到的函数（方法）
-        change: function(){
-          this.abc = &quot;you&quot;
-        }
-      }
-    }
-
-
-
-
-&gt;#### 关于 new vue 和 export default 的区别
-&gt;---
-&gt; 在main.js当中已经有一个new vue了。作为被main.js  import的APP.vue ，App.vue当中应当有export default，这样才能在main.js中引入（也就是import）APP.vue当中的内容。
-&gt; new vue是生成Vue根实例，而export default则是用来导出的。export default相当于提供一个接口给外界，让外界（这里也就是main.js）来引入使用。
-
-&gt; 在不使用App.vue 文件时，我们是通过 Vue 构造函数（new vue）创建一个 Vue 根实例来启动vuejs 项目，Vue 构造函数接受一个对象，这个对象有一些配置属性 el, data, component, template 等，从而对整个应用提供支持。
-
-&gt; 而现在我们的vue项目建好之后，有.vue也有.js，此时，在App.vue文件中，export default 后面的对象就相当于 new Vue() 构造函数中的接受的对象。
-</code></pre><ul>
+  }
+}
+</code></pre><hr>
+<h4 id="关于-new-vue-和-export-default-的区别"><a href="#关于-new-vue-和-export-default-的区别" class="headerlink" title="关于 new vue 和 export default 的区别"></a>关于 new vue 和 export default 的区别</h4><blockquote>
+<hr>
+<p>在main.js当中已经有一个new vue了。作为被main.js  import的APP.vue ，App.vue当中应当有export default，这样才能在main.js中引入（也就是import）APP.vue当中的内容。</p>
+</blockquote>
+<blockquote>
+<p>new vue是生成Vue根实例，而export default则是用来导出的。export default相当于提供一个接口给外界，让外界（这里也就是main.js）来引入使用。</p>
+</blockquote>
+<blockquote>
+<p>在不使用App.vue 文件时，我们是通过 Vue 构造函数（new vue）创建一个 Vue 根实例来启动vuejs 项目，Vue 构造函数接受一个对象，这个对象有一些配置属性 el, data, component, template 等，从而对整个应用提供支持。</p>
+</blockquote>
+<blockquote>
+<p>而现在我们的vue项目建好之后，有.vue也有.js，此时，在App.vue文件中，export default 后面的对象就相当于 new Vue() 构造函数中的接受的对象。</p>
+</blockquote>
+<ul>
 <li><p>style</p>
 <pre><code>感觉跟css差不多
 </code></pre></li>
@@ -392,7 +394,7 @@ v-model = &quot;abc&quot;  //实现表单输入(或其它元素）和应用状�
         <p><span>本文标题:</span><a href="/2019/03/21/vueLearning/vueLearning1/">Vue学习笔记（1）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 yezo13 的个人博客">yezo13</a></p>
         <p><span>发布时间:</span>2019年03月21日 - 11时06分</p>
-        <p><span>最后更新:</span>2019年03月22日 - 17时42分</p>
+        <p><span>最后更新:</span>2019年03月22日 - 18时07分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/21/vueLearning/vueLearning1/" title="Vue学习笔记（1）">http://yoursite.com/2019/03/21/vueLearning/vueLearning1/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/21/vueLearning/vueLearning1/　　作者: yezo13" title></span>
@@ -420,7 +422,7 @@ v-model = &quot;abc&quot;  //实现表单输入(或其它元素）和应用状�
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境配置"><span class="toc-number">1.</span> <span class="toc-text">环境配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建vue项目流程"><span class="toc-number">2.</span> <span class="toc-text">新建vue项目流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue格式"><span class="toc-number">3.</span> <span class="toc-text">Vue格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单语法"><span class="toc-number">4.</span> <span class="toc-text">简单语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue指令"><span class="toc-number">5.</span> <span class="toc-text">vue指令</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境配置"><span class="toc-number">1.</span> <span class="toc-text">环境配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建vue项目流程"><span class="toc-number">2.</span> <span class="toc-text">新建vue项目流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue格式"><span class="toc-number">3.</span> <span class="toc-text">Vue格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单语法"><span class="toc-number">4.</span> <span class="toc-text">简单语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#关于-new-vue-和-export-default-的区别"><span class="toc-number">4.1.</span> <span class="toc-text">关于 new vue 和 export default 的区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue指令"><span class="toc-number">5.</span> <span class="toc-text">vue指令</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
