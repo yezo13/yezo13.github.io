@@ -17,7 +17,7 @@
 <meta property="og:description" content="我是一条酸菜鱼。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://www.runoob.com/wp-content/uploads/2016/10/1476690217-1155-854231-1d2947692fba4957.png">
-<meta property="og:updated_time" content="2019-03-22T05:07:42.571Z">
+<meta property="og:updated_time" content="2019-03-22T09:42:04.926Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue学习笔记（1）">
 <meta name="twitter:description" content="我是一条酸菜鱼。">
@@ -307,9 +307,10 @@ npm run dev
 &lt;script&gt; -&gt; js
 &lt;style&gt; -&gt; css
 </code></pre><hr>
-<h3 id="官网教程简单语法"><a href="#官网教程简单语法" class="headerlink" title="官网教程简单语法"></a>官网教程简单语法</h3><p>template中绑定元素方法：</p>
-<p>v-bind &amp; v-on</p>
-<p>html:</p>
+<h3 id="简单语法"><a href="#简单语法" class="headerlink" title="简单语法"></a>简单语法</h3><p><a href="https://cn.vuejs.org/v2/guide/index.html" target="_blank" rel="noopener">官网教程</a></p>
+<p>####vue文件</p>
+<ul>
+<li><p>html:</p>
 <pre><code>&lt;template&gt;
   &lt;div id=&quot;app&quot;&gt;   //div的id属性，用于css编辑，与web一致
 &lt;div id=&quot;app-6&quot;&gt;
@@ -323,8 +324,64 @@ put here
 
   &lt;/div&gt;
 &lt;/template&gt;
-</code></pre><p>css &amp; js<br>    fill it later</p>
+</code></pre></li>
+</ul>
+<ul>
+<li>script</li>
+</ul>
+<pre><code>    export default {
+      name: &apos;app&apos;,  //给整个vue组件定义变量名，可调用
+      data () { //vue实例中引用到的变量名
+        return {
+          msg: &apos;Welcome to Your Vue.js App&apos;,
+          abc: &apos;something&apos;,
+          new2: &apos;currentTime: &apos; + new Date().toLocaleString()
+    }
+      },
+      methods: { //vue实例中使用到的函数（方法）
+        change: function(){
+          this.abc = &quot;you&quot;
+        }
+      }
+    }
 
+
+
+
+&gt;#### 关于 new vue 和 export default 的区别
+&gt;---
+&gt; 在main.js当中已经有一个new vue了。作为被main.js  import的APP.vue ，App.vue当中应当有export default，这样才能在main.js中引入（也就是import）APP.vue当中的内容。
+&gt; new vue是生成Vue根实例，而export default则是用来导出的。export default相当于提供一个接口给外界，让外界（这里也就是main.js）来引入使用。
+
+&gt; 在不使用App.vue 文件时，我们是通过 Vue 构造函数（new vue）创建一个 Vue 根实例来启动vuejs 项目，Vue 构造函数接受一个对象，这个对象有一些配置属性 el, data, component, template 等，从而对整个应用提供支持。
+
+&gt; 而现在我们的vue项目建好之后，有.vue也有.js，此时，在App.vue文件中，export default 后面的对象就相当于 new Vue() 构造函数中的接受的对象。
+</code></pre><ul>
+<li><p>style</p>
+<pre><code>感觉跟css差不多
+</code></pre></li>
+</ul>
+<hr>
+<h3 id="vue指令"><a href="#vue指令" class="headerlink" title="vue指令"></a>vue指令</h3><blockquote>
+<p>vue指令可以直接嵌在html的元素里面中去，也就是直接在元素中加入这一条属性，使用demo如下：</p>
+</blockquote>
+<pre><code>&lt;div id=&quot;app-6&quot;&gt;
+  &lt;p&gt;{{ message }}&lt;/p&gt;
+  &lt;input v-model=&quot;message&quot;&gt; //双向绑定，vue指令在这里使用
+&lt;/div&gt;
+var app6 = new Vue({
+  el: &apos;#app-6&apos;,
+  data: {
+message: &apos;Hello Vue!&apos;
+  }
+})    
+</code></pre><p>一些vue指令：</p>
+<pre><code>v-bind:title = &quot;abc&quot;  //将元素节点的title 绑定 data中变量名为abc的变量
+v-if=&quot;a&quot;  //通过控制a，可以控制元素
+v-for = &quot;i in a&quot;   //循环处理a数组中的元素i的属性
+v-on:click = &quot;method&quot;  //click操作调用method函数 click应该可以替换成其他操作
+v-model = &quot;abc&quot;  //实现表单输入(或其它元素）和应用状态之间的双向绑定
+</code></pre>
       
     </div>
     
@@ -335,7 +392,7 @@ put here
         <p><span>本文标题:</span><a href="/2019/03/21/vueLearning/vueLearning1/">Vue学习笔记（1）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 yezo13 的个人博客">yezo13</a></p>
         <p><span>发布时间:</span>2019年03月21日 - 11时06分</p>
-        <p><span>最后更新:</span>2019年03月22日 - 13时07分</p>
+        <p><span>最后更新:</span>2019年03月22日 - 17时42分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/21/vueLearning/vueLearning1/" title="Vue学习笔记（1）">http://yoursite.com/2019/03/21/vueLearning/vueLearning1/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/21/vueLearning/vueLearning1/　　作者: yezo13" title></span>
@@ -363,7 +420,7 @@ put here
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境配置"><span class="toc-number">1.</span> <span class="toc-text">环境配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建vue项目流程"><span class="toc-number">2.</span> <span class="toc-text">新建vue项目流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue格式"><span class="toc-number">3.</span> <span class="toc-text">Vue格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#官网教程简单语法"><span class="toc-number">4.</span> <span class="toc-text">官网教程简单语法</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境配置"><span class="toc-number">1.</span> <span class="toc-text">环境配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建vue项目流程"><span class="toc-number">2.</span> <span class="toc-text">新建vue项目流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue格式"><span class="toc-number">3.</span> <span class="toc-text">Vue格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单语法"><span class="toc-number">4.</span> <span class="toc-text">简单语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue指令"><span class="toc-number">5.</span> <span class="toc-text">vue指令</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
