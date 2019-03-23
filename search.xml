@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>酸菜鱼的SLAM之旅（1）</title>
+      <link href="/2019/03/23/SLAM/ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+      <url>/2019/03/23/SLAM/ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<p>From：我是一条酸菜鱼。</p><a id="more"></a><hr><h2 id="2019年3月23日：Ubuntu环境配置"><a href="#2019年3月23日：Ubuntu环境配置" class="headerlink" title="2019年3月23日：Ubuntu环境配置"></a>2019年3月23日：Ubuntu环境配置</h2><p>###前言</p><blockquote><p>一开始我以为之前用ubuntu上过程设跑过C，配置过环境，应该没啥问题的，所以看了看十四讲的实践部分，感觉不就调两个库的事情吗，就直接跳过了。今天想起来，准备用自己的电脑run一遍，一用起来才发现关于ubuntu的知识都忘光了，环境居然只有gcc，cpp都编译不了，很难受。所以写点东西记录一下，下次要是又忘光了还可以看。</p></blockquote><hr><p>###Ubuntu基本命令</p><p>ubuntu的系统命令基本以<code>sudo apt-get</code>前缀，下面以我痛苦的安装过程记录一些可能有用的命令：</p><p>安装命令</p><pre><code>sudo apt-get install g++  //安装软件g++</code></pre><p>移除命令</p><pre><code>sudo apt-get remove g++  //卸载</code></pre><p>检查更新</p><pre><code>sudo apt-get update //好像是检查装了的软件和当前发行版本，拉下来一个软件列表</code></pre><p>升级</p><pre><code>sudo apt-get upgrade //升级软件</code></pre><p>切换到root用户（虽然我不知道为啥root还是有些文件夹会被拒绝访问？）</p><pre><code>sudo su -  //需要输密码 占个坑，以后看看关于root、777的内容</code></pre><hr><p>然后我insatll g++的时候，提示一堆什么破依赖关系不对，而且还不让我破坏。我真的吃柠檬了。然后上网疯狂搜，解决办法是【换源 + aptitude】</p><p>换源方法参考的是<a href="https://blog.csdn.net/fei20140908/article/details/78952341" target="_blank" rel="noopener">这个大佬</a>，反正大概就是系统设置 - 软件与更新 - 服务器选其他 - 查找最快源 - 找到之后设置成这个源，其实我也不知道有没有用，感觉迟早有用。</p><p>然后aptitude是一个提供解决依赖关系的程序</p><p>先安装一下</p><pre><code>sudo apt-get install aptitude</code></pre><p>然后用它来解决你的安装问题</p><pre><code>sudo aptitude install g++ //我是装g++啦</code></pre><p>然后会刷刷刷一大堆信息，最后给出一个提示办法，选择是[y/n/q]：</p><ul><li>选择y就是执行当前方案（它给我提供的第一个方案是啥也不做，然后告诉我解决问题啦，我：？？？）</li><li>n是拒绝当前方案，然后会提供下一个方案，反正我解决上面提到的sb依赖问题的方法是【降低装了的软件的版本】的那个方案，最后搞定了</li><li>q原来是quit的意思，我还以为是啥question的派生词，具体解释一下，还是太菜了…</li></ul><p>后面跟着流程走就搞定了</p><p>装完之后<code>-v</code> 看一下是不是装成功了 </p><hr><p>###编译&amp;MakeFile（占坑）</p><ul><li>以后更新点关于makefile的</li><li>awhca</li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Vue学习笔记（1）</title>
       <link href="/2019/03/21/vueLearning/vueLearning1/"/>
       <url>/2019/03/21/vueLearning/vueLearning1/</url>

@@ -7,15 +7,19 @@
   
   
   
-  <title>Archives: 2019/3 | Yezo13</title>
+  <title>酸菜鱼的SLAM之旅（1） | Yezo13</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Yezo13">
-<meta property="og:url" content="http://yoursite.com/archives/2019/03/index.html">
+  <meta name="description" content="From：我是一条酸菜鱼。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="酸菜鱼的SLAM之旅（1）">
+<meta property="og:url" content="http://yoursite.com/2019/03/23/SLAM/ubuntu环境配置/index.html">
 <meta property="og:site_name" content="Yezo13">
+<meta property="og:description" content="From：我是一条酸菜鱼。">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-03-23T10:12:27.536Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yezo13">
+<meta name="twitter:title" content="酸菜鱼的SLAM之旅（1）">
+<meta name="twitter:description" content="From：我是一条酸菜鱼。">
   
     <link rel="alternative" href="/atom.xml" title="Yezo13" type="application/atom+xml">
   
@@ -40,8 +44,8 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
-          isArchive: true,
+          isPost: true,
+          isArchive: false,
           isTag: false,
           isCategory: false,
           open_in_new: false
@@ -241,168 +245,235 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-SLAM/ubuntu环境配置" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2019/03/23/SLAM/ubuntu环境配置/" class="article-date">
+      <time datetime="2019-03-23T09:42:12.929Z" itemprop="datePublished">2019-03-23</time>
+</a>
+
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      酸菜鱼的SLAM之旅（1）
+    </h1>
+  
+
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/03/23/SLAM/ubuntu环境配置/" class="archive-article-date">
-      <time datetime="2019-03-23T09:42:12.929Z" itemprop="datePublished">03-23</time>
-</a>
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/SLAM/ubuntu环境配置/">酸菜鱼的SLAM之旅（1）</a>
-    </h1>
-  
-
-
-        <div class="article-info info-on-archive">
+    <div class="article-entry" itemprop="articleBody">
+      
           
+        <p>From：我是一条酸菜鱼。</p>
+<a id="more"></a>
+<hr>
+<h2 id="2019年3月23日：Ubuntu环境配置"><a href="#2019年3月23日：Ubuntu环境配置" class="headerlink" title="2019年3月23日：Ubuntu环境配置"></a>2019年3月23日：Ubuntu环境配置</h2><p>###前言</p>
+<blockquote>
+<p>一开始我以为之前用ubuntu上过程设跑过C，配置过环境，应该没啥问题的，所以看了看十四讲的实践部分，感觉不就调两个库的事情吗，就直接跳过了。今天想起来，准备用自己的电脑run一遍，一用起来才发现关于ubuntu的知识都忘光了，环境居然只有gcc，cpp都编译不了，很难受。所以写点东西记录一下，下次要是又忘光了还可以看。</p>
+</blockquote>
+<hr>
+<p>###Ubuntu基本命令</p>
+<p>ubuntu的系统命令基本以<code>sudo apt-get</code>前缀，下面以我痛苦的安装过程记录一些可能有用的命令：</p>
+<p>安装命令</p>
+<pre><code>sudo apt-get install g++  //安装软件g++
+</code></pre><p>移除命令</p>
+<pre><code>sudo apt-get remove g++  //卸载
+</code></pre><p>检查更新</p>
+<pre><code>sudo apt-get update //好像是检查装了的软件和当前发行版本，拉下来一个软件列表
+</code></pre><p>升级</p>
+<pre><code>sudo apt-get upgrade //升级软件
+</code></pre><p>切换到root用户（虽然我不知道为啥root还是有些文件夹会被拒绝访问？）</p>
+<pre><code>sudo su -  //需要输密码 占个坑，以后看看关于root、777的内容
+</code></pre><hr>
+<p>然后我insatll g++的时候，提示一堆什么破依赖关系不对，而且还不让我破坏。我真的吃柠檬了。然后上网疯狂搜，解决办法是【换源 + aptitude】</p>
+<p>换源方法参考的是<a href="https://blog.csdn.net/fei20140908/article/details/78952341" target="_blank" rel="noopener">这个大佬</a>，反正大概就是系统设置 - 软件与更新 - 服务器选其他 - 查找最快源 - 找到之后设置成这个源，其实我也不知道有没有用，感觉迟早有用。</p>
+<p>然后aptitude是一个提供解决依赖关系的程序</p>
+<p>先安装一下</p>
+<pre><code>sudo apt-get install aptitude
+</code></pre><p>然后用它来解决你的安装问题</p>
+<pre><code>sudo aptitude install g++ //我是装g++啦
+</code></pre><p>然后会刷刷刷一大堆信息，最后给出一个提示办法，选择是[y/n/q]：</p>
+<ul>
+<li>选择y就是执行当前方案（它给我提供的第一个方案是啥也不做，然后告诉我解决问题啦，我：？？？）</li>
+<li>n是拒绝当前方案，然后会提供下一个方案，反正我解决上面提到的sb依赖问题的方法是【降低装了的软件的版本】的那个方案，最后搞定了</li>
+<li>q原来是quit的意思，我还以为是啥question的派生词，具体解释一下，还是太菜了…</li>
+</ul>
+<p>后面跟着流程走就搞定了</p>
+<p>装完之后<code>-v</code> 看一下是不是装成功了 </p>
+<hr>
+<p>###编译&amp;MakeFile（占坑）</p>
+<ul>
+<li>以后更新点关于makefile的</li>
+<li>awhca</li>
+</ul>
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/03/23/SLAM/ubuntu环境配置/">酸菜鱼的SLAM之旅（1）</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 yezo13 的个人博客">yezo13</a></p>
+        <p><span>发布时间:</span>2019年03月23日 - 17时42分</p>
+        <p><span>最后更新:</span>2019年03月23日 - 18时12分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/03/23/SLAM/ubuntu环境配置/" title="酸菜鱼的SLAM之旅（1）">http://yoursite.com/2019/03/23/SLAM/ubuntu环境配置/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/23/SLAM/ubuntu环境配置/　　作者: yezo13" title></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/21/vueLearning/vueLearning1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue学习笔记（1）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/03/21/vueLearning/vueLearning1/" class="archive-article-date">
-      <time datetime="2019-03-21T03:06:42.426Z" itemprop="datePublished">03-21</time>
-</a>
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/21/vueLearning/vueLearning1/">Vue学习笔记（1）</a>
-    </h1>
-  
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2019年3月23日：Ubuntu环境配置"><span class="toc-number">1.</span> <span class="toc-text">2019年3月23日：Ubuntu环境配置</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
 
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/03/13/swsadHw/swsadhw3/" class="archive-article-date">
-      <time datetime="2019-03-13T02:04:00.010Z" itemprop="datePublished">03-13</time>
-</a>
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/13/swsadHw/swsadhw3/">系统分析与设计—hw3</a>
-    </h1>
-  
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
 
 
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/03/09/swsadHw/swsadhw2/" class="archive-article-date">
-      <time datetime="2019-03-09T04:36:48.585Z" itemprop="datePublished">03-09</time>
-</a>
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/09/swsadHw/swsadhw2/">系统分析与设计—hw2</a>
-    </h1>
-  
 
 
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/03/06/swsadHw/swsadhw1/" class="archive-article-date">
-      <time datetime="2019-03-06T02:35:02.621Z" itemprop="datePublished">03-06</time>
-</a>
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/06/swsadHw/swsadhw1/">系统分析与设计—hw1</a>
-    </h1>
-  
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 
 
-        <div class="article-info info-on-archive">
-          
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
     
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'xxxx',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
+    
 
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2019/03/21/vueLearning/vueLearning1/" title="下一篇: Vue学习笔记（1）">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/23/SLAM/ubuntu环境配置/">酸菜鱼的SLAM之旅（1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/vueLearning/vueLearning1/">Vue学习笔记（1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/swsadHw/swsadhw3/">系统分析与设计—hw3</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/swsadHw/swsadhw2/">系统分析与设计—hw2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/swsadHw/swsadhw1/">系统分析与设计—hw1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/Personal/hello-world/">BringMeFly</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
 
 </div>
       <footer id="footer">
@@ -491,18 +562,6 @@ ga('send', 'pageview');
         };
     })
 </script>
-
-    <button class="hide-labels">TAG 开关</button>
-    
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            $("button").click(function() {
-                $(".article-info").toggle(200);
-            });
-        });
-    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
