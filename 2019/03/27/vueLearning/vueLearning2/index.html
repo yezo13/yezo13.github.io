@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Yezo13">
 <meta property="og:description" content="我是一条酸菜鱼。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-27T07:45:03.721Z">
+<meta property="og:updated_time" content="2019-03-27T08:13:23.342Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue学习笔记（2）">
 <meta name="twitter:description" content="我是一条酸菜鱼。">
@@ -337,7 +337,6 @@ new Vue({
 </ul>
 </li>
 </ul>
-<hr>
 <h4 id="计算属性实例："><a href="#计算属性实例：" class="headerlink" title="计算属性实例："></a>计算属性实例：</h4><pre><code>使用计算属性/使用方法可以达到同样的效果，区别在于有无缓存
 
 &lt;div id=&quot;example&quot;&gt;
@@ -390,6 +389,39 @@ computed: {
 <p>使用方法与计算属性类似，在watch:{}中添加</p>
 <p>VUE文档中给出的DEMO有一个有意思的API：yesOrNo</p>
 <p>代码在<a href="https://cn.vuejs.org/v2/guide/computed.html" target="_blank" rel="noopener">这里</a>（拉到最后）</p>
+<hr>
+<h2 id="组件基础"><a href="#组件基础" class="headerlink" title="组件基础"></a>组件基础</h2><ul>
+<li>组件是可复用的Vue实例，且带有变量名</li>
+<li>每使用一次组件，就创建一个新的实例</li>
+<li>组件中的data需要是一个函数，因此复用时，每个实例维护一个独立的拷贝</li>
+</ul>
+<p>组件的注册：</p>
+<ul>
+<li>局部注册</li>
+<li><p>全局注册：可以用在其被注册之后的任何（通过 new Vue) 新创建的 Vue 根实例，也包括其组件树中的所有子组件的模板中。</p>
+<pre><code>//一个全局注册的demo 
+//定义一个名为 button-counter 的新组件
+Vue.component(&apos;button-counter&apos;, {
+  data: function () {
+    return {
+      count: 0
+    }
+  },
+  template: &apos;&lt;button v-on:click=&quot;count++&quot;&gt;You clicked me {{ count }} times.&lt;/button&gt;&apos;
+})
+</code></pre></li>
+</ul>
+<hr>
+<p><strong>插一段软件测试的笔记</strong></p>
+<p>（以表达我对蔡老师课堂的热爱</p>
+<p>软件缺陷记录的5C原则：</p>
+<ul>
+<li>Correct（准确）：每个组成部分的描述准确，不会引起误解； </li>
+<li>Clear（清晰）：每个组成部分的描述清晰，易于理解； </li>
+<li>Concise（简洁）：只包含必不可少的信息，不包括任何多余的内容； </li>
+<li>Complete（完整）：包含复现该缺陷的完整步骤和其他本质信息； </li>
+<li>Consistent（一致）：按照一致的格式书写全部缺陷报告。</li>
+</ul>
 
       
     </div>
@@ -401,7 +433,7 @@ computed: {
         <p><span>本文标题:</span><a href="/2019/03/27/vueLearning/vueLearning2/">Vue学习笔记（2）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 yezo13 的个人博客">yezo13</a></p>
         <p><span>发布时间:</span>2019年03月27日 - 10时12分</p>
-        <p><span>最后更新:</span>2019年03月27日 - 15时45分</p>
+        <p><span>最后更新:</span>2019年03月27日 - 16时13分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/27/vueLearning/vueLearning2/" title="Vue学习笔记（2）">http://yoursite.com/2019/03/27/vueLearning/vueLearning2/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/27/vueLearning/vueLearning2/　　作者: yezo13" title></span>
@@ -429,7 +461,7 @@ computed: {
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue实例"><span class="toc-number">1.</span> <span class="toc-text">Vue实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建Vue实例"><span class="toc-number">1.1.</span> <span class="toc-text">创建Vue实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据与方法"><span class="toc-number">1.2.</span> <span class="toc-text">数据与方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例生命周期钩子"><span class="toc-number">2.</span> <span class="toc-text">实例生命周期钩子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算属性和侦听器"><span class="toc-number">3.</span> <span class="toc-text">计算属性和侦听器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#计算属性"><span class="toc-number">3.1.</span> <span class="toc-text">计算属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#计算属性实例："><span class="toc-number">3.1.1.</span> <span class="toc-text">计算属性实例：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#计算属性另一种实例"><span class="toc-number">3.1.2.</span> <span class="toc-text">计算属性另一种实例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#侦听属性"><span class="toc-number">3.2.</span> <span class="toc-text">侦听属性</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue实例"><span class="toc-number">1.</span> <span class="toc-text">Vue实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建Vue实例"><span class="toc-number">1.1.</span> <span class="toc-text">创建Vue实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据与方法"><span class="toc-number">1.2.</span> <span class="toc-text">数据与方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例生命周期钩子"><span class="toc-number">2.</span> <span class="toc-text">实例生命周期钩子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算属性和侦听器"><span class="toc-number">3.</span> <span class="toc-text">计算属性和侦听器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#计算属性"><span class="toc-number">3.1.</span> <span class="toc-text">计算属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#计算属性实例："><span class="toc-number">3.1.1.</span> <span class="toc-text">计算属性实例：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#计算属性另一种实例"><span class="toc-number">3.1.2.</span> <span class="toc-text">计算属性另一种实例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#侦听属性"><span class="toc-number">3.2.</span> <span class="toc-text">侦听属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件基础"><span class="toc-number">4.</span> <span class="toc-text">组件基础</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
