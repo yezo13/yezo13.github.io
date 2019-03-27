@@ -9,12 +9,12 @@
   
   <title>酸菜鱼的SLAM之旅（4） | Yezo13</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2019年3月27日：视觉里程计">
+  <meta name="description" content="2019年3月27日：视觉里程计 - 特征点法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="酸菜鱼的SLAM之旅（4）">
 <meta property="og:url" content="http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/index.html">
 <meta property="og:site_name" content="Yezo13">
-<meta property="og:description" content="2019年3月27日：视觉里程计">
+<meta property="og:description" content="2019年3月27日：视觉里程计 - 特征点法">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/ch7/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/ch7/2.jpg">
@@ -26,10 +26,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/ch7/8.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/ch7/9.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/ch7/11.jpg">
-<meta property="og:updated_time" content="2019-03-27T13:31:28.338Z">
+<meta property="og:updated_time" content="2019-03-27T13:40:55.079Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="酸菜鱼的SLAM之旅（4）">
-<meta name="twitter:description" content="2019年3月27日：视觉里程计">
+<meta name="twitter:description" content="2019年3月27日：视觉里程计 - 特征点法">
 <meta name="twitter:image" content="http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/ch7/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Yezo13" type="application/atom+xml">
@@ -292,7 +292,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="2019年3月27日：视觉里程计"><a href="#2019年3月27日：视觉里程计" class="headerlink" title="2019年3月27日：视觉里程计"></a>2019年3月27日：视觉里程计</h2><a id="more"></a>
+        <h2 id="2019年3月27日：视觉里程计-特征点法"><a href="#2019年3月27日：视觉里程计-特征点法" class="headerlink" title="2019年3月27日：视觉里程计 - 特征点法"></a>2019年3月27日：视觉里程计 - 特征点法</h2><a id="more"></a>
 <p>keyword：图像特征点、极几何、PNP问题、ICP问题、三角化</p>
 <h2 id="特征点法"><a href="#特征点法" class="headerlink" title="特征点法"></a>特征点法</h2><p>视觉SLAM主要分为视觉前端和优化后端，前端也称为<strong>视觉里程计（VO）</strong>。它根据相邻图像的信息，估计出粗略的相机运动，给后端提供较好的初始值。</p>
 <ul>
@@ -500,6 +500,11 @@
 <li>SVD方法</li>
 <li>非线性优化方法（类似于BA）</li>
 </ul>
+<h2 id="特征点法的缺点："><a href="#特征点法的缺点：" class="headerlink" title="特征点法的缺点："></a>特征点法的缺点：</h2><ol>
+<li>关键点的提取与描述子的计算非常耗时。实践当中，SIFT目前在CPU 上是无法实时计算的，而ORB也需要近20毫秒的计算。如果整个SLAM 以30毫秒/帧的速度运行，那么一大半时间都花在计算特征点上。</li>
+<li>使用特征点时，忽略了除特征点以外的所有信息。一张图像有几十万个像素，而特征点只有几百个。只使用特征点丢弃了大部分可能有用的图像信息。</li>
+<li>相机有时会运动到特征缺失的地方，往往这些地方没有明显的纹理信息。例如，有时我们会面对一堵白墙，或者一个空荡荡的走廓。这些场景下特征点数量会明显减少，我们可能找不到足够的匹配点来计算相机运动。</li>
+</ol>
 
       
     </div>
@@ -511,7 +516,7 @@
         <p><span>本文标题:</span><a href="/2019/03/27/SLAM/ch7_视觉里程计1/">酸菜鱼的SLAM之旅（4）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 yezo13 的个人博客">yezo13</a></p>
         <p><span>发布时间:</span>2019年03月27日 - 19时03分</p>
-        <p><span>最后更新:</span>2019年03月27日 - 21时31分</p>
+        <p><span>最后更新:</span>2019年03月27日 - 21时40分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/27/SLAM/ch7_视觉里程计1/" title="酸菜鱼的SLAM之旅（4）">http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/　　作者: yezo13" title></span>
@@ -524,6 +529,15 @@
 
 
 <nav id="article-nav">
+  
+    <a href="/2019/03/27/SLAM/ch7_视觉里程计2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          酸菜鱼的SLAM之旅（5）
+        
+      </div>
+    </a>
   
   
     <a href="/2019/03/27/deepLearning/SVM/" id="article-nav-older" class="article-nav-link-wrap">
@@ -539,7 +553,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2019年3月27日：视觉里程计"><span class="toc-number">1.</span> <span class="toc-text">2019年3月27日：视觉里程计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特征点法"><span class="toc-number">2.</span> <span class="toc-text">特征点法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征点"><span class="toc-number">2.1.</span> <span class="toc-text">特征点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ORB特征"><span class="toc-number">2.2.</span> <span class="toc-text">ORB特征</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#FAST特征点："><span class="toc-number">2.2.1.</span> <span class="toc-text">FAST特征点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BRIEF-描述子"><span class="toc-number">2.2.2.</span> <span class="toc-text">BRIEF 描述子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特征匹配"><span class="toc-number">2.3.</span> <span class="toc-text">特征匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实践"><span class="toc-number">2.4.</span> <span class="toc-text">实践</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2D-2D-对极几何"><span class="toc-number">3.</span> <span class="toc-text">2D-2D:对极几何</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对极约束"><span class="toc-number">3.1.</span> <span class="toc-text">对极约束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本质矩阵（E，Essential-Matrix）"><span class="toc-number">3.2.</span> <span class="toc-text">本质矩阵（E，Essential Matrix）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基础矩阵（F，Fundamental-Matrix）"><span class="toc-number">3.3.</span> <span class="toc-text">基础矩阵（F，Fundamental Matrix）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单应矩阵（H，Homography-Matrix）"><span class="toc-number">3.4.</span> <span class="toc-text">单应矩阵（H，Homography Matrix）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实践：通过Essential矩阵求解相机运动"><span class="toc-number">3.5.</span> <span class="toc-text">实践：通过Essential矩阵求解相机运动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三角测量（三角化）"><span class="toc-number">4.</span> <span class="toc-text">三角测量（三角化）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3D-2D：PnP"><span class="toc-number">5.</span> <span class="toc-text">3D-2D：PnP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3D-3D：ICP"><span class="toc-number">6.</span> <span class="toc-text">3D-3D：ICP</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2019年3月27日：视觉里程计-特征点法"><span class="toc-number">1.</span> <span class="toc-text">2019年3月27日：视觉里程计 - 特征点法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特征点法"><span class="toc-number">2.</span> <span class="toc-text">特征点法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征点"><span class="toc-number">2.1.</span> <span class="toc-text">特征点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ORB特征"><span class="toc-number">2.2.</span> <span class="toc-text">ORB特征</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#FAST特征点："><span class="toc-number">2.2.1.</span> <span class="toc-text">FAST特征点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BRIEF-描述子"><span class="toc-number">2.2.2.</span> <span class="toc-text">BRIEF 描述子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特征匹配"><span class="toc-number">2.3.</span> <span class="toc-text">特征匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实践"><span class="toc-number">2.4.</span> <span class="toc-text">实践</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2D-2D-对极几何"><span class="toc-number">3.</span> <span class="toc-text">2D-2D:对极几何</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对极约束"><span class="toc-number">3.1.</span> <span class="toc-text">对极约束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本质矩阵（E，Essential-Matrix）"><span class="toc-number">3.2.</span> <span class="toc-text">本质矩阵（E，Essential Matrix）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基础矩阵（F，Fundamental-Matrix）"><span class="toc-number">3.3.</span> <span class="toc-text">基础矩阵（F，Fundamental Matrix）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单应矩阵（H，Homography-Matrix）"><span class="toc-number">3.4.</span> <span class="toc-text">单应矩阵（H，Homography Matrix）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实践：通过Essential矩阵求解相机运动"><span class="toc-number">3.5.</span> <span class="toc-text">实践：通过Essential矩阵求解相机运动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三角测量（三角化）"><span class="toc-number">4.</span> <span class="toc-text">三角测量（三角化）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3D-2D：PnP"><span class="toc-number">5.</span> <span class="toc-text">3D-2D：PnP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3D-3D：ICP"><span class="toc-number">6.</span> <span class="toc-text">3D-3D：ICP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特征点法的缺点："><span class="toc-number">7.</span> <span class="toc-text">特征点法的缺点：</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -612,7 +626,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2019/03/27/SLAM/ch7_视觉里程计2/" title="上一篇: 酸菜鱼的SLAM之旅（5）">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
@@ -621,7 +637,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/SLAM/ch7_视觉里程计1/">酸菜鱼的SLAM之旅（4）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/deepLearning/SVM/">支持向量机（SVM)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/vueLearning/vueLearning2/">Vue学习笔记（2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/25/deepLearning/梯度下降法的简单应用/">酸菜鱼的梯度下降法学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/25/SLAM/ch6_非线性优化/">酸菜鱼的SLAM之旅（3）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/SLAM/ch5_相机与图像/">酸菜鱼的SLAM之旅（2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/23/SLAM/ubuntu环境配置/">酸菜鱼的SLAM之旅（1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/vueLearning/vueLearning1/">Vue学习笔记（1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/swsadHw/swsadhw3/">系统分析与设计—hw3</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/swsadHw/swsadhw2/">系统分析与设计—hw2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/swsadHw/swsadhw1/">系统分析与设计—hw1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/Personal/hello-world/">BringMeFly</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/SLAM/ch7_视觉里程计2/">酸菜鱼的SLAM之旅（5）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/SLAM/ch7_视觉里程计1/">酸菜鱼的SLAM之旅（4）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/deepLearning/SVM/">支持向量机（SVM)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/vueLearning/vueLearning2/">Vue学习笔记（2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/25/deepLearning/梯度下降法的简单应用/">酸菜鱼的梯度下降法学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/25/SLAM/ch6_非线性优化/">酸菜鱼的SLAM之旅（3）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/SLAM/ch5_相机与图像/">酸菜鱼的SLAM之旅（2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/23/SLAM/ubuntu环境配置/">酸菜鱼的SLAM之旅（1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/vueLearning/vueLearning1/">Vue学习笔记（1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/swsadHw/swsadhw3/">系统分析与设计—hw3</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/swsadHw/swsadhw2/">系统分析与设计—hw2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/swsadHw/swsadhw1/">系统分析与设计—hw1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/Personal/hello-world/">BringMeFly</a></li></ul>
     
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
