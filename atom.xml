@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-27T08:13:23.342Z</updated>
+  <updated>2019-03-27T11:57:27.197Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>酸菜鱼的SLAM之旅（4）</title>
+    <link href="http://yoursite.com/2019/03/27/SLAM/ch7_%E8%A7%86%E8%A7%89%E9%87%8C%E7%A8%8B%E8%AE%A11/"/>
+    <id>http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/</id>
+    <published>2019-03-27T11:03:41.095Z</published>
+    <updated>2019-03-27T11:57:27.197Z</updated>
+    
+    <content type="html"><![CDATA[<p>From：我是一条酸菜鱼。</p><h2 id="2019年3月27日：视觉里程计"><a href="#2019年3月27日：视觉里程计" class="headerlink" title="2019年3月27日：视觉里程计"></a>2019年3月27日：视觉里程计</h2><a id="more"></a><p>keyword：图像特征点、极几何、PNP问题、ICP问题、三角化</p><h2 id="特征点法"><a href="#特征点法" class="headerlink" title="特征点法"></a>特征点法</h2><p>视觉SLAM主要分为视觉前端和优化后端，前端也称为<strong>视觉里程计（VO）</strong>。它根据相邻图像的信息，估计出粗略的相机运动，给后端提供较好的初始值。</p><ul><li>按照是否需要提取特征区分VO的实现方法:<ul><li>需要提取特征：特征点法的前端（主流方法)<ul><li>运行稳定</li><li>对光照、动态物体不敏感</li></ul></li><li>不提取特征：直接法前端</li></ul></li></ul><h3 id="特征点"><a href="#特征点" class="headerlink" title="特征点"></a>特征点</h3><p>VO的主要问题是如何根据图像来估计相机运动。由于图像本身是一个由<strong>亮度和色度组成的矩阵</strong>，因此<strong>很难</strong>直接从矩阵层面考虑运动估计。因此，常见做法如下:</p><ol><li>从图像中选取比较<strong>有代表性</strong>的点，主要体现在这些点在相机视角发生<strong>少量变化</strong>后<strong>保持不变</strong>，即我们在<strong>连续</strong>的各个图像中都能找到<strong>相同的点。</strong></li><li>在这些点的基础上讨论相机的位姿估计问题和这些点的定位问题。</li><li>在经典SLAM模型中，这些有代表性的点称为<strong>路标</strong>；在视觉SLAM中，路标则是指<strong>图像特征（Features）</strong>。</li></ol><blockquote><p>图像特征是一组与计算任务相关的信息，计算任务取决于具体的应用。   —— 维基百科</p></blockquote><ul><li>特征是图像信息的另一种数字表达形式（如单个图像像素也是一种“特征”)</li><li>在OV中，希望特征点在相机运动之后保持稳定。而灰度值（像素)受外界因素影响严重，在不同图像之间变化很大。因此我们需要对图像提取特征点（图像里一些特别的地方）。</li><li>特征点：从不同的图像间存在更强的辨识度，如角点。一种直观的提取特征的方式就是在不同图像间辨认角点（不满足视觉SLAM的需求），确定它们的对应关系。在这种做法中，角点就是所谓的特征。</li></ul><hr><p>CV中设计了比角点更稳定的局部图像特征，需要拥有以下特性：</p><ol><li>可重复性（Repeatability）：相同的“区域”可以在不同的图像中被找到。</li><li>可区别性（Distinctiveness）：不同的“区域”有不同的表达。</li><li>高效率（Efficiency）：同一图像中，特征点的数量应远小于像素的数量。</li><li>本地性（Locality）：特征仅与一小片图像区域相关。</li></ol><p>e.g. SIFT[30], SURF[31], ORB[32]</p><hr><p>特征点由<strong>关键点（Key-point）</strong>和<strong>描述子（Descriptor）</strong>两部分组成。比方说，当我们<br>谈论 SIFT 特征时，是指“提取 SIFT 关键点，并计算 SIFT 描述子”两件事情。</p><p>具体结构如下:</p><ul><li>特征点：<ul><li>关键点 (Key-point)：该特征点在图像里的<strong>位置</strong>，可能包括朝向、大小等信息</li><li>描述子 (Descriptor)：按照某种人为设计的方式描述该关键点<strong>周围像素的信息</strong>。    <ul><li>原则：外观相似的特征应该有相似的描述子</li><li>两个特征点的描述子在<strong>向量空间上的距离相近</strong>，就可以认为它们是<strong>同样</strong>的特征点</li></ul></li></ul></li></ul><p>一些图像特征：</p><ul><li>尺度不变特征转换(SIFT)<ul><li>Scale-invariant feature transform</li><li>是一种机器视觉的算法用来侦测与描述影像中的局部性特征，它在空间尺度中寻找极值点，并提取出其位置、尺度、旋转不变数。</li><li>它充分考虑了在图像变换过程中出现的光照，尺度，旋转等变化，但随之而来的是<strong>极大</strong>的计算量。</li><li>普通PC的CPU还无法实时地计算SIFT特征，进行定位与建图。所以在SLAM中我们甚少使用这种“奢侈”的图像特征。</li><li>通过GPU加速的SIFT可以满足实时计算要求，但成本提升。</li></ul></li></ul><hr><ul><li>FAST<strong>关键点</strong><ul><li>属于计算特别快的一种特征点</li><li>没有描述子，因此不具有方向性</li></ul></li></ul><hr><ul><li>ORB特征<ul><li>Oriented FAST and Rotated BRIEF</li><li>非常具有代表性的实时图像特征，对于实时性要求很高的SLAM来说是一个很好的选择。</li><li>它改进了FAST 检测子[33] 不具有方向性的问题，并采用速度极快的二进制描述子BRIEF，使整个图像特征提取的环节大大加速。</li><li>保持了特征子具有旋转、尺度不变性的同时，速度方面提升明显，是质量与性能之间较号的折中。</li></ul></li></ul><h3 id="ORB特征"><a href="#ORB特征" class="headerlink" title="ORB特征"></a>ORB特征</h3><p>ORB特征的结构如下:</p><ul><li><p>ORB特征</p><ul><li><p>关键点：Oriented FAST， 是一种改进的Fast角点</p></li><li><p>描述子：BRIEF（Binary Robust Independent Elementary Features）</p></li></ul></li></ul><p>提取ORB 特征分为两个步骤：</p><ol><li>FAST 角点提取：找出图像中的” 角点”。相较于原版的FAST, ORB 中计算了特征点的主方向，为后续的BRIEF 描述子增加了旋转不变特性。</li><li>BRIEF 描述子：对前一步提取出特征点的周围图像区域进行描述。</li></ol><h4 id="FAST特征点："><a href="#FAST特征点：" class="headerlink" title="FAST特征点："></a>FAST特征点：</h4><p>FAST是一种角点：</p><ul><li>思想：如果一个像素与它的邻域的像素差别过大（过亮/过暗），那么它更可能是角点</li><li>方法：主要检测局部像素灰度变化明显的地方</li><li>优势：只需要比较像素亮度的大小，速度快</li><li>测试过程前可以进行预测试操作，快速排除绝大多数不是角点的元素：<ul><li>对于每个像素，直接检测邻域圆上的第1，5，9，13 个像素的亮度。只有当这四个像素中有三个同时大于Ip + T 或小于Ip - T 时，当前像素才有可能是一个角点，否则应该直接排除。</li></ul></li><li>正常检测过程:<ol><li>在图像中选取像素p，假设它的亮度为Ip。</li><li>设置一个阈值T(比如Ip 的20%)。</li><li>以像素p为中心, 选取半径为3的圆上的16 个像素点。</li><li>假如选取的圆上，有连续的N个点的亮度大于Ip + T 或小于Ip - T，那么像素p可以被认为是特征点(N 通常取12，即为FAST-12。其它常用的N取值为9和11，他们分别被称为FAST-9，FAST-11)。</li><li>循环以上四步，对每一个像素执行相同的操作。</li></ol></li><li>一些问题:<ul><li>原始Fast角点经常出现“扎堆”现象，即同一片区域出现多个角点，因此需要使用非极大值抑制（Non-maximal suppression），在一定区域内仅保留响应极大值的角点，避免角点集中的问题。</li><li></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;From：我是一条酸菜鱼。&lt;/p&gt;
+&lt;h2 id=&quot;2019年3月27日：视觉里程计&quot;&gt;&lt;a href=&quot;#2019年3月27日：视觉里程计&quot; class=&quot;headerlink&quot; title=&quot;2019年3月27日：视觉里程计&quot;&gt;&lt;/a&gt;2019年3月27日：视觉里程计&lt;/h2&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>支持向量机（SVM)</title>
+    <link href="http://yoursite.com/2019/03/27/deepLearning/SVM/"/>
+    <id>http://yoursite.com/2019/03/27/deepLearning/SVM/</id>
+    <published>2019-03-27T08:20:19.140Z</published>
+    <updated>2019-03-27T12:15:39.077Z</updated>
+    
+    <content type="html"><![CDATA[<p>From：我是一条酸菜鱼。</p><p>keyword：SVM（Support Vector Machines），超平面，逻辑回归</p><a id="more"></a><ul><li>向量机的目的：</li><li>超平面：</li><li><p>下确界（lower bound）：S是一个偏序集合（S，≤），存在一个数值l属于K，这个数值l小于或等于S中的任意一个元素的值，则称这个值为S的一个下确界。</p><ul><li>如果l在S中，则称该元素为infimum，（greatest lower bound，最大下确界）</li><li>同理有上确界（supremum)和最小上确界</li></ul></li><li><p>凸函数和凹函数</p></li><li><p>函数对偶（duality）</p><ul><li>通过对偶函数使得求解原函数的最大值/最小值更简单</li><li>对偶函数与原函数的最大值P和最小值D相对应</li><li>可能存在间隔（即P = D）(Duality gap），称为这两个函数是弱对偶成立（weak duality holds)</li><li>同理可得，P - D = 0的两个对偶函数称为强对偶成立（srong duality holds)</li></ul></li></ul><p>（简写英文小课堂:</p><blockquote><p>. E.g. stands for exempli gratia and means “for example.” I.e. is the abbreviation for id est and means “in other words.” </p></blockquote><ul><li><p>objective function 目标函数f（损失函数)</p><ul><li>找出x，满足 f 最小</li><li>同时满足约束(subject to constraints)<ul><li>简写（s.t.)</li></ul></li></ul></li><li><p>feasible region 可行解</p></li><li>拉格朗日乘数<ul><li>Coutour Lines 等高线<ul><li>等高线上的任意一个点的函数取值都是一样的</li><li>the darker the area is，the smaller the value is </li></ul></li><li>vector field 向量场<ul><li>可视化一个函数每一点上的梯度（gradient）</li><li>箭头指向函数在该点增长得最快的方向</li></ul></li><li>将约束函数和原函数的向量场放在同一个图像中，当两个函数的某些向量是方向平行的，</li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;From：我是一条酸菜鱼。&lt;/p&gt;
+&lt;p&gt;keyword：SVM（Support Vector Machines），超平面，逻辑回归&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Vue学习笔记（2）</title>
