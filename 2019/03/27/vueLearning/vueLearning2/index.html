@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Yezo13">
 <meta property="og:description" content="我是一条酸菜鱼。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-27T06:23:11.453Z">
+<meta property="og:updated_time" content="2019-03-27T06:45:55.401Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue学习笔记（2）">
 <meta name="twitter:description" content="我是一条酸菜鱼。">
@@ -326,37 +326,7 @@ new Vue({
 </blockquote>
 <p>（假装此处有图）</p>
 <hr>
-<h2 id="Vue模板语法"><a href="#Vue模板语法" class="headerlink" title="Vue模板语法"></a>Vue模板语法</h2><ul>
-<li>基于HTML语法</li>
-<li>声明式地绑定DOM和底层Vue实例</li>
-<li>模板编译成虚拟DOM渲染函数（render fun）</li>
-</ul>
-<h3 id="插值"><a href="#插值" class="headerlink" title="插值"></a>插值</h3><p>Mustache - 双大括号，绑定的数据对象上msg属性发生改变时，此处改变。</p>
-<pre><code>&lt;span&gt;Message: {{ msg }}&lt;/span&gt;
-</code></pre><p>使用双大括号会将数据解释成普通文本（如代码)。需要输出真正的HTML，要用v-html指令</p>
-<pre><code>&lt;p&gt;Using mustaches: {{ rawHtml }}&lt;/p&gt; //输出文本
-&lt;p&gt;Using v-html directive: &lt;span v-html=&quot;rawHtml&quot;&gt;&lt;/span&gt;&lt;/p&gt; //改变样式
-</code></pre><blockquote>
-<p>你的站点上动态渲染的任意 HTML 可能会非常危险，因为它很容易导致 XSS 攻击。请只对可信内容使用 HTML 插值，绝不要对用户提供的内容使用插值。</p>
-</blockquote>
-<ul>
-<li><p>ustache 语法不能作用在 HTML 特性上，遇到这种情况应该使用 v-bind 指令：</p>
-  <div v-bind:id="dynamicId"></div>
 
-</li>
-</ul>
-<p>在布尔特性的情况下，它们的存在即暗示为 true，v-bind 工作起来略有不同，在这个例子中：</p>
-<pre><code>&lt;button v-bind:disabled=&quot;isButtonDisabled&quot;&gt;Button&lt;/button&gt;
-</code></pre><p>如果 isButtonDisabled 的值是 null、undefined 或 false，则 disabled 特性甚至不会被包含在渲染出来的<code>&lt;button&gt;</code>元素中。</p>
-<p>（突然发现md好像可以支持部分html，<button> 比如这样 </button>)</p>
-<h3 id="Vue实例中js使用"><a href="#Vue实例中js使用" class="headerlink" title="Vue实例中js使用"></a>Vue实例中js使用</h3><ul>
-<li>可以绑定简单的属性键值</li>
-<li>包括单个表达式，非语句 </li>
-</ul>
-<pre><code> //不生效 * 2
-{{var a = 1}}  
-{{ if (ok) { return message } }}
-</code></pre>
       
     </div>
     
@@ -367,7 +337,7 @@ new Vue({
         <p><span>本文标题:</span><a href="/2019/03/27/vueLearning/vueLearning2/">Vue学习笔记（2）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 yezo13 的个人博客">yezo13</a></p>
         <p><span>发布时间:</span>2019年03月27日 - 10时12分</p>
-        <p><span>最后更新:</span>2019年03月27日 - 14时23分</p>
+        <p><span>最后更新:</span>2019年03月27日 - 14时45分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/27/vueLearning/vueLearning2/" title="Vue学习笔记（2）">http://yoursite.com/2019/03/27/vueLearning/vueLearning2/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/27/vueLearning/vueLearning2/　　作者: yezo13" title></span>
@@ -395,7 +365,7 @@ new Vue({
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue实例"><span class="toc-number">1.</span> <span class="toc-text">Vue实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建Vue实例"><span class="toc-number">1.1.</span> <span class="toc-text">创建Vue实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据与方法"><span class="toc-number">1.2.</span> <span class="toc-text">数据与方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例生命周期钩子"><span class="toc-number">2.</span> <span class="toc-text">实例生命周期钩子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue模板语法"><span class="toc-number">3.</span> <span class="toc-text">Vue模板语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#插值"><span class="toc-number">3.1.</span> <span class="toc-text">插值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue实例中js使用"><span class="toc-number">3.2.</span> <span class="toc-text">Vue实例中js使用</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue实例"><span class="toc-number">1.</span> <span class="toc-text">Vue实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建Vue实例"><span class="toc-number">1.1.</span> <span class="toc-text">创建Vue实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据与方法"><span class="toc-number">1.2.</span> <span class="toc-text">数据与方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例生命周期钩子"><span class="toc-number">2.</span> <span class="toc-text">实例生命周期钩子</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
