@@ -17,7 +17,7 @@
 <meta property="og:description" content="我是一条酸菜鱼。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://www.runoob.com/wp-content/uploads/2016/10/1476690217-1155-854231-1d2947692fba4957.png">
-<meta property="og:updated_time" content="2019-03-22T10:07:51.217Z">
+<meta property="og:updated_time" content="2019-03-27T06:26:10.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue学习笔记（1）">
 <meta name="twitter:description" content="我是一条酸菜鱼。">
@@ -314,7 +314,7 @@ npm run dev
 <pre><code>&lt;template&gt;
   &lt;div id=&quot;app&quot;&gt;   //div的id属性，用于css编辑，与web一致
 &lt;div id=&quot;app-6&quot;&gt;
-&lt;p&gt;{{ abc }}&lt;/p&gt;   //第一种元素绑定方法，abc为变量名，script中可直接调用
+&lt;p&gt;{{ abc }}&lt;/p&gt;   //第一种元素绑定方法，abc为变量名，script中可直接调用（Mustache语法，双大括号）
 &lt;span v-bind:title=&quot;new2&quot;&gt; //第二种元素绑定方法，new2为变量名，script中直接调用
 put here
 &lt;/span&gt;
@@ -365,7 +365,7 @@ put here
 </ul>
 <hr>
 <h3 id="vue指令"><a href="#vue指令" class="headerlink" title="vue指令"></a>vue指令</h3><blockquote>
-<p>vue指令可以直接嵌在html的元素里面中去，也就是直接在元素中加入这一条属性，使用demo如下：</p>
+<p>指令 (Directives) 是带有 v- 前缀的特殊特性。指令特性的值预期是单个 JavaScript 表达式。vue指令可以直接嵌在html的元素里面中去，也就是直接在元素中加入这一条属性，使用demo如下：</p>
 </blockquote>
 <pre><code>&lt;div id=&quot;app-6&quot;&gt;
   &lt;p&gt;{{ message }}&lt;/p&gt;
@@ -377,12 +377,15 @@ var app6 = new Vue({
 message: &apos;Hello Vue!&apos;
   }
 })    
-</code></pre><p>一些vue指令：</p>
+</code></pre><p>指令的职责是，当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。</p>
+<p>一些vue指令：</p>
 <pre><code>v-bind:title = &quot;abc&quot;  //将元素节点的title 绑定 data中变量名为abc的变量
 v-if=&quot;a&quot;  //通过控制a，可以控制元素
 v-for = &quot;i in a&quot;   //循环处理a数组中的元素i的属性
-v-on:click = &quot;method&quot;  //click操作调用method函数 click应该可以替换成其他操作
+v-on:click = &quot;method&quot;  //v-on用于监听DOM事件
+//click操作调用method函数 click应该可以替换成其他操作
 v-model = &quot;abc&quot;  //实现表单输入(或其它元素）和应用状态之间的双向绑定
+v-once //执行一次性地插值
 </code></pre>
       
     </div>
@@ -394,7 +397,7 @@ v-model = &quot;abc&quot;  //实现表单输入(或其它元素）和应用状�
         <p><span>本文标题:</span><a href="/2019/03/21/vueLearning/vueLearning1/">Vue学习笔记（1）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 yezo13 的个人博客">yezo13</a></p>
         <p><span>发布时间:</span>2019年03月21日 - 11时06分</p>
-        <p><span>最后更新:</span>2019年03月22日 - 18时07分</p>
+        <p><span>最后更新:</span>2019年03月27日 - 14时26分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/21/vueLearning/vueLearning1/" title="Vue学习笔记（1）">http://yoursite.com/2019/03/21/vueLearning/vueLearning1/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/21/vueLearning/vueLearning1/　　作者: yezo13" title></span>
@@ -515,7 +518,7 @@ v-model = &quot;abc&quot;  //实现表单输入(或其它元素）和应用状�
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/25/deepLearning/梯度下降法的简单应用/">酸菜鱼的梯度下降法学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/25/SLAM/ch6_非线性优化/">酸菜鱼的SLAM之旅（3）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/SLAM/ch5_相机与图像/">酸菜鱼的SLAM之旅（2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/23/SLAM/ubuntu环境配置/">酸菜鱼的SLAM之旅（1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/vueLearning/vueLearning1/">Vue学习笔记（1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/swsadHw/swsadhw3/">系统分析与设计—hw3</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/swsadHw/swsadhw2/">系统分析与设计—hw2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/swsadHw/swsadhw1/">系统分析与设计—hw1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/Personal/hello-world/">BringMeFly</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/vueLearning/vueLearning2/">Vue学习笔记（2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/25/deepLearning/梯度下降法的简单应用/">酸菜鱼的梯度下降法学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/25/SLAM/ch6_非线性优化/">酸菜鱼的SLAM之旅（3）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/SLAM/ch5_相机与图像/">酸菜鱼的SLAM之旅（2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/23/SLAM/ubuntu环境配置/">酸菜鱼的SLAM之旅（1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/vueLearning/vueLearning1/">Vue学习笔记（1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/swsadHw/swsadhw3/">系统分析与设计—hw3</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/swsadHw/swsadhw2/">系统分析与设计—hw2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/swsadHw/swsadhw1/">系统分析与设计—hw1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/Personal/hello-world/">BringMeFly</a></li></ul>
     
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
