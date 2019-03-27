@@ -18,7 +18,15 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/ch7/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/ch7/2.jpg">
-<meta property="og:updated_time" content="2019-03-27T12:26:58.867Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/ch7/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/ch7/4.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/ch7/5.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/ch7/6.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/ch7/7.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/ch7/8.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/ch7/9.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/ch7/11.jpg">
+<meta property="og:updated_time" content="2019-03-27T13:31:28.338Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="酸菜鱼的SLAM之旅（4）">
 <meta name="twitter:description" content="2019年3月27日：视觉里程计">
@@ -383,14 +391,14 @@
 <h4 id="FAST特征点："><a href="#FAST特征点：" class="headerlink" title="FAST特征点："></a>FAST特征点：</h4><p>(图中显示的就是检测一个像素点P是否FAST点的过程）<br><img src="ch7/1.png" alt></p>
 <p>FAST是一种角点：</p>
 <ul>
-<li>思想：如果一个像素与它的邻域的像素差别过大（过亮/过暗），那么它更可能是角点</li>
-<li>方法：主要检测局部像素灰度变化明显的地方</li>
-<li>优势：只需要比较像素亮度的大小，速度快</li>
-<li>测试过程前可以进行预测试操作，快速排除绝大多数不是角点的元素：<ul>
+<li><strong>思想</strong>：如果一个像素与它的邻域的像素差别过大（过亮/过暗），那么它更可能是角点</li>
+<li><strong>方法</strong>：主要检测局部像素灰度变化明显的地方</li>
+<li><strong>优势</strong>：只需要比较像素亮度的大小，速度快</li>
+<li>测试过程前可以进行<strong>预测试操作</strong>，<strong>快速排除绝大多数不是角点的元素</strong>：<ul>
 <li>对于每个像素，直接检测邻域圆上的第1，5，9，13 个像素的亮度。只有当这四个像素中有三个同时大于Ip + T 或小于Ip - T 时，当前像素才有可能是一个角点，否则应该直接排除。</li>
 </ul>
 </li>
-<li>正常检测过程:<ol>
+<li><strong>正常检测过程:</strong><ol>
 <li>在图像中选取像素p，假设它的亮度为Ip。</li>
 <li>设置一个阈值T(比如Ip 的20%)。</li>
 <li>以像素p为中心, 选取半径为3的圆上的16 个像素点。</li>
@@ -398,14 +406,14 @@
 <li>循环以上四步，对每一个像素执行相同的操作。</li>
 </ol>
 </li>
-<li>FAST角点的一些原始问题:<ul>
+<li><strong>FAST角点的一些原始问题:</strong><ul>
 <li>原始Fast角点经常出现“扎堆”现象，即同一片区域出现多个角点，因此需要使用非极大值抑制（Non-maximal suppression），在一定区域内仅保留响应极大值的角点，避免角点集中的问题。</li>
 <li>FAST特征点数量很大且不确定</li>
 <li>FAST角点不具有方向信息</li>
 <li>固定取半径为3的圆，存在尺度问题：远处看着像是角点的地方，接近后看可能就不是角点了</li>
 </ul>
 </li>
-<li>ORB对原始FAST算法的改进<ul>
+<li><strong>ORB对原始FAST算法的改进</strong><ul>
 <li>先指定最终要提取的角点数量N，对原始FAST角点分别计算Harris响应值，然后选取前N个具有最大响应值的角点，作为最终的角点集合。</li>
 <li>ORB 添加了尺度和旋转的描述。尺度不变性由构建图像金字塔，并在金字塔的每一层上检测角点来实现。</li>
 </ul>
@@ -413,7 +421,86 @@
 </ul>
 <p><img src="ch7/2.jpg" alt></p>
 <hr>
-<h4 id="描述子"><a href="#描述子" class="headerlink" title="描述子"></a>描述子</h4>
+<h4 id="BRIEF-描述子"><a href="#BRIEF-描述子" class="headerlink" title="BRIEF 描述子"></a>BRIEF 描述子</h4><blockquote>
+<p>BRIEF 是一种二进制描述子，它的描述向量由许多个 0 和 1 组成，这里的 0 和 1 编码了关键点附近两个像素（比如说 p 和q ）的大小关系：如果 p 比 q 大，则取1，反之就取0。如果我们取了128个这样的p，q，最后就得到128维由 0，1 组成的向量。</p>
+</blockquote>
+<ul>
+<li>BRIEF使用了随机选点比较，速度快</li>
+<li>使用二进制表达，存储方便，适用于实时的图像匹配</li>
+<li>原始的BIRIEF描述子不具有旋转不变性，在图像发生旋转时容易丢失</li>
+<li>ORB在FAST特征点提取阶段计算了关键点的方向，所以可以利用方向信息，计算旋转之后的“steer BRIEF”特征，使得ORB的描述子具有较好的旋转不变性</li>
+</ul>
+<h3 id="特征匹配"><a href="#特征匹配" class="headerlink" title="特征匹配"></a>特征匹配</h3><blockquote>
+<p>宽泛地说，特征匹配解决了SLAM中的数据关联问题（data association），即确定当前看到的路标与之前看到的路标之间的对应关系。</p>
+</blockquote>
+<p>考虑两个时刻的图像的匹配问题：</p>
+<ol>
+<li>从两幅图像中分别提取到特征点的集合</li>
+<li>寻找这两个集合元素的对应关系，即特征匹配<ul>
+<li>暴力匹配（Brute-Force Matcher）：对于集合A中的所有元素，依次与集合B中的所有元素进行遍历测量描述子的距离（表示了两个特征点之间的相似程度），排序，选择最近的一个作为匹配点。<ul>
+<li>浮点类型的描述子：使用欧式距离</li>
+<li>二进制的描述子:使用汉明距离（两个二进制串之间不同位数的个数）</li>
+</ul>
+</li>
+<li>快速近似最优邻算法（FLANN）<ul>
+<li>适合匹配点数量极多的情况（暴匹运算量太大）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><ul>
+<li>待填</li>
+</ul>
+<h2 id="2D-2D-对极几何"><a href="#2D-2D-对极几何" class="headerlink" title="2D-2D:对极几何"></a>2D-2D:对极几何</h2><h3 id="对极约束"><a href="#对极约束" class="headerlink" title="对极约束"></a>对极约束</h3><p><img src="ch7/3.png" alt><br><img src="ch7/4.jpg" alt></p>
+<p>代数角度解释几何关系的过程：</p>
+<p><img src="ch7/5.jpg" alt><br><img src="ch7/6.jpg" alt><br><img src="ch7/7.jpg" alt><br><img src="ch7/8.jpg" alt></p>
+<h3 id="本质矩阵（E，Essential-Matrix）"><a href="#本质矩阵（E，Essential-Matrix）" class="headerlink" title="本质矩阵（E，Essential Matrix）"></a>本质矩阵（E，Essential Matrix）</h3><p><img src="ch7/9.jpg" alt></p>
+<p><img src="ch7/11.jpg" alt></p>
+<p>求解方法略</p>
+<h3 id="基础矩阵（F，Fundamental-Matrix）"><a href="#基础矩阵（F，Fundamental-Matrix）" class="headerlink" title="基础矩阵（F，Fundamental Matrix）"></a>基础矩阵（F，Fundamental Matrix）</h3><p>求解方法略</p>
+<h3 id="单应矩阵（H，Homography-Matrix）"><a href="#单应矩阵（H，Homography-Matrix）" class="headerlink" title="单应矩阵（H，Homography Matrix）"></a>单应矩阵（H，Homography Matrix）</h3><p>除了基本矩阵和本质矩阵，我们还有一种称为单应矩阵（Homography）H 的东西，它描述了两个平面之间的映射关系。若场景中的特征点都落在同一平面上（比如墙，地面等），则可以通过单应性来进行运动估计。这种情况在无人机携带的俯视相机，或扫地机携带的顶视相机中比较常见。单应矩阵通常描述处于共同平面上的一些点，在两张图像之间的变换关系。</p>
+<p>单应性在SLAM 中具重要意义。当特征点共面，或者相机发生纯旋转的时候，基础矩阵的自由度下降，这就出现了所谓的退化（degenerate）。现实中的数据总包含一些噪声，这时候如果我们继续使用八点法求解基础矩阵，基础矩阵多余出来的自由度将会主要由噪声决定。为了能够避免退化现象造成的影响，通常我们会同时估计基础矩阵F和单应矩阵H，选择重投影误差比较小的那个作为最终的运动估计矩阵。</p>
+<h3 id="实践：通过Essential矩阵求解相机运动"><a href="#实践：通过Essential矩阵求解相机运动" class="headerlink" title="实践：通过Essential矩阵求解相机运动"></a>实践：通过Essential矩阵求解相机运动</h3><ul>
+<li>待填</li>
+</ul>
+<p>程序输出分解得到R，t的四种可能，并使用三角检测角点的深度是否为正选出正确的解。</p>
+<p>（R，t）即从第一个图到第二个图的坐标变换矩阵的参数。</p>
+<ul>
+<li>E（本质矩阵)本身具有<strong>尺度等价性</strong>，认为分解得到的t，R也有尺度等价性。认为t具有一个<strong>尺度</strong>。通常对t进行<strong>归一化</strong>，使它的长度等于1。</li>
+<li>对t的长度的归一化导致了单目视觉的尺度不确定性（Scale Ambiguity)</li>
+<li>在单目视觉中，对两张图像的t归一化，相当于固定了尺度，但不知道实际长度为多少，以此时的t为单位1。这称为单目SLAM的初始化。</li>
+<li>除了对t进行归一化之外，另一种方法是令初始化时所有的特征点平均深度为1，也可以固定一个尺度。</li>
+<li><strong>单目初始化不能只有纯旋转，必须要有一定程度的平移。</strong>如果没有平移，单目将无法初始化。在实践当中，如果初始化时平移太小，会使得位姿求解与三角化结果不稳定，从而导致失败。相对的，如果把相机左右移动而不是原地旋转，就容易让单目SLAM 初始化。因而有经验的SLAM 研究人员，在单目SLAM 情况下，经常选择让相机进行左右平移以顺利地进行初始化。</li>
+<li>给定的点数多于8对时，计算最小二乘解。当可能存在误匹配的情况时，我们会更倾向于使用随机采样一致性（Random Sample Concensus, RANSAC）来求，而不是最小二乘。<ul>
+<li>RANSAC 是一种通用的做法，适用于很多带错误数据的情况，可以处理带有错误匹配的数据。</li>
+</ul>
+</li>
+</ul>
+<h2 id="三角测量（三角化）"><a href="#三角测量（三角化）" class="headerlink" title="三角测量（三角化）"></a>三角测量（三角化）</h2><blockquote>
+<p>三角测量是指，通过在两处观察同一个点的夹角，确定该点的距离。在SLAM中，我们主要用三角化来估计像素点的距离。</p>
+</blockquote>
+<p>三角测量由<strong>平移</strong>得到，纯旋转无法使用三角测量。</p>
+<h2 id="3D-2D：PnP"><a href="#3D-2D：PnP" class="headerlink" title="3D-2D：PnP"></a>3D-2D：PnP</h2><blockquote>
+<p>PnP（Perspective-n-Point）是求解3D 到2D 点对运动的方法。它描述了当我们知道 n 个3D空间点以及它们的投影位置时，如何估计相机所在的位姿。</p>
+</blockquote>
+<p>求解方法:（跳过了）</p>
+<ul>
+<li>P3P:用三对点估计位姿</li>
+<li>DLT：直接线性变换</li>
+<li>EPnp（Efficient PnP）</li>
+<li>UPnP</li>
+<li>BA、非线性优化：构建最小二乘问题并迭代求解（Bundle Adjustment）</li>
+</ul>
+<h2 id="3D-3D：ICP"><a href="#3D-3D：ICP" class="headerlink" title="3D-3D：ICP"></a>3D-3D：ICP</h2><blockquote>
+<p>这个问题可以用<strong>迭代最近点（Iterative Closest Point, ICP）</strong>求解。读者应该注意到，3D-3D 位姿估计问题中，并没有出现相机模型，也就是说，仅考虑两组3D点之间的变换时，和相机并没有关系。</p>
+</blockquote>
+<p>求解方法：</p>
+<ul>
+<li>SVD方法</li>
+<li>非线性优化方法（类似于BA）</li>
+</ul>
+
       
     </div>
     
@@ -424,7 +511,7 @@
         <p><span>本文标题:</span><a href="/2019/03/27/SLAM/ch7_视觉里程计1/">酸菜鱼的SLAM之旅（4）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 yezo13 的个人博客">yezo13</a></p>
         <p><span>发布时间:</span>2019年03月27日 - 19时03分</p>
-        <p><span>最后更新:</span>2019年03月27日 - 20时26分</p>
+        <p><span>最后更新:</span>2019年03月27日 - 21时31分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/27/SLAM/ch7_视觉里程计1/" title="酸菜鱼的SLAM之旅（4）">http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/27/SLAM/ch7_视觉里程计1/　　作者: yezo13" title></span>
@@ -452,7 +539,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2019年3月27日：视觉里程计"><span class="toc-number">1.</span> <span class="toc-text">2019年3月27日：视觉里程计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特征点法"><span class="toc-number">2.</span> <span class="toc-text">特征点法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征点"><span class="toc-number">2.1.</span> <span class="toc-text">特征点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ORB特征"><span class="toc-number">2.2.</span> <span class="toc-text">ORB特征</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#FAST特征点："><span class="toc-number">2.2.1.</span> <span class="toc-text">FAST特征点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#描述子"><span class="toc-number">2.2.2.</span> <span class="toc-text">描述子</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2019年3月27日：视觉里程计"><span class="toc-number">1.</span> <span class="toc-text">2019年3月27日：视觉里程计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特征点法"><span class="toc-number">2.</span> <span class="toc-text">特征点法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征点"><span class="toc-number">2.1.</span> <span class="toc-text">特征点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ORB特征"><span class="toc-number">2.2.</span> <span class="toc-text">ORB特征</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#FAST特征点："><span class="toc-number">2.2.1.</span> <span class="toc-text">FAST特征点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BRIEF-描述子"><span class="toc-number">2.2.2.</span> <span class="toc-text">BRIEF 描述子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特征匹配"><span class="toc-number">2.3.</span> <span class="toc-text">特征匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实践"><span class="toc-number">2.4.</span> <span class="toc-text">实践</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2D-2D-对极几何"><span class="toc-number">3.</span> <span class="toc-text">2D-2D:对极几何</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对极约束"><span class="toc-number">3.1.</span> <span class="toc-text">对极约束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本质矩阵（E，Essential-Matrix）"><span class="toc-number">3.2.</span> <span class="toc-text">本质矩阵（E，Essential Matrix）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基础矩阵（F，Fundamental-Matrix）"><span class="toc-number">3.3.</span> <span class="toc-text">基础矩阵（F，Fundamental Matrix）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单应矩阵（H，Homography-Matrix）"><span class="toc-number">3.4.</span> <span class="toc-text">单应矩阵（H，Homography Matrix）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实践：通过Essential矩阵求解相机运动"><span class="toc-number">3.5.</span> <span class="toc-text">实践：通过Essential矩阵求解相机运动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三角测量（三角化）"><span class="toc-number">4.</span> <span class="toc-text">三角测量（三角化）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3D-2D：PnP"><span class="toc-number">5.</span> <span class="toc-text">3D-2D：PnP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3D-3D：ICP"><span class="toc-number">6.</span> <span class="toc-text">3D-3D：ICP</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
