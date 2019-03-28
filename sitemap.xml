@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/03/25/deepLearning/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%E7%9A%84%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8/</loc>
+    
+    <lastmod>2019-03-28T09:21:47.926Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/03/27/SLAM/ch8_%E8%A7%86%E8%A7%89%E9%87%8C%E7%A8%8B%E8%AE%A12/</loc>
+    
+    <lastmod>2019-03-28T08:58:37.727Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/03/27/SLAM/ch7_%E8%A7%86%E8%A7%89%E9%87%8C%E7%A8%8B%E8%AE%A11/</loc>
     
     <lastmod>2019-03-27T14:09:39.134Z</lastmod>
@@ -23,23 +37,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/27/SLAM/ch8_%E8%A7%86%E8%A7%89%E9%87%8C%E7%A8%8B%E8%AE%A12/</loc>
-    
-    <lastmod>2019-03-27T13:52:01.269Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2019/03/27/deepLearning/SVM/</loc>
     
     <lastmod>2019-03-27T12:27:37.893Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/03/25/deepLearning/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%E7%9A%84%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8/</loc>
-    
-    <lastmod>2019-03-27T12:27:33.423Z</lastmod>
     
   </url>
   
