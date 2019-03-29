@@ -16,13 +16,17 @@
 <meta property="og:site_name" content="Yezo13">
 <meta property="og:description" content="2019年3月27日：视觉里程计 - 直接法">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/2019/03/27/SLAM/ch8_视觉里程计2/ch8/1.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/03/27/SLAM/ch8_视觉里程计2/ch8/2.jpg">
-<meta property="og:updated_time" content="2019-03-28T10:00:20.391Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/29/ABujFe.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/29/ABuvJH.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/29/ABuqeK.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/29/ABuOoD.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/29/ABuLdO.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/29/ABuxWd.jpg">
+<meta property="og:updated_time" content="2019-03-29T13:34:44.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="酸菜鱼的SLAM之旅（5）">
 <meta name="twitter:description" content="2019年3月27日：视觉里程计 - 直接法">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/27/SLAM/ch8_视觉里程计2/ch8/1.jpg">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/03/29/ABujFe.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Yezo13" type="application/atom+xml">
   
@@ -340,12 +344,26 @@
 <li>同一个空间点的像素灰度值，在各个图像中是固定不变的。</li>
 <li>某一个窗口内的像素具有相同的运动</li>
 </ul>
-<p><img src="ch8/1.jpg" alt></p>
-<p><img src="ch8/2.jpg" alt></p>
+<p><img src="https://s2.ax1x.com/2019/03/29/ABujFe.jpg" alt="ABujFe.jpg"></p>
+<p><img src="https://s2.ax1x.com/2019/03/29/ABuvJH.jpg" alt="ABuvJH.jpg"></p>
 <h2 id="实践-LK光流"><a href="#实践-LK光流" class="headerlink" title="实践-LK光流"></a>实践-LK光流</h2><ul>
 <li>待填</li>
 </ul>
-<h2 id="直接法（Direct-Methods）"><a href="#直接法（Direct-Methods）" class="headerlink" title="直接法（Direct Methods）"></a>直接法（Direct Methods）</h2><h3 id="直接法的推导"><a href="#直接法的推导" class="headerlink" title="直接法的推导"></a>直接法的推导</h3>
+<h2 id="直接法（Direct-Methods）"><a href="#直接法（Direct-Methods）" class="headerlink" title="直接法（Direct Methods）"></a>直接法（Direct Methods）</h2><h3 id="直接法的推导"><a href="#直接法的推导" class="headerlink" title="直接法的推导"></a>直接法的推导</h3><p>考虑空间点P和两个时刻的相机。</p>
+<p><img src="https://s2.ax1x.com/2019/03/29/ABuqeK.jpg" alt="ABuqeK.jpg"></p>
+<p><img src="https://s2.ax1x.com/2019/03/29/ABuOoD.jpg" alt="ABuOoD.jpg"></p>
+<p><img src="https://s2.ax1x.com/2019/03/29/ABuLdO.jpg" alt="ABuLdO.jpg"></p>
+<p><img src="https://s2.ax1x.com/2019/03/29/ABuxWd.jpg" alt="ABuxWd.jpg"></p>
+<h3 id="直接法的讨论"><a href="#直接法的讨论" class="headerlink" title="直接法的讨论"></a>直接法的讨论</h3><p>P是一个已知位置的空间点。在直接法的讨论中，我们假定P的深度已知。此时可以分类：</p>
+<ol>
+<li>P来自于<strong>稀疏关键点</strong>，我们称之为稀疏直接法。通常我们使用数百个至上千个关键点，并且像L-K光流那样，假设它周围像素也是不变的。这种稀疏直接法<strong>不必计算描述子</strong>，并且只使用数百个像素，因此<strong>速度最快</strong>，但<strong>只能</strong>计算稀疏的重构。</li>
+<li>P来自部分像素。我们看到式（8.16）中，如果像素梯度为零，整一项雅可比就为零，不会对计算运动增量有任何贡献。因此，可以考虑只使用带有梯度的像素点，<strong>舍弃像素梯度不明显的地方</strong>。这称之为<strong>半稠密（Semi-Dense）的直接法</strong>，可以重构一个半稠密结构。</li>
+<li>P为所有像素，称为稠密直接法。稠密重构需要计算所有像素（一般几十万至几百万个），因此多数不能在现有的CPU上实时计算，需要GPU的加速。但是，如前面所讨论的，<strong>梯度不明显</strong>的点，在运动估计中<strong>不会有太大贡献</strong>，在重构时也会难以估计位置。</li>
+</ol>
+<h2 id="RGB-D直接法实践"><a href="#RGB-D直接法实践" class="headerlink" title="RGB-D直接法实践"></a>RGB-D直接法实践</h2><ul>
+<li>待填</li>
+</ul>
+
       
     </div>
     
@@ -356,7 +374,7 @@
         <p><span>本文标题:</span><a href="/2019/03/27/SLAM/ch8_视觉里程计2/">酸菜鱼的SLAM之旅（5）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 yezo13 的个人博客">yezo13</a></p>
         <p><span>发布时间:</span>2019年03月27日 - 21时37分</p>
-        <p><span>最后更新:</span>2019年03月28日 - 18时00分</p>
+        <p><span>最后更新:</span>2019年03月29日 - 21时34分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/27/SLAM/ch8_视觉里程计2/" title="酸菜鱼的SLAM之旅（5）">http://yoursite.com/2019/03/27/SLAM/ch8_视觉里程计2/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/27/SLAM/ch8_视觉里程计2/　　作者: yezo13" title></span>
@@ -384,7 +402,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2019年3月27日：视觉里程计-直接法"><span class="toc-number">1.</span> <span class="toc-text">2019年3月27日：视觉里程计 - 直接法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#直接法"><span class="toc-number">2.</span> <span class="toc-text">直接法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征点法的一些问题"><span class="toc-number">2.1.</span> <span class="toc-text">特征点法的一些问题:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决问题的思路："><span class="toc-number">2.2.</span> <span class="toc-text">解决问题的思路：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两种方法特性比较"><span class="toc-number">2.3.</span> <span class="toc-text">两种方法特性比较</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#光流"><span class="toc-number">3.</span> <span class="toc-text">光流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Lucas-Kanade光流"><span class="toc-number">3.1.</span> <span class="toc-text">Lucas-Kanade光流</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#像素运动的计算"><span class="toc-number">3.1.1.</span> <span class="toc-text">像素运动的计算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践-LK光流"><span class="toc-number">4.</span> <span class="toc-text">实践-LK光流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#直接法（Direct-Methods）"><span class="toc-number">5.</span> <span class="toc-text">直接法（Direct Methods）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#直接法的推导"><span class="toc-number">5.1.</span> <span class="toc-text">直接法的推导</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2019年3月27日：视觉里程计-直接法"><span class="toc-number">1.</span> <span class="toc-text">2019年3月27日：视觉里程计 - 直接法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#直接法"><span class="toc-number">2.</span> <span class="toc-text">直接法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征点法的一些问题"><span class="toc-number">2.1.</span> <span class="toc-text">特征点法的一些问题:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决问题的思路："><span class="toc-number">2.2.</span> <span class="toc-text">解决问题的思路：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两种方法特性比较"><span class="toc-number">2.3.</span> <span class="toc-text">两种方法特性比较</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#光流"><span class="toc-number">3.</span> <span class="toc-text">光流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Lucas-Kanade光流"><span class="toc-number">3.1.</span> <span class="toc-text">Lucas-Kanade光流</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#像素运动的计算"><span class="toc-number">3.1.1.</span> <span class="toc-text">像素运动的计算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践-LK光流"><span class="toc-number">4.</span> <span class="toc-text">实践-LK光流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#直接法（Direct-Methods）"><span class="toc-number">5.</span> <span class="toc-text">直接法（Direct Methods）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#直接法的推导"><span class="toc-number">5.1.</span> <span class="toc-text">直接法的推导</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#直接法的讨论"><span class="toc-number">5.2.</span> <span class="toc-text">直接法的讨论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RGB-D直接法实践"><span class="toc-number">6.</span> <span class="toc-text">RGB-D直接法实践</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
