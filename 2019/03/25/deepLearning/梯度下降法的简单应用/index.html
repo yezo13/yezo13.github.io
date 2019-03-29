@@ -36,7 +36,11 @@
 <meta property="og:image" content="https://images2017.cnblogs.com/blog/1093303/201802/1093303-20180219084810095-616879424.png">
 <meta property="og:image" content="https://images2017.cnblogs.com/blog/1093303/201802/1093303-20180219084820533-1615172856.png">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-fad3333df9a87c1c4f1db4b20557da6f_hd.jpg">
-<meta property="og:updated_time" content="2019-03-28T09:21:47.926Z">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x_%7Bnew%7D%3D%5Cfrac%7Bx-x_%7Bmin%7D%7D%7Bx_%7Bmax%7D-x_%7Bmin%7D%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x%5E%7B%27%7D+%3D+%5Cfrac%7Bx-mean%28x%29%7D%7Bmax%28x%29-min%28x%29%7D+">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=+x%5E%7B%27%7D+%3D+%5Cfrac%7Bx-mean%28x%29%7D%7B%5Csigma%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=J%28w%2Cb%29%3D+%5Cfrac%7B1%7D%7Bm%7D+%5Csum_%7Bi%3D1%7D%5E%7Bm%7DL%28f%28x%29%2Cy%29%2B%5Clambda+R%28f%29">
+<meta property="og:updated_time" content="2019-03-29T07:45:09.164Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="酸菜鱼的梯度下降法学习">
 <meta name="twitter:description" content="2019年3月26日：梯度下降法求解多元线性模型">
@@ -483,6 +487,62 @@
 <li>GN对batch size的鲁棒性更强，GN的归一化方式避开了batch size对模型的影响。</li>
 </ul>
 <p><a href="https://zhuanlan.zhihu.com/p/35005794" target="_blank" rel="noopener">解读原文</a></p>
+<h3 id="归一化、正则化、标准化"><a href="#归一化、正则化、标准化" class="headerlink" title="归一化、正则化、标准化"></a>归一化、正则化、标准化</h3><p>很混乱，关于三者的参考链接</p>
+<p><a href="https://zhuanlan.zhihu.com/p/29957294" target="_blank" rel="noopener">某个学习笔记</a></p>
+<p><a href="https://www.zhihu.com/question/20467170" target="_blank" rel="noopener">某个话题</a></p>
+<ul>
+<li>归一化：一般就是将数据映射到指定的范围，如将数据全部映射到[0,1]区间。对数据的数值范围进行特定缩放，但不改变其数据分布的一种线性特征变换。<ul>
+<li>英文称呼<ul>
+<li>Rescaling</li>
+<li>min-max normalization</li>
+<li>mean normalization</li>
+</ul>
+</li>
+<li>作用：使得特征之间的不同数值不会影响权重</li>
+<li>做法：最简单的是将一组数据分别除以他们的和</li>
+<li>例子：<ul>
+<li>Min-max归一化</li>
+<li><img src="https://www.zhihu.com/equation?tex=x_%7Bnew%7D%3D%5Cfrac%7Bx-x_%7Bmin%7D%7D%7Bx_%7Bmax%7D-x_%7Bmin%7D%7D" alt></li>
+<li>mean normalization</li>
+<li><img src="https://www.zhihu.com/equation?tex=x%5E%7B%27%7D+%3D+%5Cfrac%7Bx-mean%28x%29%7D%7Bmax%28x%29-min%28x%29%7D+" alt></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>标准化:对数据的分布的进行转换，使其符合某种分布（比如正态分布）的一种非线性特征变换。</p>
+<ul>
+<li>英文:<ul>
+<li>Normalization</li>
+<li>standardization</li>
+<li>Z-score normalization</li>
+</ul>
+</li>
+<li>标准化后的数据更容易得出最优参数，计算出目标函数的最小值，加速收敛</li>
+<li>做法：将数据减去均值再除以标准差</li>
+<li>例子：<ul>
+<li>Standardization(Z-score normalization) </li>
+<li><img src="https://www.zhihu.com/equation?tex=+x%5E%7B%27%7D+%3D+%5Cfrac%7Bx-mean%28x%29%7D%7B%5Csigma%7D" alt></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>正则化：不太懂<ul>
+<li>英文：regularization</li>
+<li>作用：避免过拟合的产生和减少网络误差。选择经验风险与模型复杂度同时较小的模型。</li>
+<li>做法：<ul>
+<li><img src="https://www.zhihu.com/equation?tex=J%28w%2Cb%29%3D+%5Cfrac%7B1%7D%7Bm%7D+%5Csum_%7Bi%3D1%7D%5E%7Bm%7DL%28f%28x%29%2Cy%29%2B%5Clambda+R%28f%29" alt></li>
+<li>其中，第 1 项是经验风险，第 2 项是正则项， λ≥0 为调整两者之间关系的系数。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -494,7 +554,7 @@
         <p><span>本文标题:</span><a href="/2019/03/25/deepLearning/梯度下降法的简单应用/">酸菜鱼的梯度下降法学习</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 yezo13 的个人博客">yezo13</a></p>
         <p><span>发布时间:</span>2019年03月25日 - 14时47分</p>
-        <p><span>最后更新:</span>2019年03月28日 - 17时21分</p>
+        <p><span>最后更新:</span>2019年03月29日 - 15时45分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/25/deepLearning/梯度下降法的简单应用/" title="酸菜鱼的梯度下降法学习">http://yoursite.com/2019/03/25/deepLearning/梯度下降法的简单应用/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/25/deepLearning/梯度下降法的简单应用/　　作者: yezo13" title></span>
@@ -531,7 +591,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2019年3月26日：梯度下降法求解多元线性模型"><span class="toc-number">1.</span> <span class="toc-text">2019年3月26日：梯度下降法求解多元线性模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验目标"><span class="toc-number">2.</span> <span class="toc-text">实验目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验背景"><span class="toc-number">3.</span> <span class="toc-text">实验背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验原理"><span class="toc-number">4.</span> <span class="toc-text">实验原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#梯度下降法（GD-Gradient-Descent）"><span class="toc-number">4.1.</span> <span class="toc-text">梯度下降法（GD,Gradient Descent）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#随机梯度下降法（SGD-Stochastic-Gradient-Descent"><span class="toc-number">4.2.</span> <span class="toc-text">随机梯度下降法（SGD,Stochastic Gradient Descent)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小批量梯度下降法（mini-batch）"><span class="toc-number">4.3.</span> <span class="toc-text">小批量梯度下降法（mini-batch）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多变量线性回归"><span class="toc-number">4.4.</span> <span class="toc-text">多变量线性回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#均方误差"><span class="toc-number">4.5.</span> <span class="toc-text">均方误差</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型训练流程"><span class="toc-number">5.</span> <span class="toc-text">模型训练流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验过程"><span class="toc-number">6.</span> <span class="toc-text">实验过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#exercise1："><span class="toc-number">6.1.</span> <span class="toc-text">exercise1：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ANS1："><span class="toc-number">6.2.</span> <span class="toc-text">ANS1：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exercise-2"><span class="toc-number">6.3.</span> <span class="toc-text">Exercise 2:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ANS2"><span class="toc-number">6.4.</span> <span class="toc-text">ANS2:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exercise-3"><span class="toc-number">6.5.</span> <span class="toc-text">Exercise 3:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ANS3"><span class="toc-number">6.6.</span> <span class="toc-text">ANS3:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些补充"><span class="toc-number">7.</span> <span class="toc-text">一些补充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#批归一化（BN-Batch-Normalization）"><span class="toc-number">7.1.</span> <span class="toc-text">批归一化（BN,Batch Normalization）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#what"><span class="toc-number">7.1.1.</span> <span class="toc-text">what</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#when"><span class="toc-number">7.1.2.</span> <span class="toc-text">when</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#how"><span class="toc-number">7.1.3.</span> <span class="toc-text">how</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#why"><span class="toc-number">7.1.4.</span> <span class="toc-text">why</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CNN中的BN"><span class="toc-number">7.1.5.</span> <span class="toc-text">CNN中的BN</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GN-Group-normalization"><span class="toc-number">7.2.</span> <span class="toc-text">(GN,Group normalization)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#BN的一些问题："><span class="toc-number">7.2.1.</span> <span class="toc-text">BN的一些问题：</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2019年3月26日：梯度下降法求解多元线性模型"><span class="toc-number">1.</span> <span class="toc-text">2019年3月26日：梯度下降法求解多元线性模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验目标"><span class="toc-number">2.</span> <span class="toc-text">实验目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验背景"><span class="toc-number">3.</span> <span class="toc-text">实验背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验原理"><span class="toc-number">4.</span> <span class="toc-text">实验原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#梯度下降法（GD-Gradient-Descent）"><span class="toc-number">4.1.</span> <span class="toc-text">梯度下降法（GD,Gradient Descent）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#随机梯度下降法（SGD-Stochastic-Gradient-Descent"><span class="toc-number">4.2.</span> <span class="toc-text">随机梯度下降法（SGD,Stochastic Gradient Descent)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小批量梯度下降法（mini-batch）"><span class="toc-number">4.3.</span> <span class="toc-text">小批量梯度下降法（mini-batch）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多变量线性回归"><span class="toc-number">4.4.</span> <span class="toc-text">多变量线性回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#均方误差"><span class="toc-number">4.5.</span> <span class="toc-text">均方误差</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型训练流程"><span class="toc-number">5.</span> <span class="toc-text">模型训练流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验过程"><span class="toc-number">6.</span> <span class="toc-text">实验过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#exercise1："><span class="toc-number">6.1.</span> <span class="toc-text">exercise1：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ANS1："><span class="toc-number">6.2.</span> <span class="toc-text">ANS1：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exercise-2"><span class="toc-number">6.3.</span> <span class="toc-text">Exercise 2:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ANS2"><span class="toc-number">6.4.</span> <span class="toc-text">ANS2:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exercise-3"><span class="toc-number">6.5.</span> <span class="toc-text">Exercise 3:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ANS3"><span class="toc-number">6.6.</span> <span class="toc-text">ANS3:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些补充"><span class="toc-number">7.</span> <span class="toc-text">一些补充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#批归一化（BN-Batch-Normalization）"><span class="toc-number">7.1.</span> <span class="toc-text">批归一化（BN,Batch Normalization）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#what"><span class="toc-number">7.1.1.</span> <span class="toc-text">what</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#when"><span class="toc-number">7.1.2.</span> <span class="toc-text">when</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#how"><span class="toc-number">7.1.3.</span> <span class="toc-text">how</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#why"><span class="toc-number">7.1.4.</span> <span class="toc-text">why</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CNN中的BN"><span class="toc-number">7.1.5.</span> <span class="toc-text">CNN中的BN</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GN-Group-normalization"><span class="toc-number">7.2.</span> <span class="toc-text">(GN,Group normalization)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#BN的一些问题："><span class="toc-number">7.2.1.</span> <span class="toc-text">BN的一些问题：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#归一化、正则化、标准化"><span class="toc-number">7.3.</span> <span class="toc-text">归一化、正则化、标准化</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
