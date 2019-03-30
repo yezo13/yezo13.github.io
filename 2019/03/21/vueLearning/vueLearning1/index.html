@@ -17,7 +17,7 @@
 <meta property="og:description" content="我是一条酸菜鱼。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://www.runoob.com/wp-content/uploads/2016/10/1476690217-1155-854231-1d2947692fba4957.png">
-<meta property="og:updated_time" content="2019-03-27T06:45:39.705Z">
+<meta property="og:updated_time" content="2019-03-30T03:39:29.676Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue学习笔记（1）">
 <meta name="twitter:description" content="我是一条酸菜鱼。">
@@ -382,12 +382,27 @@ message: &apos;Hello Vue!&apos;
 <p>一些vue指令：</p>
 <pre><code>v-bind:title = &quot;abc&quot;  //将元素节点的title 绑定 data中变量名为abc的变量
 v-if=&quot;a&quot;  //通过控制a，可以控制元素
+v-else-if &amp; v-else //同样的裸绩
 v-for = &quot;i in a&quot;   //循环处理a数组中的元素i的属性
 v-on:click = &quot;method&quot;  //v-on用于监听DOM事件
 //click操作调用method函数 click应该可以替换成其他操作
 v-model = &quot;abc&quot;  //实现表单输入(或其它元素）和应用状态之间的双向绑定
 v-once //执行一次性地插值
-</code></pre><p><strong>动态参数</strong></p>
+</code></pre><p>一些指令的属性：</p>
+<ul>
+<li>v-if和v-show<ul>
+<li>v-if只会在指令的表达式返回truthy值的时候渲染，也就是切换过程中条件块内的事件监听器和子组件是会被销毁和重建的</li>
+<li>而v-show的元素始终会被渲染并保留在DOM中，它只负责切换元素的css属性display</li>
+<li>一般来说，v-if 有更高的切换开销，而 v-show 有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用 v-show 较好；如果在运行时条件很少改变，则使用 v-if 较好。</li>
+</ul>
+</li>
+<li>v-if和v-for最好不用一起使用，v-for比v-if会具有更高的优先级    </li>
+<li><p>v-for使用数组的语法:需要使用特殊语法</p>
+<pre><code>item in items
+</code></pre><p>其中item是数组元素迭代的别名，items是源数据数组</p>
+</li>
+</ul>
+<p><strong>动态参数</strong></p>
 <p>应该就是v-指令后面可以连接一个用方括号括起来的JS表达式（变量名），使得绑定的参数可以更灵活地动态调整。</p>
 <p>从 2.6.0 开始，可以用方括号括起来的 JavaScript 表达式作为一个指令的参数：</p>
 <pre><code>&lt;a v-bind:[attributeName]=&quot;url&quot;&gt; ... &lt;/a&gt;
@@ -451,7 +466,7 @@ v-once //执行一次性地插值
         <p><span>本文标题:</span><a href="/2019/03/21/vueLearning/vueLearning1/">Vue学习笔记（1）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 yezo13 的个人博客">yezo13</a></p>
         <p><span>发布时间:</span>2019年03月21日 - 11时06分</p>
-        <p><span>最后更新:</span>2019年03月27日 - 14时45分</p>
+        <p><span>最后更新:</span>2019年03月30日 - 11时39分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/21/vueLearning/vueLearning1/" title="Vue学习笔记（1）">http://yoursite.com/2019/03/21/vueLearning/vueLearning1/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/21/vueLearning/vueLearning1/　　作者: yezo13" title></span>

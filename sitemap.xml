@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/03/21/vueLearning/vueLearning1/</loc>
+    
+    <lastmod>2019-03-30T03:39:29.676Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/03/30/SLAM/ch9_SLAM%E5%89%8D%E7%AB%AF/</loc>
     
     <lastmod>2019-03-30T02:25:18.666Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>http://yoursite.com/2019/03/27/vueLearning/vueLearning2/</loc>
     
     <lastmod>2019-03-27T08:13:23.342Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/03/21/vueLearning/vueLearning1/</loc>
-    
-    <lastmod>2019-03-27T06:45:39.705Z</lastmod>
     
   </url>
   
