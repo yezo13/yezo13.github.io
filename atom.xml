@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-29T13:34:44.579Z</updated>
+  <updated>2019-03-30T02:25:18.666Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>酸菜鱼的SLAM之旅（6）</title>
+    <link href="http://yoursite.com/2019/03/30/SLAM/ch9_SLAM%E5%89%8D%E7%AB%AF/"/>
+    <id>http://yoursite.com/2019/03/30/SLAM/ch9_SLAM前端/</id>
+    <published>2019-03-30T02:17:47.846Z</published>
+    <updated>2019-03-30T02:25:18.666Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="2019年3月30日：-SLAM前端设计实践"><a href="#2019年3月30日：-SLAM前端设计实践" class="headerlink" title="2019年3月30日： SLAM前端设计实践"></a>2019年3月30日： SLAM前端设计实践</h2><a id="more"></a><p>keyword：SLAM前端、实践</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;2019年3月30日：-SLAM前端设计实践&quot;&gt;&lt;a href=&quot;#2019年3月30日：-SLAM前端设计实践&quot; class=&quot;headerlink&quot; title=&quot;2019年3月30日： SLAM前端设计实践&quot;&gt;&lt;/a&gt;2019年3月30日： SLAM前端设计实践&lt;/h2&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>酸菜鱼的SLAM之旅（5）</title>
