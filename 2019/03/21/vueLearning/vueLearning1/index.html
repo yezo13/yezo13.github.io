@@ -17,7 +17,7 @@
 <meta property="og:description" content="我是一条酸菜鱼。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://www.runoob.com/wp-content/uploads/2016/10/1476690217-1155-854231-1d2947692fba4957.png">
-<meta property="og:updated_time" content="2019-03-30T03:39:29.676Z">
+<meta property="og:updated_time" content="2019-03-31T12:32:43.837Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue学习笔记（1）">
 <meta name="twitter:description" content="我是一条酸菜鱼。">
@@ -398,10 +398,11 @@ v-once //执行一次性地插值
 </li>
 <li>v-if和v-for最好不用一起使用，v-for比v-if会具有更高的优先级    </li>
 <li><p>v-for使用数组的语法:需要使用特殊语法</p>
-<pre><code>item in items
-</code></pre><p>其中item是数组元素迭代的别名，items是源数据数组</p>
-</li>
+<pre><code>v-for = &quot;item in items&quot; //遍历使用
+v-for = &quot;(item,index) in items&quot;//可选的第二个参数，当前项的索引
+</code></pre></li>
 </ul>
+<p>  其中item是数组元素迭代的别名，items是源数据数组</p>
 <p><strong>动态参数</strong></p>
 <p>应该就是v-指令后面可以连接一个用方括号括起来的JS表达式（变量名），使得绑定的参数可以更灵活地动态调整。</p>
 <p>从 2.6.0 开始，可以用方括号括起来的 JavaScript 表达式作为一个指令的参数：</p>
@@ -466,7 +467,7 @@ v-once //执行一次性地插值
         <p><span>本文标题:</span><a href="/2019/03/21/vueLearning/vueLearning1/">Vue学习笔记（1）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 yezo13 的个人博客">yezo13</a></p>
         <p><span>发布时间:</span>2019年03月21日 - 11时06分</p>
-        <p><span>最后更新:</span>2019年03月30日 - 11时39分</p>
+        <p><span>最后更新:</span>2019年03月31日 - 20时32分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/21/vueLearning/vueLearning1/" title="Vue学习笔记（1）">http://yoursite.com/2019/03/21/vueLearning/vueLearning1/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/21/vueLearning/vueLearning1/　　作者: yezo13" title></span>
