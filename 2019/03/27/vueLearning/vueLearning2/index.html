@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Yezo13">
 <meta property="og:description" content="我是一条酸菜鱼。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-01T03:01:48.221Z">
+<meta property="og:updated_time" content="2019-04-01T03:09:09.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue学习笔记（2）">
 <meta name="twitter:description" content="我是一条酸菜鱼。">
@@ -443,10 +443,14 @@ export default {
 </ul>
 <p>使用webpack - 使用require.context全局注册通用的基础组件</p>
 <p><a href="https://cn.vuejs.org/v2/guide/components-registration.html" target="_blank" rel="noopener">Here</a></p>
-<h2 id="Prop"><a href="#Prop" class="headerlink" title="Prop"></a>Prop</h2><ul>
-<li>？</li>
+<ul>
+<li>动态组件切换时会创建新的实例，因此之前第一次创建时没有被缓存。解决问题的方法是使用<keep-alive>元素</keep-alive></li>
 </ul>
-<hr>
+<pre><code>&lt;!-- 失活的组件将会被缓存！--&gt;
+&lt;keep-alive&gt;
+  &lt;component v-bind:is=&quot;currentTabComponent&quot;&gt;&lt;/component&gt;
+&lt;/keep-alive&gt;
+</code></pre><hr>
 <p><strong>插一段软件测试的笔记</strong></p>
 <p>（以表达我对蔡老师课堂的热爱</p>
 <p>软件缺陷记录的5C原则：</p>
@@ -468,7 +472,7 @@ export default {
         <p><span>本文标题:</span><a href="/2019/03/27/vueLearning/vueLearning2/">Vue学习笔记（2）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 yezo13 的个人博客">yezo13</a></p>
         <p><span>发布时间:</span>2019年03月27日 - 10时12分</p>
-        <p><span>最后更新:</span>2019年04月01日 - 11时01分</p>
+        <p><span>最后更新:</span>2019年04月01日 - 11时09分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/27/vueLearning/vueLearning2/" title="Vue学习笔记（2）">http://yoursite.com/2019/03/27/vueLearning/vueLearning2/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/27/vueLearning/vueLearning2/　　作者: yezo13" title></span>
@@ -505,7 +509,7 @@ export default {
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue实例"><span class="toc-number">1.</span> <span class="toc-text">Vue实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建Vue实例"><span class="toc-number">1.1.</span> <span class="toc-text">创建Vue实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据与方法"><span class="toc-number">1.2.</span> <span class="toc-text">数据与方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例生命周期钩子"><span class="toc-number">2.</span> <span class="toc-text">实例生命周期钩子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算属性和侦听器"><span class="toc-number">3.</span> <span class="toc-text">计算属性和侦听器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#计算属性"><span class="toc-number">3.1.</span> <span class="toc-text">计算属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#计算属性实例："><span class="toc-number">3.1.1.</span> <span class="toc-text">计算属性实例：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#计算属性另一种实例"><span class="toc-number">3.1.2.</span> <span class="toc-text">计算属性另一种实例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#侦听属性"><span class="toc-number">3.2.</span> <span class="toc-text">侦听属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件基础"><span class="toc-number">4.</span> <span class="toc-text">组件基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prop"><span class="toc-number">5.</span> <span class="toc-text">Prop</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue实例"><span class="toc-number">1.</span> <span class="toc-text">Vue实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建Vue实例"><span class="toc-number">1.1.</span> <span class="toc-text">创建Vue实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据与方法"><span class="toc-number">1.2.</span> <span class="toc-text">数据与方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例生命周期钩子"><span class="toc-number">2.</span> <span class="toc-text">实例生命周期钩子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算属性和侦听器"><span class="toc-number">3.</span> <span class="toc-text">计算属性和侦听器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#计算属性"><span class="toc-number">3.1.</span> <span class="toc-text">计算属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#计算属性实例："><span class="toc-number">3.1.1.</span> <span class="toc-text">计算属性实例：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#计算属性另一种实例"><span class="toc-number">3.1.2.</span> <span class="toc-text">计算属性另一种实例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#侦听属性"><span class="toc-number">3.2.</span> <span class="toc-text">侦听属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件基础"><span class="toc-number">4.</span> <span class="toc-text">组件基础</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {

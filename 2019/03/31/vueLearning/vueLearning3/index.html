@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Yezo13">
 <meta property="og:description" content="我是一条酸菜鱼。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-31T14:49:50.508Z">
+<meta property="og:updated_time" content="2019-04-01T07:34:37.580Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue学习笔记（3）">
 <meta name="twitter:description" content="我是一条酸菜鱼。">
@@ -408,6 +408,59 @@ vm.userProfile = Object.assign({}, vm.userProfile, {
 <pre><code>&lt;input v-model.trim=&quot;msg&quot;&gt;
 </code></pre></li>
 </ul>
+<h2 id="元素进入-离开过渡"><a href="#元素进入-离开过渡" class="headerlink" title="元素进入/离开过渡"></a>元素进入/离开过渡</h2><ul>
+<li>使用transition封装组件</li>
+</ul>
+<p>（vue）过渡的六个class：</p>
+<ol>
+<li><p>v-enter：定义进入过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。</p>
+</li>
+<li><p>v-enter-active：定义进入过渡生效时的状态。在整个进入过渡的阶段中应用，在元素被插入之前生效，在过渡/动画完成之后移除。这个类可以被用来定义进入过渡的过程时间，延迟和曲线函数。</p>
+</li>
+<li><p>v-enter-to: 2.1.8版及以上 定义进入过渡的结束状态。在元素被插入之后下一帧生效 (与此同时 v-enter 被移除)，在过渡/动画完成之后移除。</p>
+</li>
+<li><p>v-leave: 定义离开过渡的开始状态。在离开过渡被触发时立刻生效，下一帧被移除。</p>
+</li>
+<li><p>v-leave-active：定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。</p>
+</li>
+<li><p>v-leave-to: 2.1.8版及以上 定义离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 v-leave 被删除)，在过渡/动画完成之后移除。</p>
+</li>
+</ol>
+<p>使用demo:</p>
+<pre><code>//HTML:
+&lt;div id=&quot;demo&quot;&gt;
+  &lt;button v-on:click=&quot;show = !show&quot;&gt;
+    Toggle
+  &lt;/button&gt;
+  &lt;transition name=&quot;fade&quot;&gt;
+    &lt;p v-if=&quot;show&quot;&gt;hello&lt;/p&gt;
+  &lt;/transition&gt;
+&lt;/div&gt;
+-----------------------
+//JS:
+new Vue({
+  el: &apos;#demo&apos;,
+  data: {
+    show: true
+  }
+})
+-----------------------
+//CSS:
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+</code></pre><ul>
+<li>CSS过度：transition in css</li>
+<li>css动画: animation + action</li>
+</ul>
+<p><a href="https://cn.vuejs.org/v2/guide/transitions.html#JavaScript-%E9%92%A9%E5%AD%90" target="_blank" rel="noopener">过度的一些demo</a></p>
+<hr>
+<h3 id="Some-notes："><a href="#Some-notes：" class="headerlink" title="Some notes："></a>Some notes：</h3><ol>
+<li>今天使用github desktop发现无法拉下来新的仓库，想起之前是因为登陆过期的问题，重新登录就可以了。但是这次log out之后发现根本登不上去，后面google说是之前安装的chorme插件adblock把github也屏蔽掉了。解决方法：<strong>管理员权限打开github desktop</strong></li>
+</ol>
 
       
     </div>
@@ -419,7 +472,7 @@ vm.userProfile = Object.assign({}, vm.userProfile, {
         <p><span>本文标题:</span><a href="/2019/03/31/vueLearning/vueLearning3/">Vue学习笔记（3）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 yezo13 的个人博客">yezo13</a></p>
         <p><span>发布时间:</span>2019年03月31日 - 20时42分</p>
-        <p><span>最后更新:</span>2019年03月31日 - 22时49分</p>
+        <p><span>最后更新:</span>2019年04月01日 - 15时34分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/31/vueLearning/vueLearning3/" title="Vue学习笔记（3）">http://yoursite.com/2019/03/31/vueLearning/vueLearning3/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/31/vueLearning/vueLearning3/　　作者: yezo13" title></span>
@@ -447,7 +500,7 @@ vm.userProfile = Object.assign({}, vm.userProfile, {
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数组用法"><span class="toc-number">1.</span> <span class="toc-text">数组用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数组更新检测"><span class="toc-number">1.1.</span> <span class="toc-text">数组更新检测</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更改对象"><span class="toc-number">2.</span> <span class="toc-text">更改对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件使用V-for"><span class="toc-number">3.</span> <span class="toc-text">组件使用V-for</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件处理"><span class="toc-number">4.</span> <span class="toc-text">事件处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#监听事件"><span class="toc-number">4.1.</span> <span class="toc-text">监听事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件修饰符"><span class="toc-number">4.2.</span> <span class="toc-text">事件修饰符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些表单输入绑定"><span class="toc-number">5.</span> <span class="toc-text">一些表单输入绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#事件修饰符-1"><span class="toc-number">5.1.</span> <span class="toc-text">事件修饰符</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数组用法"><span class="toc-number">1.</span> <span class="toc-text">数组用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数组更新检测"><span class="toc-number">1.1.</span> <span class="toc-text">数组更新检测</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更改对象"><span class="toc-number">2.</span> <span class="toc-text">更改对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件使用V-for"><span class="toc-number">3.</span> <span class="toc-text">组件使用V-for</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件处理"><span class="toc-number">4.</span> <span class="toc-text">事件处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#监听事件"><span class="toc-number">4.1.</span> <span class="toc-text">监听事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件修饰符"><span class="toc-number">4.2.</span> <span class="toc-text">事件修饰符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些表单输入绑定"><span class="toc-number">5.</span> <span class="toc-text">一些表单输入绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#事件修饰符-1"><span class="toc-number">5.1.</span> <span class="toc-text">事件修饰符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#元素进入-离开过渡"><span class="toc-number">6.</span> <span class="toc-text">元素进入/离开过渡</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Some-notes："><span class="toc-number">6.1.</span> <span class="toc-text">Some notes：</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
