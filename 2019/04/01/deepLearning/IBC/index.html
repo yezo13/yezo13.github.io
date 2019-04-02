@@ -7,19 +7,21 @@
   
   
   
-  <title>Vue学习笔记（2） | Yezo13</title>
+  <title>Instance Based Classifiers | Yezo13</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我是一条酸菜鱼。">
+  <meta name="description" content="keyword：IBC、rote-learner、nearest neighbor">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue学习笔记（2）">
-<meta property="og:url" content="http://yoursite.com/2019/03/27/vueLearning/vueLearning2/index.html">
+<meta property="og:title" content="Instance Based Classifiers">
+<meta property="og:url" content="http://yoursite.com/2019/04/01/deepLearning/IBC/index.html">
 <meta property="og:site_name" content="Yezo13">
-<meta property="og:description" content="我是一条酸菜鱼。">
+<meta property="og:description" content="keyword：IBC、rote-learner、nearest neighbor">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-01T03:09:09.898Z">
+<meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20171030/f64630dd549a4da1a7127e850ede2108.png">
+<meta property="og:updated_time" content="2019-04-01T09:45:33.671Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue学习笔记（2）">
-<meta name="twitter:description" content="我是一条酸菜鱼。">
+<meta name="twitter:title" content="Instance Based Classifiers">
+<meta name="twitter:description" content="keyword：IBC、rote-learner、nearest neighbor">
+<meta name="twitter:image" content="http://5b0988e595225.cdn.sohucs.com/images/20171030/f64630dd549a4da1a7127e850ede2108.png">
   
     <link rel="alternative" href="/atom.xml" title="Yezo13" type="application/atom+xml">
   
@@ -245,11 +247,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-vueLearning/vueLearning2" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-deepLearning/IBC" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/27/vueLearning/vueLearning2/" class="article-date">
-      <time datetime="2019-03-27T02:12:43.962Z" itemprop="datePublished">2019-03-27</time>
+      <a href="/2019/04/01/deepLearning/IBC/" class="article-date">
+      <time datetime="2019-04-01T08:21:42.174Z" itemprop="datePublished">2019-04-01</time>
 </a>
 
     </div>
@@ -263,7 +265,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Vue学习笔记（2）
+      Instance Based Classifiers
     </h1>
   
 
@@ -281,185 +283,85 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>我是一条酸菜鱼。</p>
+        <p>keyword：IBC、rote-learner、nearest neighbor</p>
 <a id="more"></a>
-<h2 id="Vue实例"><a href="#Vue实例" class="headerlink" title="Vue实例"></a>Vue实例</h2><h3 id="创建Vue实例"><a href="#创建Vue实例" class="headerlink" title="创建Vue实例"></a>创建Vue实例</h3><ul>
-<li>待补充</li>
+<h2 id="分类方法"><a href="#分类方法" class="headerlink" title="分类方法"></a>分类方法</h2><h3 id="KNN算法（k-Nearest-Neighbor"><a href="#KNN算法（k-Nearest-Neighbor" class="headerlink" title="KNN算法（k-Nearest-Neighbor)"></a>KNN算法（k-Nearest-Neighbor)</h3><ul>
+<li>思想：在数据集中找到k个最近的邻居样本，然后通过这些样本的特点来决定当前样本的属性。</li>
+<li>算法概述：当我们需要预测一个新样本的输出时，KNN 算法将会遍历整个数据集来寻找 k 个最接近的样本，或者说是 k 个和新样本最相似的样本。然后，如果是一个回归问题，算法将输出这些样本结果的均值；如果是一个分类问题，算法将会输出出现次数最多的类别。k 的值是用户自己选定的。</li>
+<li>距离计算方法：样本之间的相似度通过计算例如欧几里得距离（Euclidean distance）或者汉明距离（Hamming distance）得到。<ul>
+<li>使用欧式距离计算距离，可能会导致多特点吻合的两个样本 &amp; 多特点都缺失的两个样本的欧式距离计算结果相同，但实际上两者的关联度是不一样的</li>
 </ul>
-<h3 id="数据与方法"><a href="#数据与方法" class="headerlink" title="数据与方法"></a>数据与方法</h3><p>Vue实例 - Vue的响应式系统：</p>
-<ul>
-<li>data对象中的属性值改变会带来视图的响应</li>
-<li>只有实例创建时data中已存在的属性才是响应式的</li>
-<li>Vue实例自带的实例属性与方法带有前缀$，与用户自定义的属性区分</li>
-<li><p>阻止修改现有的属性 - Object.freeze()(下例）</p>
-<pre><code>//js    
-var obj = {
-  foo: &apos;bar&apos;
-}
-
-Object.freeze(obj)
-
-new Vue({
-  el: &apos;#app&apos;,
-  data: obj
-})
---------------------------------------------
-//html
-&lt;div id=&quot;app&quot;&gt;
-  &lt;p&gt;{{ foo }}&lt;/p&gt;
-  &lt;!-- 这里的 `foo` 不会更新！ --&gt;
-  &lt;button v-on:click=&quot;foo = &apos;baz&apos;&quot;&gt;Change it&lt;/button&gt;
-&lt;/div&gt;
+</li>
+<li><p>提出权重的概念：权重因子w与距离d之间的关系（西瓜书中）</p>
+<pre><code>w = 1/d²
 </code></pre></li>
-</ul>
-<h2 id="实例生命周期钩子"><a href="#实例生命周期钩子" class="headerlink" title="实例生命周期钩子"></a>实例生命周期钩子</h2><p>Vue的初始化过程：</p>
-<p>生命周期钩子（在vue初始化过程某些阶段运行钩子对应的函数），函数中调用的 this 指向调用它的vue实例。</p>
-<ul>
-<li>created</li>
-<li>mounted</li>
-<li>updated</li>
-<li>destroyed</li>
-</ul>
-<blockquote>
-<p>不要在选项属性或回调上使用箭头函数，比如 created: () =console.log(this.a) 或 vm.$watch(‘a’, newValue =this.myMethod())。因为箭头函数并没有 this，this 会作为变量一直向上级词法作用域查找，直至找到位置，经常导致 Uncaught TypeError: Cannot read property of undefined 或 Uncaught TypeError: this.myMethod is not a function 之类的错误。</p>
-</blockquote>
-<p>（假装此处有图）</p>
-<hr>
-<h2 id="计算属性和侦听器"><a href="#计算属性和侦听器" class="headerlink" title="计算属性和侦听器"></a>计算属性和侦听器</h2><h3 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h3><ul>
-<li>尽可能使得模板内的表达式是简单的声明式逻辑</li>
-<li>使用计算属性来表达复杂逻辑</li>
-<li>计算属性放在Vue的 computed 分类中，后接一个getter函数用于得到/更新属性的值</li>
-<li>计算属性的使用方法与普通属性一致，可以在模板中绑定</li>
-<li>计算属性基于它们的响应式依赖进行缓存。大概就是计算属性是一个属性（变量），同时由一个函数f得到它的值。当f中使用到的变量（可能是data中的）发生改变时，计算属性就会响应式地更新。类似的，跳过计算属性，在模板绑定一个方法也可以得到同样的效果。区别在于:<ul>
-<li>计算属性依赖于f中的变量，会缓存当前结果，如果f中的变量没有更新，多次访问计算属性会返回缓存的结果，而不需要重新执行计算函数</li>
-<li>函数每次调用都会重新计算，无缓存</li>
-<li>大概是性能开销和空间开销之间的选择</li>
+<li><p>k-近邻算法使用所有的数据作为训练数据集，而不是把数据集分为训练集和测试集。</p>
+</li>
+<li>k的选择：<ul>
+<li>k很小，效果会对样本中的“噪声点”很敏感</li>
+<li>k很大，邻居样本会包括大量的别类的样本点</li>
 </ul>
 </li>
 </ul>
-<h4 id="计算属性实例："><a href="#计算属性实例：" class="headerlink" title="计算属性实例："></a>计算属性实例：</h4><pre><code>使用计算属性/使用方法可以达到同样的效果，区别在于有无缓存
-
-&lt;div id=&quot;example&quot;&gt;
-  &lt;p&gt;Original message: &quot;{{ message }}&quot;&lt;/p&gt;
-  &lt;p&gt;Computed reversed message: &quot;{{ reversedMessage }}&quot;&lt;/p&gt;
-  &lt;p&gt;Computed reversed message: &quot;{{ reversedMessage1() }}&quot;&lt;/p&gt;    
-&lt;/div&gt;
-var vm = new Vue({
-  el: &apos;#example&apos;,
-  data: {
-    message: &apos;Hello&apos;
-  },
-  computed: {
-    // 计算属性的 getter
-    reversedMessage: function () {
-      // `this` 指向 vm 实例
-      // message不更新，则reversedMessage这个计算属性返回的会是缓存的值
-      return this.message.split(&apos;&apos;).reverse().join(&apos;&apos;)
-    }
-  }，
-  methods: {
-  reversedMessage1: function () {
-    return this.message.split(&apos;&apos;).reverse().join(&apos;&apos;)
-  }
-}
-})
-</code></pre><h4 id="计算属性另一种实例"><a href="#计算属性另一种实例" class="headerlink" title="计算属性另一种实例"></a>计算属性另一种实例</h4><p>在计算属性中加入setter，此时可以使用赋值</p>
-<pre><code>// ...
-computed: {
-  fullName: {
-    // getter
-    get: function () {
-      return this.firstName + &apos; &apos; + this.lastName
-    },
-    // setter
-    set: function (newValue) {
-      var names = newValue.split(&apos; &apos;)
-      this.firstName = names[0]
-      this.lastName = names[names.length - 1]
-    }
-  }
-}
-// ...
-</code></pre><p>现在再运行 vm.fullName = ‘John Doe’ 时，setter 会被调用，vm.firstName 和 vm.lastName 也会相应地被更新。</p>
-<h3 id="侦听属性"><a href="#侦听属性" class="headerlink" title="侦听属性"></a>侦听属性</h3><ul>
-<li>用于观察和响应Vue实例上的数据变动，watch分类中的数据都随着其他数据变动而变动。（容易滥用?)</li>
-<li>更通用的方法来响应数据的变化。</li>
-<li>当需要在数据变化时执行异步或开销较大的操作时，这个方式是最有用的。</li>
-</ul>
-<p>使用方法与计算属性类似，在watch:{}中添加</p>
-<p>VUE文档中给出的DEMO有一个有意思的API：yesOrNo</p>
-<p>代码在<a href="https://cn.vuejs.org/v2/guide/computed.html" target="_blank" rel="noopener">这里</a>（拉到最后）</p>
-<hr>
-<h2 id="组件基础"><a href="#组件基础" class="headerlink" title="组件基础"></a>组件基础</h2><ul>
-<li>组件是可复用的Vue实例，且带有变量名</li>
-<li>每使用一次组件，就创建一个新的实例</li>
-<li>组件中的data需要是一个函数，因此复用时，每个实例维护一个独立的拷贝</li>
-</ul>
-<p>组件的注册：</p>
 <ul>
-<li><p>局部注册</p>
-<pre><code>var ComponentA = { /* ... */ }
-</code></pre></li>
-<li><p>局部注册的组件在其子组件中不可用，需要引入</p>
-<pre><code>var ComponentA = { /* ... */ }
-
-var ComponentB = {
-  components: {
-    &apos;component-a&apos;: ComponentA
-  },
-  // ...
-}
-</code></pre></li>
-</ul>
+<li><p>KNN的特点：</p>
 <ul>
-<li><p>全局注册：可以用在其被注册之后的任何（通过 new Vue) 新创建的 Vue 根实例，也包括其组件树中的所有子组件的模板中。</p>
-<pre><code>//一个全局注册的demo 
-//定义一个名为 button-counter 的新组件
-Vue.component(&apos;button-counter&apos;, {
-  data: function () {
-    return {
-      count: 0
-    }
-  },
-  template: &apos;&lt;button v-on:click=&quot;count++&quot;&gt;You clicked me {{ count }} times.&lt;/button&gt;&apos;
-})
-</code></pre></li>
+<li>懒惰的学习分类器</li>
+<li>不需要显式地（explicitly）建模</li>
+<li>能够产生任意形状的决策根页面</li>
+<li>能够动态调整样本的变化，结果与样本是交互的（因为它是基于当前信息的）</li>
+<li>选择一个距离度量的方式是很关键的</li>
+<li>?走神了</li>
 </ul>
+</li>
+<li><p>提升KNN效率：</p>
 <ul>
-<li>在模块系统中局部注册</li>
+<li>在计算距离的时候，避免计算所有的object<ul>
+<li>k-d trees</li>
+<li>Fast approximate similarity search</li>
+<li>LSH(Locality Sensitive Hashing）</li>
 </ul>
-<pre><code>import ComponentA from &apos;./ComponentA&apos;
-import ComponentC from &apos;./ComponentC&apos;
-
-export default {
-  components: {
-    ComponentA,
-    ComponentC
-  },
-  // ...
-}
-</code></pre><ul>
-<li>基础组件的自动化全局注册</li>
+</li>
+<li>构造一个更小的数据集，同时保持当前的性能</li>
+<li>移除一些object</li>
 </ul>
-<p>使用webpack - 使用require.context全局注册通用的基础组件</p>
-<p><a href="https://cn.vuejs.org/v2/guide/components-registration.html" target="_blank" rel="noopener">Here</a></p>
+</li>
+</ul>
+<h2 id="聚类方法（clusting"><a href="#聚类方法（clusting" class="headerlink" title="聚类方法（clusting)"></a>聚类方法（clusting)</h2><h3 id="聚类的定义："><a href="#聚类的定义：" class="headerlink" title="聚类的定义："></a>聚类的定义：</h3><p>将一些样本聚类成不同的组（簇）</p>
+<p>分类方法：</p>
 <ul>
-<li>动态组件切换时会创建新的实例，因此之前第一次创建时没有被缓存。解决问题的方法是使用<keep-alive>元素</keep-alive></li>
+<li>Hard（Crisp）：一个样本只能属于一个组（簇），不能够同时属于多个组</li>
+<li>Soft（Fuzzy）：一个样本可能同时属于多个组，且属于某个组有对应的概率</li>
 </ul>
-<pre><code>&lt;!-- 失活的组件将会被缓存！--&gt;
-&lt;keep-alive&gt;
-  &lt;component v-bind:is=&quot;currentTabComponent&quot;&gt;&lt;/component&gt;
-&lt;/keep-alive&gt;
-</code></pre><hr>
-<p><strong>插一段软件测试的笔记</strong></p>
-<p>（以表达我对蔡老师课堂的热爱</p>
-<p>软件缺陷记录的5C原则：</p>
-<ul>
-<li>Correct（准确）：每个组成部分的描述准确，不会引起误解； </li>
-<li>Clear（清晰）：每个组成部分的描述清晰，易于理解； </li>
-<li>Concise（简洁）：只包含必不可少的信息，不包括任何多余的内容； </li>
-<li>Complete（完整）：包含复现该缺陷的完整步骤和其他本质信息； </li>
-<li>Consistent（一致）：按照一致的格式书写全部缺陷报告。</li>
+<p>聚类的目标：使得簇内的样本很相似（同簇的样本距离尽可能近，不同的簇内的样本的距离尽可能远）</p>
+<p>SSE：Error of Sum of Squares</p>
+<h3 id="outline："><a href="#outline：" class="headerlink" title="outline："></a>outline：</h3><ul>
+<li>待填</li>
+</ul>
+<h3 id="K-means算法"><a href="#K-means算法" class="headerlink" title="K-means算法:"></a>K-means算法:</h3><ul>
+<li>定义:K-means是一个把相似的数据分组的迭代算法。它计算 k 个聚类的重心然后向这个聚类中添加一个数据点，使其与重心的距离最小。</li>
+</ul>
+<p>算法步骤：</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20171030/f64630dd549a4da1a7127e850ede2108.png" alt></p>
+<p>K-means 算法的步骤</p>
+<ol>
+<li><p>k-means 初始化</p>
+<p> a) 选择一个 k 的值。在这里，我们令 k 等于 3。</p>
+<p> b) 随机地把数据点放到 3 个聚类中。</p>
+<p> c) 分别计算每个聚类的质心。图中红色、蓝色和绿色星星表示每个聚类的质心。</p>
+</li>
+<li><p>把每个观察结果放入一个聚类中</p>
+<p> 重新把每个最靠近质心的点放入聚类中。在这里，上面的 5 个点被放入了蓝色的质心对应的聚类中。按照相同的步骤将点分配给包含红色和绿色质心的聚类。</p>
+</li>
+<li><p>重新计算质心</p>
+<p> 计算每一个新聚类的质心。旧的质心以灰色显示，新的质心以红色、绿色和蓝色星星显示。</p>
+</li>
+<li><p>迭代直到没有新的变化</p>
+<p> 重复步骤二和步骤三，直到数据点不在聚类与聚类之间交换。一旦两次连续的步骤之间没有点的交换，就退出 k-means 算法。</p>
+</li>
+</ol>
+<h3 id="EM-Algorithm"><a href="#EM-Algorithm" class="headerlink" title="EM Algorithm"></a>EM Algorithm</h3><ul>
+<li>最大期望算法（Expectation-maximization algorithm，又译期望最大化算法）</li>
 </ul>
 
       
@@ -469,13 +371,13 @@ export default {
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/27/vueLearning/vueLearning2/">Vue学习笔记（2）</a></p>
+        <p><span>本文标题:</span><a href="/2019/04/01/deepLearning/IBC/">Instance Based Classifiers</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 yezo13 的个人博客">yezo13</a></p>
-        <p><span>发布时间:</span>2019年03月27日 - 10时12分</p>
-        <p><span>最后更新:</span>2019年04月01日 - 11时09分</p>
+        <p><span>发布时间:</span>2019年04月01日 - 16时21分</p>
+        <p><span>最后更新:</span>2019年04月01日 - 17时45分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/27/vueLearning/vueLearning2/" title="Vue学习笔记（2）">http://yoursite.com/2019/03/27/vueLearning/vueLearning2/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/27/vueLearning/vueLearning2/　　作者: yezo13" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/04/01/deepLearning/IBC/" title="Instance Based Classifiers">http://yoursite.com/2019/04/01/deepLearning/IBC/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/04/01/deepLearning/IBC/　　作者: yezo13" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -486,18 +388,9 @@ export default {
 
 <nav id="article-nav">
   
-    <a href="/2019/03/27/deepLearning/SVM/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          支持向量机（SVM)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/25/deepLearning/梯度下降法的简单应用/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">酸菜鱼的梯度下降法学习</div>
+    <a href="/2019/03/31/vueLearning/vueLearning3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue学习笔记（3）</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -509,7 +402,7 @@ export default {
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue实例"><span class="toc-number">1.</span> <span class="toc-text">Vue实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建Vue实例"><span class="toc-number">1.1.</span> <span class="toc-text">创建Vue实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据与方法"><span class="toc-number">1.2.</span> <span class="toc-text">数据与方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例生命周期钩子"><span class="toc-number">2.</span> <span class="toc-text">实例生命周期钩子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算属性和侦听器"><span class="toc-number">3.</span> <span class="toc-text">计算属性和侦听器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#计算属性"><span class="toc-number">3.1.</span> <span class="toc-text">计算属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#计算属性实例："><span class="toc-number">3.1.1.</span> <span class="toc-text">计算属性实例：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#计算属性另一种实例"><span class="toc-number">3.1.2.</span> <span class="toc-text">计算属性另一种实例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#侦听属性"><span class="toc-number">3.2.</span> <span class="toc-text">侦听属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件基础"><span class="toc-number">4.</span> <span class="toc-text">组件基础</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#分类方法"><span class="toc-number">1.</span> <span class="toc-text">分类方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#KNN算法（k-Nearest-Neighbor"><span class="toc-number">1.1.</span> <span class="toc-text">KNN算法（k-Nearest-Neighbor)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#聚类方法（clusting"><span class="toc-number">2.</span> <span class="toc-text">聚类方法（clusting)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#聚类的定义："><span class="toc-number">2.1.</span> <span class="toc-text">聚类的定义：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#outline："><span class="toc-number">2.2.</span> <span class="toc-text">outline：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#K-means算法"><span class="toc-number">2.3.</span> <span class="toc-text">K-means算法:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EM-Algorithm"><span class="toc-number">2.4.</span> <span class="toc-text">EM Algorithm</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -582,13 +475,11 @@ export default {
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/03/27/deepLearning/SVM/" title="上一篇: 支持向量机（SVM)">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/03/25/deepLearning/梯度下降法的简单应用/" title="下一篇: 酸菜鱼的梯度下降法学习">
+            <a href="/2019/03/31/vueLearning/vueLearning3/" title="下一篇: Vue学习笔记（3）">
                 <i class="fa fa-angle-right"></i>
             </a>
         
