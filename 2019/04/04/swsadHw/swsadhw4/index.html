@@ -7,24 +7,19 @@
   
   
   
-  <title>系统分析与设计—hw2 | Yezo13</title>
+  <title>系统分析与设计—hw4 | Yezo13</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="【简答题】1.用简短的语言给出对分析、设计的理解。 分析就是对用户给出的软件功能等方面的需求进行系统的研究，识别出主号问题，确定待开发软件的功能、性能、接口、数据、界面等具体的细节要求。设计就是基于需求分析中得到的需求，构造出目标系统的逻辑模型，最终得到一个可供编码过程参考的设计模型文档。  软件分析不是发现更多的功能与需求，而是确认有效的功能与需求，去伪存真不断满足客户需要。软件设计也不是追求最">
+  <meta name="description" content="简答题1. 用例的概念2. 用例和场景的关系？什么是主场景或 happy path？3.用例有哪些形式？4.对于复杂业务，为什么编制完整用例非常难？5.什么是用例图？6.用例图的基本符号与元素？7.用例图的画法与步骤8.用例图给利益相关人与开发者的价值有哪些？2、建模练习题（用例模型）选择2-3个你熟悉的类似业务的在线服务系统（或移动 APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等">
 <meta property="og:type" content="article">
-<meta property="og:title" content="系统分析与设计—hw2">
-<meta property="og:url" content="http://yoursite.com/2019/03/09/swsadHw/swsadhw2/index.html">
+<meta property="og:title" content="系统分析与设计—hw4">
+<meta property="og:url" content="http://yoursite.com/2019/04/04/swsadHw/swsadhw4/index.html">
 <meta property="og:site_name" content="Yezo13">
-<meta property="og:description" content="【简答题】1.用简短的语言给出对分析、设计的理解。 分析就是对用户给出的软件功能等方面的需求进行系统的研究，识别出主号问题，确定待开发软件的功能、性能、接口、数据、界面等具体的细节要求。设计就是基于需求分析中得到的需求，构造出目标系统的逻辑模型，最终得到一个可供编码过程参考的设计模型文档。  软件分析不是发现更多的功能与需求，而是确认有效的功能与需求，去伪存真不断满足客户需要。软件设计也不是追求最">
+<meta property="og:description" content="简答题1. 用例的概念2. 用例和场景的关系？什么是主场景或 happy path？3.用例有哪些形式？4.对于复杂业务，为什么编制完整用例非常难？5.什么是用例图？6.用例图的基本符号与元素？7.用例图的画法与步骤8.用例图给利益相关人与开发者的价值有哪些？2、建模练习题（用例模型）选择2-3个你熟悉的类似业务的在线服务系统（或移动 APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/18/AmZyQJ.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/18/AmZvY8.md.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/18/AmVzrR.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/18/AmZSq1.jpg">
-<meta property="og:updated_time" content="2019-03-18T02:21:47.558Z">
+<meta property="og:updated_time" content="2019-04-03T16:20:43.247Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="系统分析与设计—hw2">
-<meta name="twitter:description" content="【简答题】1.用简短的语言给出对分析、设计的理解。 分析就是对用户给出的软件功能等方面的需求进行系统的研究，识别出主号问题，确定待开发软件的功能、性能、接口、数据、界面等具体的细节要求。设计就是基于需求分析中得到的需求，构造出目标系统的逻辑模型，最终得到一个可供编码过程参考的设计模型文档。  软件分析不是发现更多的功能与需求，而是确认有效的功能与需求，去伪存真不断满足客户需要。软件设计也不是追求最">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/03/18/AmZyQJ.jpg">
+<meta name="twitter:title" content="系统分析与设计—hw4">
+<meta name="twitter:description" content="简答题1. 用例的概念2. 用例和场景的关系？什么是主场景或 happy path？3.用例有哪些形式？4.对于复杂业务，为什么编制完整用例非常难？5.什么是用例图？6.用例图的基本符号与元素？7.用例图的画法与步骤8.用例图给利益相关人与开发者的价值有哪些？2、建模练习题（用例模型）选择2-3个你熟悉的类似业务的在线服务系统（或移动 APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等">
   
     <link rel="alternative" href="/atom.xml" title="Yezo13" type="application/atom+xml">
   
@@ -250,11 +245,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-swsadHw/swsadhw2" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-swsadHw/swsadhw4" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/09/swsadHw/swsadhw2/" class="article-date">
-      <time datetime="2019-03-09T04:36:48.585Z" itemprop="datePublished">2019-03-09</time>
+      <a href="/2019/04/04/swsadHw/swsadhw4/" class="article-date">
+      <time datetime="2019-04-03T16:02:03.262Z" itemprop="datePublished">2019-04-04</time>
 </a>
 
     </div>
@@ -268,7 +263,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      系统分析与设计—hw2
+      系统分析与设计—hw4
     </h1>
   
 
@@ -286,62 +281,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="【简答题】"><a href="#【简答题】" class="headerlink" title="【简答题】"></a>【简答题】</h3><p><strong>1.用简短的语言给出对分析、设计的理解。</strong></p>
-<p>分析就是对用户给出的软件功能等方面的需求进行系统的研究，识别出主号问题，确定待开发软件的功能、性能、接口、数据、界面等具体的细节要求。<br>设计就是基于需求分析中得到的需求，构造出目标系统的逻辑模型，最终得到一个可供编码过程参考的设计模型文档。</p>
-<blockquote>
-<p>软件分析不是发现更多的功能与需求，而是确认有效的功能与需求，去伪存真不断满足客户需要。软件设计也不是追求最先进技术，而是控制变化附加的成本，使得软件生产的预算、时间等能在掌控之中。</p>
-</blockquote>
-<a id="more"></a>
-<hr>
-<p><strong>2.用一句话描述面向对象的分析与设计的优势。</strong></p>
-<p>面向对象的分析与设计能够通过分析现实世界中存在的问题，并构建相对应的问题模型，保持了他们的结构、关系和行为模式，具有易理解和易维护的特性。</p>
-<hr>
-<p><strong>3.简述 UML（统一建模语言）的作用。考试考哪些图？</strong></p>
-<p>UML（Unified Modeling Language）用于说明、可视化、构建和编写一个正在开发的、面向对象的、软件密集系统的制品。 它可以将面向对象分析（OOA）和面向对象设计（OOD）使用统一定义的符号表示出来，并将对象自身的属性、对象与对象之间的关联关系可视化，提升项目结构的可读性。</p>
-<p>考试的重点图形: </p>
-<p>图形化的表示机制，十多种视图，分4类：</p>
-<ul>
-<li>用例图：用户角度：功能、执行者</li>
-<li>静态图：系统静态结构<ul>
-<li>类图：概念及关系</li>
-<li>对象图：某种状态或时间段内，系统中活跃的对象及其关系</li>
-<li>包图：描述系统的分解结构</li>
+        <h2 id="简答题"><a href="#简答题" class="headerlink" title="简答题"></a>简答题</h2><h3 id="1-用例的概念"><a href="#1-用例的概念" class="headerlink" title="1. 用例的概念"></a>1. 用例的概念</h3><h3 id="2-用例和场景的关系？什么是主场景或-happy-path？"><a href="#2-用例和场景的关系？什么是主场景或-happy-path？" class="headerlink" title="2. 用例和场景的关系？什么是主场景或 happy path？"></a>2. 用例和场景的关系？什么是主场景或 happy path？</h3><h3 id="3-用例有哪些形式？"><a href="#3-用例有哪些形式？" class="headerlink" title="3.用例有哪些形式？"></a>3.用例有哪些形式？</h3><h3 id="4-对于复杂业务，为什么编制完整用例非常难？"><a href="#4-对于复杂业务，为什么编制完整用例非常难？" class="headerlink" title="4.对于复杂业务，为什么编制完整用例非常难？"></a>4.对于复杂业务，为什么编制完整用例非常难？</h3><h3 id="5-什么是用例图？"><a href="#5-什么是用例图？" class="headerlink" title="5.什么是用例图？"></a>5.什么是用例图？</h3><h3 id="6-用例图的基本符号与元素？"><a href="#6-用例图的基本符号与元素？" class="headerlink" title="6.用例图的基本符号与元素？"></a>6.用例图的基本符号与元素？</h3><h3 id="7-用例图的画法与步骤"><a href="#7-用例图的画法与步骤" class="headerlink" title="7.用例图的画法与步骤"></a>7.用例图的画法与步骤</h3><h3 id="8-用例图给利益相关人与开发者的价值有哪些？"><a href="#8-用例图给利益相关人与开发者的价值有哪些？" class="headerlink" title="8.用例图给利益相关人与开发者的价值有哪些？"></a>8.用例图给利益相关人与开发者的价值有哪些？</h3><h2 id="2、建模练习题（用例模型）"><a href="#2、建模练习题（用例模型）" class="headerlink" title="2、建模练习题（用例模型）"></a>2、建模练习题（用例模型）</h2><h3 id="选择2-3个你熟悉的类似业务的在线服务系统（或移动-APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等，分别绘制它们用例图。并满足以下要求："><a href="#选择2-3个你熟悉的类似业务的在线服务系统（或移动-APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等，分别绘制它们用例图。并满足以下要求：" class="headerlink" title="选择2-3个你熟悉的类似业务的在线服务系统（或移动 APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等，分别绘制它们用例图。并满足以下要求："></a>选择2-3个你熟悉的类似业务的在线服务系统（或移动 APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等，分别绘制它们用例图。并满足以下要求：</h3><ul>
+<li>请使用用户的视角，描述用户目标或系统提供的服务</li>
+<li>粒度达到子用例级别，并用 include 和 exclude 关联它们</li>
+<li>请用色彩标注出你认为创新（区别于竞争对手的）用例或子用例</li>
+<li>尽可能识别外部系统和服务</li>
 </ul>
-</li>
-<li>行为图：系统的动态行为<ul>
-<li>交互图：描述对象间的消息传递<ul>
-<li>顺序图：强调对象间消息发送的时序</li>
-<li>合作图：强调对象间的动态协作关系</li>
-</ul>
-</li>
-<li>状态图：对象的动态行为。状态-事件-状态迁移-响应动作</li>
-<li>活动图：描述系统为完成某功能而执行的操作序列</li>
-</ul>
-</li>
-<li>实现图：描述系统的组成和分布状况<ul>
-<li>构件图：组成部件及其关系</li>
-<li>部署图：物理体系结构及与软件单元的对应关系</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p><strong>4.从软件本质的角度，解释软件范围（需求）控制的可行性</strong></p>
-<p>软件的本质包括复杂性、一致性、可变性和不可视性。基于IEEE中给出的软件特点：</p>
-<blockquote>
-<ul>
-<li>Software requirements are prone to frequent change</li>
-<li>In many cases, requirements allocated to software must be renegotiated and reprioritized</li>
-<li>Small changes to software can have large negative effects（There are no small software changes） </li>
-</ul>
-</blockquote>
-<p>对于软件的需求可能会因为不一致、不可使、易于变化的环境而更改，需求的更改会带来软件的改动，这就可能会产生巨大的负面影响，包括开发难度的增加，开发周期的增长等。为了尽可能避免以上情况的发生，我们必须对软件需求进行范围的划定和控制。即在需求分析与设计的过程中，我们必须在给定的范围内围绕软件开发的成本进行调控，允许范围内、不造成巨大影响的需求变更和迭代，最终保证软件开发周期和成本是可控的，在约定的时间内交付出可满足客户的软件成品。因此，软件范围需求控制是可行且必须的。</p>
-<hr>
-<p>###【看板使用练习】<br><a href="https://imgchr.com/i/AmZyQJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/03/18/AmZyQJ.jpg" alt="AmZyQJ.jpg"></a><br><a href="https://imgchr.com/i/AmZvY8" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/03/18/AmZvY8.md.png" alt="AmZvY8.md.png"></a></p>
-<p>###【UML绘图工具练习】</p>
-<p>图选自  《UML和模式应用（中文第三版）》 P193  </p>
-<p> <strong>图16-16 UML中的关联类</strong><br><a href="https://imgchr.com/i/AmVzrR" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/03/18/AmVzrR.jpg" alt="AmVzrR.jpg"></a></p>
-<p><strong>图16-17 表示单实例类</strong><br><a href="https://imgchr.com/i/AmZSq1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/03/18/AmZSq1.jpg" alt="AmZSq1.jpg"></a></p>
-
+<h3 id="然后，回答下列问题："><a href="#然后，回答下列问题：" class="headerlink" title="然后，回答下列问题："></a>然后，回答下列问题：</h3><h3 id="为什么相似系统的用例图是相似的？"><a href="#为什么相似系统的用例图是相似的？" class="headerlink" title="为什么相似系统的用例图是相似的？"></a>为什么相似系统的用例图是相似的？</h3><h3 id="如果是定旅馆业务，请对比-Asg-RH-用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术"><a href="#如果是定旅馆业务，请对比-Asg-RH-用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术" class="headerlink" title="如果是定旅馆业务，请对比 Asg_RH 用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术"></a>如果是定旅馆业务，请对比 Asg_RH 用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术</h3><h3 id="如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用"><a href="#如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用" class="headerlink" title="如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用"></a>如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用</h3><h3 id="请使用-SCRUM-方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表"><a href="#请使用-SCRUM-方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表" class="headerlink" title="请使用 SCRUM 方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表"></a>请使用 SCRUM 方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表</h3><h3 id="根据任务4，参考-使用用例点估算软件成本，给出项目用例点的估算"><a href="#根据任务4，参考-使用用例点估算软件成本，给出项目用例点的估算" class="headerlink" title="根据任务4，参考 使用用例点估算软件成本，给出项目用例点的估算"></a>根据任务4，参考 使用用例点估算软件成本，给出项目用例点的估算</h3>
       
     </div>
     
@@ -349,13 +295,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/09/swsadHw/swsadhw2/">系统分析与设计—hw2</a></p>
+        <p><span>本文标题:</span><a href="/2019/04/04/swsadHw/swsadhw4/">系统分析与设计—hw4</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 yezo13 的个人博客">yezo13</a></p>
-        <p><span>发布时间:</span>2019年03月09日 - 12时36分</p>
-        <p><span>最后更新:</span>2019年03月18日 - 10时21分</p>
+        <p><span>发布时间:</span>2019年04月04日 - 00时02分</p>
+        <p><span>最后更新:</span>2019年04月04日 - 00时20分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/09/swsadHw/swsadhw2/" title="系统分析与设计—hw2">http://yoursite.com/2019/03/09/swsadHw/swsadhw2/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/09/swsadHw/swsadhw2/　　作者: yezo13" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/04/04/swsadHw/swsadhw4/" title="系统分析与设计—hw4">http://yoursite.com/2019/04/04/swsadHw/swsadhw4/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/04/04/swsadHw/swsadhw4/　　作者: yezo13" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -366,18 +312,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/03/13/swsadHw/swsadhw3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          系统分析与设计—hw3
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/06/swsadHw/swsadhw1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">系统分析与设计—hw1</div>
+    <a href="/2019/04/01/deepLearning/IBC/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Instance Based Classifiers</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -389,7 +326,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#【简答题】"><span class="toc-number">1.</span> <span class="toc-text">【简答题】</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简答题"><span class="toc-number">1.</span> <span class="toc-text">简答题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-用例的概念"><span class="toc-number">1.1.</span> <span class="toc-text">1. 用例的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-用例和场景的关系？什么是主场景或-happy-path？"><span class="toc-number">1.2.</span> <span class="toc-text">2. 用例和场景的关系？什么是主场景或 happy path？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-用例有哪些形式？"><span class="toc-number">1.3.</span> <span class="toc-text">3.用例有哪些形式？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-对于复杂业务，为什么编制完整用例非常难？"><span class="toc-number">1.4.</span> <span class="toc-text">4.对于复杂业务，为什么编制完整用例非常难？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-什么是用例图？"><span class="toc-number">1.5.</span> <span class="toc-text">5.什么是用例图？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-用例图的基本符号与元素？"><span class="toc-number">1.6.</span> <span class="toc-text">6.用例图的基本符号与元素？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-用例图的画法与步骤"><span class="toc-number">1.7.</span> <span class="toc-text">7.用例图的画法与步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-用例图给利益相关人与开发者的价值有哪些？"><span class="toc-number">1.8.</span> <span class="toc-text">8.用例图给利益相关人与开发者的价值有哪些？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、建模练习题（用例模型）"><span class="toc-number">2.</span> <span class="toc-text">2、建模练习题（用例模型）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#选择2-3个你熟悉的类似业务的在线服务系统（或移动-APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等，分别绘制它们用例图。并满足以下要求："><span class="toc-number">2.1.</span> <span class="toc-text">选择2-3个你熟悉的类似业务的在线服务系统（或移动 APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等，分别绘制它们用例图。并满足以下要求：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#然后，回答下列问题："><span class="toc-number">2.2.</span> <span class="toc-text">然后，回答下列问题：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么相似系统的用例图是相似的？"><span class="toc-number">2.3.</span> <span class="toc-text">为什么相似系统的用例图是相似的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如果是定旅馆业务，请对比-Asg-RH-用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术"><span class="toc-number">2.4.</span> <span class="toc-text">如果是定旅馆业务，请对比 Asg_RH 用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用"><span class="toc-number">2.5.</span> <span class="toc-text">如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#请使用-SCRUM-方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表"><span class="toc-number">2.6.</span> <span class="toc-text">请使用 SCRUM 方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#根据任务4，参考-使用用例点估算软件成本，给出项目用例点的估算"><span class="toc-number">2.7.</span> <span class="toc-text">根据任务4，参考 使用用例点估算软件成本，给出项目用例点的估算</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -462,13 +399,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/03/13/swsadHw/swsadhw3/" title="上一篇: 系统分析与设计—hw3">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/03/06/swsadHw/swsadhw1/" title="下一篇: 系统分析与设计—hw1">
+            <a href="/2019/04/01/deepLearning/IBC/" title="下一篇: Instance Based Classifiers">
                 <i class="fa fa-angle-right"></i>
             </a>
         
