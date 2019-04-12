@@ -27,7 +27,7 @@
 <meta property="og:image" content="http://s15.sinaimg.cn/middle/93c2f670gc3e814d3e0be&690">
 <meta property="og:image" content="http://s2.sinaimg.cn/middle/93c2f670gc3e814effa01&690">
 <meta property="og:image" content="http://s2.sinaimg.cn/middle/93c2f670g79fd9bb09671&690">
-<meta property="og:updated_time" content="2019-04-08T02:14:29.372Z">
+<meta property="og:updated_time" content="2019-04-12T12:12:39.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统分析与设计—hw4">
 <meta name="twitter:description" content="简答题1. 用例的概念用例（Use Case），也叫使用案例、用况，是软件工程或系统工程中对系统如何反应外界请求的描述，是一种通过用户的使用场景来获取需求的技术。通俗地讲，用例是文本形式的情节描述，用以说明某参与者使用系统以实现某些目标。">
@@ -347,25 +347,30 @@
 </ul>
 <p><img src="http://www.uml.org.cn/oobject/images/2012091328.png" alt></p>
 <h3 id="7-用例图的画法与步骤"><a href="#7-用例图的画法与步骤" class="headerlink" title="7.用例图的画法与步骤"></a>7.用例图的画法与步骤</h3><ol>
-<li><p>确定参与者，包括:</p>
-<ol>
+<li>确认系统边界，包括系统名称以及系统的范围（方框所包含的东西)</li>
+</ol>
+<ol start="2">
+<li>确定参与者，包括:<ul>
 <li>主要参与者：谁将使用系统的主要功能、谁将需要系统的支持以完成工作等</li>
 <li>协作参与者：谁将提供对应的系统功能、谁将维护系统，保证系统处于工作状态等</li>
 <li>幕后参与者：谁会对系统产生的结果感兴趣</li>
-</ol>
+</ul>
 </li>
+</ol>
+<ol start="3">
 <li><p>根据用户需求识别和创作用例，主要重点在于：</p>
-<ol>
+<ul>
 <li>参与者希望系统提供什么样的功能（用例）</li>
 <li>系统具有哪些功能（用例），如是否支持存储和检索信息</li>
 <li>系统对应的功能由哪些参与者触发</li>
 <li>当系统状态改变时，参与者是否会得到通知</li>
 <li>参与者与事件的对应关系</li>
 <li>是否存在影响系统的外部事件</li>
-</ol>
+</ul>
 </li>
 <li><p>确认用例间的关系，包括关联、包含、扩展和泛化</p>
 </li>
+<li>确定外部接口，如API的调用</li>
 <li>根据上面已经确定的关系已经用例图规范进行用例图的绘制，可以借助例表来详细说明一个较复杂（可能无法只通过用例图说明清楚）的用例</li>
 </ol>
 <h3 id="8-用例图给利益相关人与开发者的价值有哪些？"><a href="#8-用例图给利益相关人与开发者的价值有哪些？" class="headerlink" title="8.用例图给利益相关人与开发者的价值有哪些？"></a>8.用例图给利益相关人与开发者的价值有哪些？</h3><ul>
@@ -383,13 +388,23 @@
 <p>这是一个在线民宿租赁网站的用例模型：</p>
 <p><a href="https://imgchr.com/i/A4JxFP" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/04/08/A4JxFP.md.jpg" alt="A4JxFP.md.jpg"></a></p>
 <h3 id="然后，回答下列问题："><a href="#然后，回答下列问题：" class="headerlink" title="然后，回答下列问题："></a>然后，回答下列问题：</h3><h3 id="为什么相似系统的用例图是相似的？"><a href="#为什么相似系统的用例图是相似的？" class="headerlink" title="为什么相似系统的用例图是相似的？"></a>为什么相似系统的用例图是相似的？</h3><p>因为相似的系统中，用户预期的功能都是相似的，即不同的同类系统一定具有一致基本功能以及带有自己特色的扩展功能。以酒店预订系统为例，使用该系统的用户一般提供时间、地点、价格等信息，利用系统来搜索出符合信息的房间并进行预定，因此所有的系统都需要包括这样的功能，才能够满足用户的需求。因此，相似的系统一定会有相似的功能，也就具有相似的actor、use case和associate，因此也就具有相似的用例图。</p>
-<h3 id="如果是定旅馆业务，请对比-Asg-RH-用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术，如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用。"><a href="#如果是定旅馆业务，请对比-Asg-RH-用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术，如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用。" class="headerlink" title="如果是定旅馆业务，请对比 Asg_RH 用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术，如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用。"></a>如果是定旅馆业务，请对比 Asg_RH 用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术，如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用。</h3><ol>
+<h3 id="如果是定旅馆业务，请对比-Asg-RH-用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术。"><a href="#如果是定旅馆业务，请对比-Asg-RH-用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术。" class="headerlink" title="如果是定旅馆业务，请对比 Asg_RH 用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术。"></a>如果是定旅馆业务，请对比 Asg_RH 用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术。</h3><p>对比Asg_RH与airbnb的用例图，可以对比发现技术的创新具有以下角度：</p>
+<ol>
 <li>可以从时代特性和对应的用户需求出发。如现在是一个快节奏的时代，用户追求效率和便利的操作。对比airbnb和asg_rh，airbnb的操作无疑更加简单快捷，且具有一个更优秀的过滤系统，提供了多种条件来供用户对房源进行过滤，使得用户更高效地挑选到自己心仪的房源，很大程度地提升了用户的使用体验。</li>
 <li>从业务创新出发。对比传统的酒店预定系统只能够预定房间，airbnb考虑到了用户属性的多样性，即他们本身也可能具有闲置的房源，扩充了软件使用者的属性，使user可以在租客和租户的身份之间自由切换，提供了更多的功能选择。</li>
 <li>从用户信息保护和反馈出发。首先，airbnb较传统的订旅馆业务而言，对用户的信息作出了更好的保护，如只有在预定房间之后才知道房间的准确定位，这无疑是对民宿类的房间信息有了更好的保护。其次，airbnb提供了双向的评价，即用户和提供住宿的组织在完成一次交易后是互相评价的，这样有效地筛选出了优质的用户和租赁方。</li>
 <li>从吸引用户的角度出发。airbnb通过合理分析用户的上传数据，提供了一些“猜你喜欢”的功能以及活动奖励，有效地提升了用户粘性以及软件对用户的吸引力。</li>
 </ol>
-<h3 id="请使用-SCRUM-方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表"><a href="#请使用-SCRUM-方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表" class="headerlink" title="请使用 SCRUM 方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表"></a>请使用 SCRUM 方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表</h3><table>
+<h3 id="如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用"><a href="#如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用" class="headerlink" title="如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用"></a>如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用</h3><p>使用不同颜色背景的用例图表示不同层次和方式的创新思路，使得其在系统中的作用能够直观体现。</p>
+<h3 id="请使用-SCRUM-方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表"><a href="#请使用-SCRUM-方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表" class="headerlink" title="请使用 SCRUM 方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表"></a>请使用 SCRUM 方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表</h3><p>Product Backlog 是 Scrum 的核心，也是一切的起源。从根本上说，它就是一个需求、或故事、或特性等组成的列表，按照重要性的级别进行了排序。它里面包含的是客户想要的东西，并用客户的术语加以描述。我们叫它故事（Story），有时候也叫做 Backlog 条目。 一般包括以下字段：</p>
+<ul>
+<li>ID：统一标识符，就是个自增长的数字而已。以防重命名故事以后找不到它们。</li>
+<li>Name（名称）：简短的、描述性的故事名。比如“查看你自己的交易明细”。它必须要含义明确，这样开发人员和产品负责人才能大致明白我们说的是什么东西，跟其他故事区分开。它一般由2到10个字组成。</li>
+<li>Importance（重要性）：产品负责人评出一个数值，指示这个故事有多重要。例如10或150。分数越高越重要。</li>
+<li>Initial Estimate（初始估算）：团队的初步估算，表示与其他故事相比，完成该故事所需的工作量。最小的单位是故事点（story point），一般大致相当于一个“一个人一天理想的工作量（man-day）”。</li>
+<li>How to demo（如何做演示）：它大略描述了这个故事应该如何在 sprint 演示上进行示范，本质就是一个简单的测试规范。“先这样做，然后那样做，就应该得到……的结果”。</li>
+</ul>
+<table>
 <thead>
 <tr>
 <th style="text-align:left">ID</th>
@@ -435,7 +450,70 @@
 </tr>
 </tbody>
 </table>
-<h3 id="根据任务4，参考使用用例点估算软件成本，给出项目用例点的估算"><a href="#根据任务4，参考使用用例点估算软件成本，给出项目用例点的估算" class="headerlink" title="根据任务4，参考使用用例点估算软件成本，给出项目用例点的估算"></a>根据任务4，参考<a href="https://www.ibm.com/developerworks/cn/rational/edge/09/mar09/collaris_dekker/index.html" target="_blank" rel="noopener">使用用例点估算软件成本</a>，给出项目用例点的估算</h3><p>（1）角色复杂度等级划分及计数</p>
+<h3 id="根据任务4，参考使用用例点估算软件成本，给出项目用例点的估算"><a href="#根据任务4，参考使用用例点估算软件成本，给出项目用例点的估算" class="headerlink" title="根据任务4，参考使用用例点估算软件成本，给出项目用例点的估算"></a>根据任务4，参考<a href="https://www.ibm.com/developerworks/cn/rational/edge/09/mar09/collaris_dekker/index.html" target="_blank" rel="noopener">使用用例点估算软件成本</a>，给出项目用例点的估算</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">用例</th>
+<th style="text-align:right">业务</th>
+<th style="text-align:center">计算</th>
+<th style="text-align:center">原因</th>
+<th style="text-align:center">UC比重</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">查找酒店</td>
+<td style="text-align:right">3</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">简单</td>
+</tr>
+<tr>
+<td style="text-align:left">结果排序</td>
+<td style="text-align:right">3</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">简单</td>
+</tr>
+<tr>
+<td style="text-align:left">预定酒店</td>
+<td style="text-align:right">6</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">平均</td>
+</tr>
+<tr>
+<td style="text-align:left">付款</td>
+<td style="text-align:right">3</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">简单</td>
+</tr>
+<tr>
+<td style="text-align:left">查看定位</td>
+<td style="text-align:right">3</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">简单</td>
+</tr>
+<tr>
+<td style="text-align:left">推荐</td>
+<td style="text-align:right">5</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">平均</td>
+</tr>
+<tr>
+<td style="text-align:left">双方评价</td>
+<td style="text-align:right">4</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">平均</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="附录：一个简单的软件规模用例点数计算"><a href="#附录：一个简单的软件规模用例点数计算" class="headerlink" title="附录：一个简单的软件规模用例点数计算"></a>附录：一个简单的软件规模用例点数计算</h3><p>（1）角色复杂度等级划分及计数</p>
 <p>用例点估算法介绍</p>
 <p><img src="http://s7.sinaimg.cn/middle/93c2f670g79fd9d406226&amp;690" alt></p>
 <p> Total UAW  44</p>
@@ -465,7 +543,7 @@
         <p><span>本文标题:</span><a href="/2019/04/04/swsadHw/swsadhw4/">系统分析与设计—hw4</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 yezo13 的个人博客">yezo13</a></p>
         <p><span>发布时间:</span>2019年04月04日 - 00时02分</p>
-        <p><span>最后更新:</span>2019年04月08日 - 10时14分</p>
+        <p><span>最后更新:</span>2019年04月12日 - 20时12分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/04/04/swsadHw/swsadhw4/" title="系统分析与设计—hw4">http://yoursite.com/2019/04/04/swsadHw/swsadhw4/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/04/04/swsadHw/swsadhw4/　　作者: yezo13" title></span>
@@ -478,6 +556,15 @@
 
 
 <nav id="article-nav">
+  
+    <a href="/2019/04/08/swsadHw/UseCase/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
     <a href="/2019/04/01/deepLearning/IBC/" id="article-nav-older" class="article-nav-link-wrap">
@@ -493,7 +580,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简答题"><span class="toc-number">1.</span> <span class="toc-text">简答题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-用例的概念"><span class="toc-number">1.1.</span> <span class="toc-text">1. 用例的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-用例和场景的关系？什么是主场景或-happy-path？"><span class="toc-number">1.2.</span> <span class="toc-text">2. 用例和场景的关系？什么是主场景或 happy path？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-用例有哪些形式？"><span class="toc-number">1.3.</span> <span class="toc-text">3.用例有哪些形式？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-对于复杂业务，为什么编制完整用例非常难？"><span class="toc-number">1.4.</span> <span class="toc-text">4.对于复杂业务，为什么编制完整用例非常难？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-什么是用例图？"><span class="toc-number">1.5.</span> <span class="toc-text">5.什么是用例图？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-用例图的基本符号与元素？"><span class="toc-number">1.6.</span> <span class="toc-text">6.用例图的基本符号与元素？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-用例图的画法与步骤"><span class="toc-number">1.7.</span> <span class="toc-text">7.用例图的画法与步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-用例图给利益相关人与开发者的价值有哪些？"><span class="toc-number">1.8.</span> <span class="toc-text">8.用例图给利益相关人与开发者的价值有哪些？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、建模练习题（用例模型）"><span class="toc-number">2.</span> <span class="toc-text">2、建模练习题（用例模型）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#选择2-3个你熟悉的类似业务的在线服务系统（或移动-APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等，分别绘制它们用例图。并满足以下要求："><span class="toc-number">2.1.</span> <span class="toc-text">选择2-3个你熟悉的类似业务的在线服务系统（或移动 APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等，分别绘制它们用例图。并满足以下要求：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#然后，回答下列问题："><span class="toc-number">2.2.</span> <span class="toc-text">然后，回答下列问题：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么相似系统的用例图是相似的？"><span class="toc-number">2.3.</span> <span class="toc-text">为什么相似系统的用例图是相似的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如果是定旅馆业务，请对比-Asg-RH-用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术，如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用。"><span class="toc-number">2.4.</span> <span class="toc-text">如果是定旅馆业务，请对比 Asg_RH 用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术，如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#请使用-SCRUM-方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表"><span class="toc-number">2.5.</span> <span class="toc-text">请使用 SCRUM 方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#根据任务4，参考使用用例点估算软件成本，给出项目用例点的估算"><span class="toc-number">2.6.</span> <span class="toc-text">根据任务4，参考使用用例点估算软件成本，给出项目用例点的估算</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简答题"><span class="toc-number">1.</span> <span class="toc-text">简答题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-用例的概念"><span class="toc-number">1.1.</span> <span class="toc-text">1. 用例的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-用例和场景的关系？什么是主场景或-happy-path？"><span class="toc-number">1.2.</span> <span class="toc-text">2. 用例和场景的关系？什么是主场景或 happy path？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-用例有哪些形式？"><span class="toc-number">1.3.</span> <span class="toc-text">3.用例有哪些形式？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-对于复杂业务，为什么编制完整用例非常难？"><span class="toc-number">1.4.</span> <span class="toc-text">4.对于复杂业务，为什么编制完整用例非常难？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-什么是用例图？"><span class="toc-number">1.5.</span> <span class="toc-text">5.什么是用例图？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-用例图的基本符号与元素？"><span class="toc-number">1.6.</span> <span class="toc-text">6.用例图的基本符号与元素？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-用例图的画法与步骤"><span class="toc-number">1.7.</span> <span class="toc-text">7.用例图的画法与步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-用例图给利益相关人与开发者的价值有哪些？"><span class="toc-number">1.8.</span> <span class="toc-text">8.用例图给利益相关人与开发者的价值有哪些？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、建模练习题（用例模型）"><span class="toc-number">2.</span> <span class="toc-text">2、建模练习题（用例模型）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#选择2-3个你熟悉的类似业务的在线服务系统（或移动-APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等，分别绘制它们用例图。并满足以下要求："><span class="toc-number">2.1.</span> <span class="toc-text">选择2-3个你熟悉的类似业务的在线服务系统（或移动 APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等，分别绘制它们用例图。并满足以下要求：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#然后，回答下列问题："><span class="toc-number">2.2.</span> <span class="toc-text">然后，回答下列问题：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么相似系统的用例图是相似的？"><span class="toc-number">2.3.</span> <span class="toc-text">为什么相似系统的用例图是相似的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如果是定旅馆业务，请对比-Asg-RH-用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术。"><span class="toc-number">2.4.</span> <span class="toc-text">如果是定旅馆业务，请对比 Asg_RH 用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用"><span class="toc-number">2.5.</span> <span class="toc-text">如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#请使用-SCRUM-方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表"><span class="toc-number">2.6.</span> <span class="toc-text">请使用 SCRUM 方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#根据任务4，参考使用用例点估算软件成本，给出项目用例点的估算"><span class="toc-number">2.7.</span> <span class="toc-text">根据任务4，参考使用用例点估算软件成本，给出项目用例点的估算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#附录：一个简单的软件规模用例点数计算"><span class="toc-number">2.8.</span> <span class="toc-text">附录：一个简单的软件规模用例点数计算</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -566,7 +653,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2019/04/08/swsadHw/UseCase/" title="上一篇: ">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
@@ -575,7 +664,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/04/04/swsadHw/swsadhw4/">系统分析与设计—hw4</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/01/deepLearning/IBC/">Instance Based Classifiers</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/31/vueLearning/vueLearning3/">Vue学习笔记（3）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/30/SLAM/ch9_SLAM前端/">酸菜鱼的SLAM之旅（6）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/SLAM/ch8_视觉里程计2/">酸菜鱼的SLAM之旅（5）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/SLAM/ch7_视觉里程计1/">酸菜鱼的SLAM之旅（4）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/deepLearning/SVM/">支持向量机（SVM)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/vueLearning/vueLearning2/">Vue学习笔记（2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/25/deepLearning/梯度下降法的简单应用/">酸菜鱼的梯度下降法学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/25/SLAM/ch6_非线性优化/">酸菜鱼的SLAM之旅（3）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/SLAM/ch5_相机与图像/">酸菜鱼的SLAM之旅（2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/23/SLAM/ubuntu环境配置/">酸菜鱼的SLAM之旅（1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/vueLearning/vueLearning1/">Vue学习笔记（1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/swsadHw/swsadhw3/">系统分析与设计—hw3</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/swsadHw/swsadhw2/">系统分析与设计—hw2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/swsadHw/swsadhw1/">系统分析与设计—hw1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/Personal/hello-world/">BringMeFly</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/04/08/swsadHw/UseCase/">swsadHw/UseCase</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/04/swsadHw/swsadhw4/">系统分析与设计—hw4</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/01/deepLearning/IBC/">Instance Based Classifiers</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/31/vueLearning/vueLearning3/">Vue学习笔记（3）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/30/SLAM/ch9_SLAM前端/">酸菜鱼的SLAM之旅（6）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/SLAM/ch8_视觉里程计2/">酸菜鱼的SLAM之旅（5）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/SLAM/ch7_视觉里程计1/">酸菜鱼的SLAM之旅（4）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/deepLearning/SVM/">支持向量机（SVM)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/vueLearning/vueLearning2/">Vue学习笔记（2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/25/deepLearning/梯度下降法的简单应用/">酸菜鱼的梯度下降法学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/25/SLAM/ch6_非线性优化/">酸菜鱼的SLAM之旅（3）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/SLAM/ch5_相机与图像/">酸菜鱼的SLAM之旅（2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/23/SLAM/ubuntu环境配置/">酸菜鱼的SLAM之旅（1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/vueLearning/vueLearning1/">Vue学习笔记（1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/swsadHw/swsadhw3/">系统分析与设计—hw3</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/swsadHw/swsadhw2/">系统分析与设计—hw2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/swsadHw/swsadhw1/">系统分析与设计—hw1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/Personal/hello-world/">BringMeFly</a></li></ul>
     
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
