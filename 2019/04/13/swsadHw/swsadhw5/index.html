@@ -67,18 +67,6 @@
         isCategory: false,
         open_in_new: false
     }
-
-    var password = promt('请输入文章密码');
-    alert(password);
-
-    (function() {
-        if ('{{ page.password }}') {
-            if (prompt('请输入文章密码') !== '{{ page.password }}') {
-                alert('密码错误！');
-                history.back();
-            }
-        }
-    })();
     </script>
 </head></html>
 <body>
@@ -463,15 +451,6 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/04/15/vueLearning/vueLearning1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Vue学习笔记（1）
-        
-      </div>
-    </a>
-  
   
     <a href="/2019/04/08/swsadHw/UseCase/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
@@ -559,9 +538,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/04/15/vueLearning/vueLearning1/" title="上一篇: Vue学习笔记（1）">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
@@ -570,7 +547,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/04/15/vueLearning/vueLearning1/">Vue学习笔记（1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/13/swsadHw/swsadhw5/">系统分析与设计—hw5</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/08/swsadHw/UseCase/">swsadHw/UseCase</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/04/swsadHw/swsadhw4/">系统分析与设计—hw4</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/01/deepLearning/IBC/">Instance Based Classifiers</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/31/vueLearning/vueLearning3/">Vue学习笔记（3）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/30/SLAM/ch9_SLAM前端/">酸菜鱼的SLAM之旅（6）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/SLAM/ch8_视觉里程计2/">酸菜鱼的SLAM之旅（5）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/SLAM/ch7_视觉里程计1/">酸菜鱼的SLAM之旅（4）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/deepLearning/SVM/">支持向量机（SVM)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/vueLearning/vueLearning2/">Vue学习笔记（2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/25/deepLearning/梯度下降法的简单应用/">酸菜鱼的梯度下降法学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/25/SLAM/ch6_非线性优化/">酸菜鱼的SLAM之旅（3）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/SLAM/ch5_相机与图像/">酸菜鱼的SLAM之旅（2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/23/SLAM/ubuntu环境配置/">酸菜鱼的SLAM之旅（1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/swsadHw/swsadhw3/">系统分析与设计—hw3</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/swsadHw/swsadhw2/">系统分析与设计—hw2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/swsadHw/swsadhw1/">系统分析与设计—hw1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/Personal/hello-world/">BringMeFly</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/04/13/swsadHw/swsadhw5/">系统分析与设计—hw5</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/08/swsadHw/UseCase/">swsadHw/UseCase</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/04/swsadHw/swsadhw4/">系统分析与设计—hw4</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/01/deepLearning/IBC/">Instance Based Classifiers</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/31/vueLearning/vueLearning3/">Vue学习笔记（3）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/30/SLAM/ch9_SLAM前端/">酸菜鱼的SLAM之旅（6）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/SLAM/ch8_视觉里程计2/">酸菜鱼的SLAM之旅（5）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/SLAM/ch7_视觉里程计1/">酸菜鱼的SLAM之旅（4）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/deepLearning/SVM/">支持向量机（SVM)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/vueLearning/vueLearning2/">Vue学习笔记（2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/25/deepLearning/梯度下降法的简单应用/">酸菜鱼的梯度下降法学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/25/SLAM/ch6_非线性优化/">酸菜鱼的SLAM之旅（3）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/SLAM/ch5_相机与图像/">酸菜鱼的SLAM之旅（2）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/23/SLAM/ubuntu环境配置/">酸菜鱼的SLAM之旅（1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/vueLearning/vueLearning1/">Vue学习笔记（1）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/swsadHw/swsadhw3/">系统分析与设计—hw3</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/swsadHw/swsadhw2/">系统分析与设计—hw2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/swsadHw/swsadhw1/">系统分析与设计—hw1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/Personal/hello-world/">BringMeFly</a></li></ul>
     
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
@@ -699,5 +676,5 @@ ga('send', 'pageview');
 
 
   </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":200},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":200},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
