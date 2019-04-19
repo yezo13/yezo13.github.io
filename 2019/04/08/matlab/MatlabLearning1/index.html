@@ -10,33 +10,44 @@
     
     <title>
         
-        系统分析与设计—hw5 |
+        matlab子函数整理 |
         
         Yezo13
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="使用UMLet建模">
+    <meta name="description" content="根据《数字信号处理》老师给出的PPT整理，权当学习记录。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="系统分析与设计—hw5">
-<meta property="og:url" content="http://yoursite.com/2019/04/13/swsadHw/swsadhw5/index.html">
+<meta property="og:title" content="matlab子函数整理">
+<meta property="og:url" content="http://yoursite.com/2019/04/08/matlab/MatlabLearning1/index.html">
 <meta property="og:site_name" content="Yezo13">
-<meta property="og:description" content="使用UMLet建模">
+<meta property="og:description" content="根据《数字信号处理》老师给出的PPT整理，权当学习记录。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://s2.ax1x.com/2019/04/13/ALB1DH.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/04/13/ALBMvD.png">
-<meta property="og:image" content="https://images.cnblogs.com/cnblogs_com/ywqu/Activity%20Diagram/NDecision-and-Merge-Nodes.gif">
-<meta property="og:image" content="https://images.cnblogs.com/cnblogs_com/ywqu/Activity%20Diagram/NForkandJoinNodes.gif">
-<meta property="og:image" content="https://images.cnblogs.com/cnblogs_com/ywqu/Activity%20Diagram/NFinal-Node.gif">
-<meta property="og:image" content="https://images.cnblogs.com/cnblogs_com/ywqu/Activity%20Diagram/Nflow-final.gif">
-<meta property="og:image" content="https://s2.ax1x.com/2019/04/13/ALBKgO.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/04/13/ALBnC6.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/04/13/ALBu8K.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/04/13/ALBlKe.png">
-<meta property="og:updated_time" content="2019-04-13T10:01:03.050Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190408212829713.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190408213026281.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190408213850812.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190408230321340.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190408230713335.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190408231156725.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190408232055671.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019040823210462.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190408232121328.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190408232230410.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190408232249662.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190408232302921.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190408232319830.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190408232327628.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190408232337634.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190408232410507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190408232422776.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019040823243873.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190408232445707.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190408232450854.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190408232515695.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-04-19T11:27:03.143Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="系统分析与设计—hw5">
-<meta name="twitter:description" content="使用UMLet建模">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/13/ALB1DH.png">
+<meta name="twitter:title" content="matlab子函数整理">
+<meta name="twitter:description" content="根据《数字信号处理》老师给出的PPT整理，权当学习记录。">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190408212829713.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70">
     
     <link rel="alternative" href="/atom.xml" title="Yezo13" type="application/atom+xml">
     
@@ -262,11 +273,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-swsadHw/swsadhw5" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-matlab/MatlabLearning1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/04/13/swsadHw/swsadhw5/" class="article-date">
-      <time datetime="2019-04-13T06:49:55.618Z" itemprop="datePublished">2019-04-13</time>
+      <a href="/2019/04/08/matlab/MatlabLearning1/" class="article-date">
+      <time datetime="2019-04-08T13:05:59.242Z" itemprop="datePublished">2019-04-08</time>
 </a>
 
     </div>
@@ -280,7 +291,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      系统分析与设计—hw5
+      matlab子函数整理
     </h1>
   
 
@@ -298,134 +309,153 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>使用UMLet建模</p>
+        <p>根据《数字信号处理》老师给出的PPT整理，权当学习记录。</p>
 <a id="more"></a>
-<p>##1.根据订旅馆建模文档，Asg-RH.pdf：</p>
+<h3 id="Matlab子函数"><a href="#Matlab子函数" class="headerlink" title="Matlab子函数"></a>Matlab子函数</h3><p>一些《数字信号处理》实验上常用的子函数:</p>
 <ul>
-<li>绘制用例图模型（到子用例）</li>
-<li>给出 make reservation 用例的活动图</li>
+<li>abs：求绝对值<ul>
+<li>调用格式：y = abs(x) ;计算x的绝对值</li>
+<li>当x为复数时，得到的是复数模(幅值)、</li>
+<li>当x为字符串时，abs(x)得到字符串的各个字符的ASCII码，例如x＝‘123’，则abs(x)＝49 50 51；输入abs(‘abc’)，则ans＝97 98 99。</li>
 </ul>
-<h3 id="绘制订旅馆的用例图模型"><a href="#绘制订旅馆的用例图模型" class="headerlink" title="绘制订旅馆的用例图模型"></a>绘制订旅馆的用例图模型</h3><p>对于<a href="https://sysu-swsad.github.io/swad-guide/material/Asg_RH.pdf" target="_blank" rel="noopener">Asg-RH.pdf</a>给出的订旅馆文档，我们可以简单归纳出以下的用例和子用例的结构关系：</p>
+</li>
+</ul>
+<hr>
 <ul>
-<li>搜索旅馆<ul>
-<li>输入城市信息</li>
-<li>输入日期信息</li>
-<li>排序</li>
-<li>推荐</li>
-</ul>
-</li>
-<li>预定旅馆<ul>
-<li>搜索旅馆</li>
-<li>选择旅馆<ul>
-<li>查看详情</li>
-</ul>
-</li>
-<li>选择房间类型</li>
-<li>确定预定（加入购物车）<ul>
-<li>完善客户信息</li>
+<li>sqrt：求开方<ul>
+<li>调用格式： d = sqrt(x) ；计算根号x的值</li>
 </ul>
 </li>
 </ul>
-</li>
-<li>购物车<ul>
-<li>添加商品</li>
-<li>完善预定商品信息</li>
-<li>选择付款</li>
-<li>移除商品</li>
-</ul>
-</li>
-<li>支付<ul>
-<li>选择支付账户<ul>
-<li>调用外部API</li>
-</ul>
-</li>
-<li>完善账户信息</li>
-</ul>
-</li>
-</ul>
-<h4 id="因此我们可以作出用例图如下"><a href="#因此我们可以作出用例图如下" class="headerlink" title="因此我们可以作出用例图如下:"></a>因此我们可以作出用例图如下:</h4><p><img src="https://s2.ax1x.com/2019/04/13/ALB1DH.png" alt="ALB1DH.png"></p>
-<h3 id="给出上述用例的活动图"><a href="#给出上述用例的活动图" class="headerlink" title="给出上述用例的活动图"></a>给出上述用例的活动图</h3><p>####上例的活动图如下图所示：</p>
-<p><img src="https://s2.ax1x.com/2019/04/13/ALBMvD.png" alt="ALBMvD.png"></p>
-<h4 id="补充一些关于活动图的概念："><a href="#补充一些关于活动图的概念：" class="headerlink" title="补充一些关于活动图的概念："></a>补充一些关于活动图的概念：</h4><ol>
-<li><p>系统（System）：图中的大方框，表示系统（程序）或者是子系统（部件），里面包含外部可见的功能。上例中指的就是酒店订房系统。</p>
-</li>
-<li><p>开始点（Initial）：系统中最上方的实心点，标志着工作流的开始。</p>
-</li>
-<li><p>活动状态图（Activity）：圆角方框，表示一个活动，可以分解成其他子活动或者动作状态。例如找酒店、下订单等。</p>
-</li>
-<li><p>动作状态（Actions）：圆角方框，表示一个动作，是原子的、不可中断的动作，是构造活动图的最小单位。此动作完成后通过完成转换转向另一个状态。</p>
-</li>
-<li><p>动作流（Control Flow）：动作之间的转换称之为动作流，活动图的转换用带箭头的直线表示，箭头的方向指向转入的方向。</p>
-</li>
-<li><p>分支与合并（Decision and Merge Nodes）：菱形，表示当前的步骤具有多个选择和多个后继动作；也可以表示多个动作具有同一个后继动作。例如，选好房型后，可以进入进一步的确认，也可以返回修改成其它房型。</p>
-<p> <img src="https://images.cnblogs.com/cnblogs_com/ywqu/Activity%20Diagram/NDecision-and-Merge-Nodes.gif" alt></p>
-</li>
-<li><p>分叉与汇合（Fork and Join Nodes）：粗线表示，对象在运行时可能会存在两个或多个并发运行的控制流，为了对并发的控制流建模，UML中引入了分叉与汇合的概念。分叉用于将动作流分为两个或多个并发运行的分支，而汇合则用于同步这些并发分支，以达到共同完成一项事务的目的。例如，查找酒店的方法不止一种，可以搜索栏搜索，也可以查表搜索。但找到酒店后都会进入选择房型的动作。</p>
-<p> <img src="https://images.cnblogs.com/cnblogs_com/ywqu/Activity%20Diagram/NForkandJoinNodes.gif" alt></p>
-</li>
-<li><p>终止节点（Final Node）</p>
+<hr>
 <ul>
-<li>活动终止节点(activity final nods),图中中心为实心点的同心圆，标志着整个活动的结束。</li>
-<li><img src="https://images.cnblogs.com/cnblogs_com/ywqu/Activity%20Diagram/NFinal-Node.gif" alt></li>
-<li>流程终止节点(flow final nods)，中心为“X”的圆，标志着子流程的结束。</li>
-<li><img src="https://images.cnblogs.com/cnblogs_com/ywqu/Activity%20Diagram/Nflow-final.gif" alt></li>
+<li>plot:按线性比例关系，在x和y两个方向上绘制二维图形。<ul>
+<li>调用格式:<ul>
+<li>plot(x，y)；绘制以x为横轴、y为纵轴的线性图形</li>
+<li>plot(x1，y1，x2，y2，…)；在同一坐标系上绘制多组x元素对y元素的线性图形。</li>
 </ul>
 </li>
-</ol>
-<p>##2、根据课程练习“投递员使用投递箱给收件人快递包裹”的业务场景</p>
+</ul>
+</li>
+</ul>
+<hr>
 <ul>
-<li>分别用多泳道图建模三个场景的业务过程</li>
-<li>根据上述流程，给出快递柜系统最终的用例图模型<ul>
-<li>用正常色彩表示第一个业务流程反映的用例</li>
-<li>用绿色背景表述第二个业务场景添加或修改的用例，以及支持 Actor</li>
-<li>用黄色背景表述第三个业务场景添加或修改的用例，以及支持 Actor</li>
+<li>stem:绘制二维脉冲杆图（离散序列）图形<ul>
+<li>调用格式： stem（x,y);绘制以x为横轴、y为纵轴的脉冲杆图图形</li>
+<li>图的形状如下图：            </li>
 </ul>
 </li>
 </ul>
-<h3 id="场景1：x科技公司发明了投递柜，它们自建了投递柜以及远程控制系统。注册的投递员在推广期免费使用投递柜。由于缺乏资源，仅能使用y移动平台向客户发送短信通知。"><a href="#场景1：x科技公司发明了投递柜，它们自建了投递柜以及远程控制系统。注册的投递员在推广期免费使用投递柜。由于缺乏资源，仅能使用y移动平台向客户发送短信通知。" class="headerlink" title="场景1：x科技公司发明了投递柜，它们自建了投递柜以及远程控制系统。注册的投递员在推广期免费使用投递柜。由于缺乏资源，仅能使用y移动平台向客户发送短信通知。"></a>场景1：x科技公司发明了投递柜，它们自建了投递柜以及远程控制系统。注册的投递员在推广期免费使用投递柜。由于缺乏资源，仅能使用y移动平台向客户发送短信通知。</h3><ul>
-<li>职能部门：投递柜及OS（x公司）、投递员、移动平台、客户</li>
-<li>工作流程：<ol>
-<li>投递员（注册并）登陆系统</li>
-<li>投递员投递快递到投递柜</li>
-<li>投递柜存储快件</li>
-<li>移动平台检测快递信息，向客户发送短信通知</li>
-<li>客户收到短信并取件</li>
-</ol>
-</li>
+<p><img src="https://img-blog.csdnimg.cn/20190408212829713.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li><p>stairs：绘制二维阶梯图图形</p>
+<ul>
+<li>调用格式：stairs(x,y)</li>
 </ul>
-<h4 id="泳道图如下"><a href="#泳道图如下" class="headerlink" title="泳道图如下:"></a>泳道图如下:</h4><p><img src="https://s2.ax1x.com/2019/04/13/ALBKgO.png" alt="ALBKgO.png"></p>
-<h3 id="场景2：随着产品推广，x公司与各大快递z公司达成协议。x公司在快递柜上添加了二维码扫描装置，z公司的快递员不仅可在快递柜上登陆（由z公司提供认证服务），且可扫描快递单号，投递入柜后自动由z公司发短信给客户。客户取件后，自动发送给z公司投递完成。"><a href="#场景2：随着产品推广，x公司与各大快递z公司达成协议。x公司在快递柜上添加了二维码扫描装置，z公司的快递员不仅可在快递柜上登陆（由z公司提供认证服务），且可扫描快递单号，投递入柜后自动由z公司发短信给客户。客户取件后，自动发送给z公司投递完成。" class="headerlink" title="场景2：随着产品推广，x公司与各大快递z公司达成协议。x公司在快递柜上添加了二维码扫描装置，z公司的快递员不仅可在快递柜上登陆（由z公司提供认证服务），且可扫描快递单号，投递入柜后自动由z公司发短信给客户。客户取件后，自动发送给z公司投递完成。"></a>场景2：随着产品推广，x公司与各大快递z公司达成协议。x公司在快递柜上添加了二维码扫描装置，z公司的快递员不仅可在快递柜上登陆（由z公司提供认证服务），且可扫描快递单号，投递入柜后自动由z公司发短信给客户。客户取件后，自动发送给z公司投递完成。</h3><ul>
-<li>职能部门：投递柜及OS（x公司）、快递员、z公司（认证&amp;短信）、客户</li>
-<li>工作流程：<ul>
-<li>投递员登陆系统</li>
-<li>投递员扫描快递号投递</li>
-<li>投递柜存储快件</li>
-<li>z公司检测到快递入柜，发短信通知客户</li>
-<li>客户收到信息并取件</li>
-<li>取件完成后快递柜系统通知z公司投递完成</li>
+<p><img src="https://img-blog.csdnimg.cn/20190408213026281.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p>subplot：建立子图轴系，在同一个图形界面上产生多个绘图区间</p>
+<ul>
+<li>调用格式：subplot(m,n,i）+  stairs(x,y)(某绘图的语句）</li>
+<li>解释上面的代码：子图系是m<em>n的，要把下面的图画在第几个位置（1开始，m</em>n是最后一个）</li>
+<li>调用形式及效果如下:</li>
 </ul>
 </li>
 </ul>
-<h4 id="泳道图如下-1"><a href="#泳道图如下-1" class="headerlink" title="泳道图如下:"></a>泳道图如下:</h4><p><img src="https://s2.ax1x.com/2019/04/13/ALBnC6.png" alt="ALBnC6.png"></p>
-<h3 id="场景3如下：x公司进一步优化服务，开发了微信小程序实现扫码取快递。如果用户关注了该公司公众号，直接通过过公众号推送给用户取件码等信息。不再发送短信。"><a href="#场景3如下：x公司进一步优化服务，开发了微信小程序实现扫码取快递。如果用户关注了该公司公众号，直接通过过公众号推送给用户取件码等信息。不再发送短信。" class="headerlink" title="场景3如下：x公司进一步优化服务，开发了微信小程序实现扫码取快递。如果用户关注了该公司公众号，直接通过过公众号推送给用户取件码等信息。不再发送短信。"></a>场景3如下：x公司进一步优化服务，开发了微信小程序实现扫码取快递。如果用户关注了该公司公众号，直接通过过公众号推送给用户取件码等信息。不再发送短信。</h3><ul>
-<li>职能部门：投递柜及OS（x公司）、快递员、z公司（认证）、客户、微信小程序（公众号）</li>
-<li>工作流程：<ul>
-<li>投递员登陆系统</li>
-<li>投递员扫描快递号投递</li>
-<li>投递柜存储快件</li>
-<li>z公司检测到快递入柜，公众号/短信通知客户</li>
-<li>客户收到公众号消息/短信，微信小程序扫码取快递</li>
-<li>取件完成后快递柜系统通知z公司投递完成</li>
+<p><img src="https://img-blog.csdnimg.cn/20190408213850812.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li><p>一些给图形做标注的函数：（对上方最近的绘图指令生效）</p>
+<ul>
+<li>title：在图形的上方标注图名<ul>
+<li>调用格式：title(“string”) </li>
+</ul>
+</li>
+<li>xlabel：在横坐标的下方标注说明<ul>
+<li>调用格式：xlabel(“string”) </li>
+</ul>
+</li>
+<li>ylabel：在纵坐标的左侧标注说明<ul>
+<li>调用格式：ylabel(“string”)</li>
+</ul>
+</li>
+<li>axis：限定图形坐标的范围<ul>
+<li>调用格式：axis([x1,x2,y1,y2]); %横坐标范围为[x1,x2]，纵坐标范围为[y1,y2]</li>
 </ul>
 </li>
 </ul>
-<h4 id="泳道图如下-2"><a href="#泳道图如下-2" class="headerlink" title="泳道图如下:"></a>泳道图如下:</h4><p><img src="https://s2.ax1x.com/2019/04/13/ALBu8K.png" alt="ALBu8K.png"></p>
-<h3 id="根据上述流程，给出快递柜系统最终的用例图模型"><a href="#根据上述流程，给出快递柜系统最终的用例图模型" class="headerlink" title="根据上述流程，给出快递柜系统最终的用例图模型"></a>根据上述流程，给出快递柜系统最终的用例图模型</h3><ul>
-<li>用正常色彩表示第一个业务流程反映的用例</li>
-<li>用绿色背景表述第二个业务场景添加或修改的用例，以及支持 Actor</li>
-<li>用黄色背景表述第三个业务场景添加或修改的用例，以及支持 Actor</li>
+</li>
+<li><p>一些简单的数组赋值方法：</p>
+<ul>
+<li>A  =  [123;456;789]  %生成一个按照给定的3*1的数组</li>
+<li>A(4,2) = 11 %将原数组扩充为4*2的大小，然后给对应的位置赋值</li>
+<li>A(5,:) = [13,14] %给数组A的第5行整行赋值，此时右边数组必须跟原数组的大小相同，即如果原数组为5列的，右边赋值的数组元素只能是1个（全部赋值为同一个）或者5个</li>
+<li>数组直接与常数运算是可行的，如A/2 就是把数组A中的每一个元素都除以2</li>
+<li>数组的值可以赋为复数</li>
+<li>同理可以对复数的数组取反等操作</li>
+<li>t = 0:0.05:3  %赋值均匀分布的数组，区间为3，间隔为0.05</li>
+<li>求数组（或变量的长度）： N = length(t)</li>
+<li>取复数的实部&amp;虚部：X = real(h) ； X = imag(h)</li>
 </ul>
-<h4 id="用例图如下"><a href="#用例图如下" class="headerlink" title="用例图如下:"></a>用例图如下:</h4><p><img src="https://s2.ax1x.com/2019/04/13/ALBlKe.png" alt="ALBlKe.png"></p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>一些产生波形的函数</p>
+<ul>
+<li>sinc：产生sinc函数波形<ul>
+<li>调用格式： x = sinc(t)，可用于计算下列函数：<br><img src="https://img-blog.csdnimg.cn/20190408230321340.png" alt="在这里插入图片描述"></li>
+<li>这个函数是宽度为2pai，幅度为1的矩形脉冲的连续逆傅里叶变换，即<br><img src="https://img-blog.csdnimg.cn/20190408230713335.png" alt="在这里插入图片描述"></li>
+</ul>
+</li>
+<li><p>diric：产生dirichlet或周期sinc函数</p>
+<ul>
+<li>调用格式：y = diric(x,n)；n为正整数，y为对应的x元素的dirichlet函数，如下:<br><img src="https://img-blog.csdnimg.cn/20190408231156725.png" alt="在这里插入图片描述"></li>
+</ul>
+</li>
+<li><p>rand：生成随机信号</p>
+<ul>
+<li>调用格式：x = rand(n,m) %产生一组具有n行m列的随机信号</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="时域离散信号"><a href="#时域离散信号" class="headerlink" title="时域离散信号"></a>时域离散信号</h3><ul>
+<li>概念：在时间轴的离散点上取值的信号，称为离散时间信号。通常，离散时间信号用x(n)表示，其幅度可以在某一范围内连续取值。</li>
+<li>由于信号处理所使用的设备和装置主要是计算机或专用的信号处理芯片，均以有限的位数来表示信号的幅度，因此，信号的幅度也必须“量化”，即取离散值。我们把<strong>时间和幅度上均取离散值</strong>的信号称为时域离散信号或数字信号。</li>
+</ul>
+<h4 id="常用的时域离散信号"><a href="#常用的时域离散信号" class="headerlink" title="常用的时域离散信号"></a>常用的时域离散信号</h4><ul>
+<li>单位抽样序列</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190408232055671.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2019040823210462.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">     </p>
+<ul>
+<li>单位阶跃序列</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190408232121328.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190408232230410.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>实指数序列</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190408232249662.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190408232302921.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>复指数序列</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190408232319830.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190408232327628.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>正（余）弦序列</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190408232337634.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190408232410507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>锯齿波序列</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190408232422776.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2019040823243873.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>矩形波序列</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190408232445707.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190408232450854.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>随机序列</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190408232515695.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llem8xMw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 
       
     </div>
@@ -434,13 +464,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/04/13/swsadHw/swsadhw5/">系统分析与设计—hw5</a></p>
+        <p><span>本文标题:</span><a href="/2019/04/08/matlab/MatlabLearning1/">matlab子函数整理</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 yezo13 的个人博客">yezo13</a></p>
-        <p><span>发布时间:</span>2019年04月13日 - 14时49分</p>
-        <p><span>最后更新:</span>2019年04月13日 - 18时01分</p>
+        <p><span>发布时间:</span>2019年04月08日 - 21时05分</p>
+        <p><span>最后更新:</span>2019年04月19日 - 19时27分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/04/13/swsadHw/swsadhw5/" title="系统分析与设计—hw5">http://yoursite.com/2019/04/13/swsadHw/swsadhw5/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/04/13/swsadHw/swsadhw5/　　作者: yezo13" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/04/08/matlab/MatlabLearning1/" title="matlab子函数整理">http://yoursite.com/2019/04/08/matlab/MatlabLearning1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/04/08/matlab/MatlabLearning1/　　作者: yezo13" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -451,9 +481,18 @@
 
 <nav id="article-nav">
   
+    <a href="/2019/04/08/swsadHw/UseCase/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
-    <a href="/2019/04/08/swsadHw/UseCase/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+  
+    <a href="/2019/04/04/swsadHw/swsadhw4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">系统分析与设计—hw4</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -465,7 +504,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制订旅馆的用例图模型"><span class="toc-number">1.</span> <span class="toc-text">绘制订旅馆的用例图模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#因此我们可以作出用例图如下"><span class="toc-number">1.1.</span> <span class="toc-text">因此我们可以作出用例图如下:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#给出上述用例的活动图"><span class="toc-number">2.</span> <span class="toc-text">给出上述用例的活动图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#补充一些关于活动图的概念："><span class="toc-number">2.1.</span> <span class="toc-text">补充一些关于活动图的概念：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#场景1：x科技公司发明了投递柜，它们自建了投递柜以及远程控制系统。注册的投递员在推广期免费使用投递柜。由于缺乏资源，仅能使用y移动平台向客户发送短信通知。"><span class="toc-number">3.</span> <span class="toc-text">场景1：x科技公司发明了投递柜，它们自建了投递柜以及远程控制系统。注册的投递员在推广期免费使用投递柜。由于缺乏资源，仅能使用y移动平台向客户发送短信通知。</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#泳道图如下"><span class="toc-number">3.1.</span> <span class="toc-text">泳道图如下:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#场景2：随着产品推广，x公司与各大快递z公司达成协议。x公司在快递柜上添加了二维码扫描装置，z公司的快递员不仅可在快递柜上登陆（由z公司提供认证服务），且可扫描快递单号，投递入柜后自动由z公司发短信给客户。客户取件后，自动发送给z公司投递完成。"><span class="toc-number">4.</span> <span class="toc-text">场景2：随着产品推广，x公司与各大快递z公司达成协议。x公司在快递柜上添加了二维码扫描装置，z公司的快递员不仅可在快递柜上登陆（由z公司提供认证服务），且可扫描快递单号，投递入柜后自动由z公司发短信给客户。客户取件后，自动发送给z公司投递完成。</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#泳道图如下-1"><span class="toc-number">4.1.</span> <span class="toc-text">泳道图如下:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#场景3如下：x公司进一步优化服务，开发了微信小程序实现扫码取快递。如果用户关注了该公司公众号，直接通过过公众号推送给用户取件码等信息。不再发送短信。"><span class="toc-number">5.</span> <span class="toc-text">场景3如下：x公司进一步优化服务，开发了微信小程序实现扫码取快递。如果用户关注了该公司公众号，直接通过过公众号推送给用户取件码等信息。不再发送短信。</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#泳道图如下-2"><span class="toc-number">5.1.</span> <span class="toc-text">泳道图如下:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#根据上述流程，给出快递柜系统最终的用例图模型"><span class="toc-number">6.</span> <span class="toc-text">根据上述流程，给出快递柜系统最终的用例图模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例图如下"><span class="toc-number">6.1.</span> <span class="toc-text">用例图如下:</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Matlab子函数"><span class="toc-number">1.</span> <span class="toc-text">Matlab子函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#时域离散信号"><span class="toc-number">2.</span> <span class="toc-text">时域离散信号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#常用的时域离散信号"><span class="toc-number">2.1.</span> <span class="toc-text">常用的时域离散信号</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -538,11 +577,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2019/04/08/swsadHw/UseCase/" title="上一篇: ">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/04/08/swsadHw/UseCase/" title="下一篇: ">
+            <a href="/2019/04/04/swsadHw/swsadhw4/" title="下一篇: 系统分析与设计—hw4">
                 <i class="fa fa-angle-right"></i>
             </a>
         
