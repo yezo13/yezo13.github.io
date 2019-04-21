@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/03/21/vueLearning/vueLearning1/</loc>
+    
+    <lastmod>2019-04-21T15:05:14.229Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/04/20/matlab/dsp_ch4/</loc>
     
     <lastmod>2019-04-20T12:46:10.490Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://yoursite.com/2019/04/08/matlab/MatlabLearning1/</loc>
     
     <lastmod>2019-04-19T11:27:03.143Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/03/21/vueLearning/vueLearning1/</loc>
-    
-    <lastmod>2019-04-15T04:54:22.179Z</lastmod>
     
   </url>
   
