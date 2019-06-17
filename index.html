@@ -279,161 +279,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<p>Vuex简单实践</p>
-<h2 id="Vuex简介"><a href="#Vuex简介" class="headerlink" title="Vuex简介"></a>Vuex简介</h2><p>在构建一个具有一定规模的Vue项目时，我们经常会遇到不同的页面(vue文件）需要调用相同变量，即多个组件共享状态的情况。如：</p>
-<ul>
-<li>多个视图依赖于同一个状态（变量）</li>
-<li>来自不同视图的行为需要变更同一个状态（变量)</li>
-</ul>
-<p>这个时候单纯使用传参的方法或者使用多份状态的拷贝、通过事件来变更都会影响代码的复杂度、可维护性和程序的鲁棒性。因此，Vue提出了Vuex，通过将这些需要被共享的状态和变量单独抽取，以全局单例模式来管理。Vuex官网对Vuex的定义如下：</p>
-<blockquote>
-<p><strong>每一个 Vuex 应用的核心就是 store（仓库）</strong>。“store”基本上就是一个容器，它包含着你的应用中大部分的状态 (state)。Vuex 和单纯的<strong>全局对象</strong>有以下两点不同：</p>
-<ul>
-<li><p>Vuex 的状态存储是<strong>响应式</strong>的。当 Vue 组件从 store 中读取状态的时候，若 store 中的状态发生变化，那么相应的组件也会相应地得到高效更新。</p>
-</li>
-<li><p>你<strong>不能直接改变 store 中的状态</strong>。改变 store 中的状态的唯一途径就是显式地提交 (commit) mutation。这样使得我们可以方便地跟踪每一个状态的变化，从而让我们能够实现一些工具帮助我们更好地了解我们的应用。</p>
-</li>
-</ul>
-</blockquote>
-<p>下面的图是vuex、vue组件和应用的关系的可视化：</p>
-<p><img src="https://s2.ax1x.com/2019/06/17/VHf5p4.png" alt="VHf5p4.png"></p>
-<h2 id="应用Vuex实践"><a href="#应用Vuex实践" class="headerlink" title="应用Vuex实践"></a>应用Vuex实践</h2><p>以一个简单的问卷系统项目为例，项目中关于个人信息的属性（为了简单起见，我们只加入姓名和id两个属性）在项目中的大部分vue组件都会被使用（如问卷填写界面、首页、个人信息界面等），且不同视图中的行为可能会对这个属性进行修改（如登陆业面、个人信息页面等），此时如果在所有vue组件中都对这部分信息进行一次定义、通过传参等方式来实现属性间的同步显然是难以编程和维护的。因此，我们需要使用Vuex来构建<strong>单一状态树</strong>，将个人信息的<strong>属性放入store实例</strong>中，并<strong>将状态和状态变更事件分布到各个模块中。</strong></p>
-<p>先通过<code>npm install vuex --save</code> 安装vuex，然后就可以在代码文件中引用。</p>
-<p>构建出以下的项目框架(只列出与个人信息相关的文件）：</p>
-<pre><code>├── index.html
-├── main.js
-├── api
-│   └── ...
-├── Views
-│   ├── Personal.vue
-│   └── ...
-└── store
-    └── personal    
-        ├── actions.js   
-        ├── mutations.js  
-        ├── state.js     
-        ├── getter.js  
-        └── Modules 
-            └── ...    
-    └── ...     
-</code></pre><p>store/personal目录下的js文件构成了Vuex实例，创建了store的实例并提供了在vue组件中调用操作的方法。下面结合具体代码来讲解应用方法：</p>
-<h3 id="state"><a href="#state" class="headerlink" title="state"></a>state</h3><p>state文件中引入了vuex，创建了一个store实例并定义了其包含的属性和初始值。</p>
-<pre><code>//state.js
-import Vue from &apos;vue&apos;
-import Vuex from &apos;vuex&apos;
-import actions from &apos;./actions.js&apos;
-import mutations from &apos;./mutations.js&apos;
-import getters from &apos;./getters.js&apos;
-
-Vue.use(Vuex)  //引入vueX
-
-const Personal = {
-    namespaced: true,
-    state: {
-        personalInfo: {
-            name: &apos;Yezo&apos;,
-            id: 0
-        }
-    },
-    actions,
-    mutations,
-    getters
-}
-
-export default Personal
-</code></pre><h3 id="mutation"><a href="#mutation" class="headerlink" title="mutation"></a>mutation</h3><p>上面说到，更改vuex的store中的状态的唯一方法就是显式地提交mutation请求。因此，mutation里面定义了一系列修改store状态中属性的方法，我们可以在actions.js文件和vue组件中调用。</p>
-<pre><code>//mutations.js
-import Vue from &apos;vue&apos;
-export const SET_PER_INFO = &apos;SET_PER_INFO&apos; //常量
-
-export default {
-    [SET_PER_INFO](state, info) {
-        state.personalInfo = info  //同步操作
-    }
-}
-</code></pre><p>下面是一些关于mutation的性质：</p>
-<ul>
-<li>mutation接受state作为第一个参数</li>
-<li>在上面的代码中使用常量替代 Mutation 事件类型，提升代码的可读性</li>
-<li><strong>mutation必须是同步函数</strong>，这是因为回调函数中状态改变是不可追踪的。</li>
-</ul>
-<h3 id="action"><a href="#action" class="headerlink" title="action"></a>action</h3><p>在上面提到mutation只能处理同步函数，action的方法中调用了mutation的方法，同时可以包含异步操作。也就是说，action本身不更改store的状态，而是提交一个mutation。这也维护了vuex只有mutation的显式调用可以更改store状态这一原则。</p>
-<pre><code>//actions.js
-import * as mutations from &apos;./mutations.js&apos;
-import * as personalAPI from &apos;./../../api/personal.js&apos;
-
-export const GET_INFO = &apos;GET_INFO&apos;
-export const UPDATE_INFO = &apos;UPDATE_INFO&apos;
-
-export default {
-    [GET_INFO]({ commit }) { //action操作
-        personalAPI.getPersonalInfo().then((info) =&gt; {//这里调用API获得个人信息
-            commit(mutations.SET_PER_INFO, info.data)//提交一个mutation操作，更新store的状态
-        })
-    },
-    [UPDATE_INFO]({ state, commit }) {
-        let data = state.personalInfo;
-        console.log(&quot;data in actions:&quot; + data);
-        personalAPI.setPersonalInfo(data).then((info) =&gt; {//这里调用另一个api往服务器写个人信息的更新
-            commit(mutations.SET_PER_INFO, data)
-        })
-    }
-}
-</code></pre><p>更多关于action的应用可以参考<a href="https://vuex.vuejs.org/zh/guide/actions.html" target="_blank" rel="noopener">vuex的官方教程</a></p>
-<h3 id="getter和modules"><a href="#getter和modules" class="headerlink" title="getter和modules"></a>getter和modules</h3><p><a href="https://vuex.vuejs.org/zh/guide/getters.html" target="_blank" rel="noopener">getter</a>类似于store中的计算属性，getter 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。</p>
-<p><a href="https://vuex.vuejs.org/zh/guide/modules.html" target="_blank" rel="noopener">module</a>则是等于将整个项目的根store分割成更小的子模块，每个子模块中具有自己的state、mutation、action、getter和嵌套子模块。对于上面的例子来说，personal在原则上就是整个项目的module里面的一个子模块，只是为了方便简化了结构。</p>
-<h3 id="personal-vue"><a href="#personal-vue" class="headerlink" title="personal.vue"></a>personal.vue</h3><p>完成上面store实例的定义后，我们就可以直接在不同的vue组件中使用同样的方法引用store中的属性。有两个方法：</p>
-<ul>
-<li>使用 this.$store.commit(‘xxx’) 提交 mutation</li>
-<li>使用 this.$store.dispatch(‘Personal/GET_INFO’)分发action</li>
-</ul>
-<p>一般来说，我们使用dispatch来分发，因为它支持异步回调的操作</p>
-<pre><code>//personal.vue
-&lt;template&gt;
-    &lt;div class=&quot;personCenter&quot;&gt;
-        &lt;div class=&quot;personInformation&quot;&gt;
-            &lt;input v-model = &quot;personDetail.name&quot; type=&quot;text&quot;/&gt;
-        &lt;/div&gt;
-        ···
-    &lt;/div&gt;
-&lt;/template&gt;
-
-&lt;script&gt;
-
-//这里从vuex中引入mapState，再引入我们刚刚定义的store实例
-import { mapState } from &apos;vuex&apos;
-import { Personal } from &apos;../store/personal/index.js&apos;
-
-export default {
-    data() {
-        return {
-           ···
-        }
-    },
-    computed: mapState(&apos;Personal&apos;, {
-            personDetail: &apos;personalInfo&apos;,
-        }
-    ),
-    methods: {
-        //在方法中手动调用action
-        getDetail(id) {
-            this.$store.dispatch(&apos;Personal/GET_INFO&apos;)
-        }
-    },
-    mounted() {
-        //在模板被渲染成html后自动调用action
-        this.$store.dispatch(&apos;Personal/GET_INFO&apos;); //分发action
-    }
-}
-&lt;/script&gt;    
-
-&lt;style&gt;
-    ···
-&lt;/style&gt;
-</code></pre><p>至此我们就完成了vuex的简单构建和应用，同样的，另外的vuex可以使用同样的方法引用甚至修改store中的属性，这样就实现了将这些需要共享的属性抽象成单一数据源的操作，避免了属性在传参和同步中可能出现的无数bug。</p>
-<p>更多的vuex使用技巧，如测试、插件、严格模式等可以参考<a href="https://vuex.vuejs.org/zh/" target="_blank" rel="noopener">vuex官方教程</a></p>
-
+              <p>简单的vuex实践应用。</p>
+          
       
     </div>
     
@@ -442,6 +289,10 @@ export default {
       
 
       
+      
+        <p class="article-more-link">
+          <a href="/2019/06/17/vueLearning/vuexTrying/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
