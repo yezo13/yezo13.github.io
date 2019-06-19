@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/06/19/VXdjfA.jpg">
 <meta property="og:image" content="https://s2.ax1x.com/2019/06/19/VXdXYd.jpg">
 <meta property="og:image" content="https://s2.ax1x.com/2019/06/19/VXdOFH.jpg">
-<meta property="og:updated_time" content="2019-06-19T12:59:42.162Z">
+<meta property="og:updated_time" content="2019-06-19T13:09:35.483Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github Desktop不完全应用指南">
 <meta name="twitter:description" content="提升团队项目工作效率（和偷偷观察你的队友的做了些什么）的必备工具。">
@@ -344,14 +344,17 @@
 <p>对了，改完代码之后，记得push上去，不然死亡冲突常伴你身。</p>
 <h2 id="一些玄学问题"><a href="#一些玄学问题" class="headerlink" title="一些玄学问题"></a>一些玄学问题</h2><ol>
 <li>如果太久没用desktop或者隔了很久，好像账号的登录状态会出问题，这个时候不会有显示的提示，但是fetch和push操作会失效（显示超时还是什么我忘了），这个时候在option那里重新登陆一下就好了</li>
-<li>如果有使用chorme的adblock这个插件的话，有时候会出现登录不了的情况（好像也是显示超时),google的说法是adblock会把登陆页也屏蔽掉。我自己个人有效的解决方法是右键用管理员权限打开desktop就可以正常登陆了。</li>
-<li>校园网好像对github desktop有一些怨念，我经常碰到用校园网然后在desktop fetch的时候会超时（timeout)的情况，这个时候切别的wifi或者手机热点通常会好</li>
+<li>如果有使用chrome的adblock这个插件的话，有时候会出现登录不了的情况（好像也是显示超时),google的说法是adblock会把登陆页也屏蔽掉。我自己个人有效的解决方法是右键用管理员权限打开desktop就可以正常登陆了。</li>
+<li>校园网好像对github desktop有一些怨念，我经常碰到用校园网然后在desktop fetch的时候会超时（timeout）的情况，这个时候切别的wifi或者手机热点通常会好</li>
 <li>同理，当你开着科学上网器而且处于pac模式的时候，也会有类似的情况，一般切成全局模式或者关掉好像就解决了，至少我是这样的。</li>
 </ol>
 <p>总而言之，一旦出了问题，常规操作就是【关掉】-【管理员权限打开desktop】-【重新log out再log in】-【fetch】。</p>
 <p>如果还是不行，那就重启吧，重启解决一切问题。</p>
 <pre><code>while(bug){
-    reboot;
+    if(好像知道是哪里出了错)
+        tryToDebug();
+    else        
+        reboot;
 }
 </code></pre>
       
@@ -364,7 +367,7 @@
         <p><span>本文标题:</span><a href="/2019/06/19/Personal/gitHubDesktop/">Github Desktop不完全应用指南</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 yezo13 的个人博客">yezo13</a></p>
         <p><span>发布时间:</span>2019年06月19日 - 10时35分</p>
-        <p><span>最后更新:</span>2019年06月19日 - 20时59分</p>
+        <p><span>最后更新:</span>2019年06月19日 - 21时09分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/06/19/Personal/gitHubDesktop/" title="Github Desktop不完全应用指南">http://yoursite.com/2019/06/19/Personal/gitHubDesktop/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/06/19/Personal/gitHubDesktop/　　作者: yezo13" title></span>
