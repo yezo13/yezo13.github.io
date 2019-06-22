@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/04/20/matlab/dsp_ch4/</loc>
+    
+    <lastmod>2019-06-22T11:32:30.506Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/04/08/swsadHw/UseCase/</loc>
+    
+    <lastmod>2019-06-22T11:19:49.859Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/06/22/Personal/gitConnect/</loc>
+    
+    <lastmod>2019-06-22T11:16:12.535Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/03/21/vueLearning/vueLearning1/</loc>
     
     <lastmod>2019-06-20T15:54:17.037Z</lastmod>
@@ -30,13 +51,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/04/20/matlab/dsp_ch4/</loc>
-    
-    <lastmod>2019-04-20T12:46:10.490Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2019/04/08/matlab/MatlabLearning1/</loc>
     
     <lastmod>2019-04-19T11:27:03.143Z</lastmod>
@@ -61,13 +75,6 @@
     <loc>http://yoursite.com/2019/03/13/swsadHw/swsadhw3/</loc>
     
     <lastmod>2019-04-12T13:04:12.611Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/04/08/swsadHw/UseCase/</loc>
-    
-    <lastmod>2019-04-12T13:01:43.955Z</lastmod>
     
   </url>
   
