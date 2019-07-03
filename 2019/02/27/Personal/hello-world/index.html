@@ -15,17 +15,17 @@
         Yezo13
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Update it when i have time.">
+    <meta name="description" content="The article has been encrypted, please enter your password to view.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BringMeFly">
 <meta property="og:url" content="http://yoursite.com/2019/02/27/Personal/hello-world/index.html">
 <meta property="og:site_name" content="Yezo13">
-<meta property="og:description" content="Update it when i have time.">
+<meta property="og:description" content="The article has been encrypted, please enter your password to view.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-10T10:39:02.240Z">
+<meta property="og:updated_time" content="2019-07-03T04:11:40.531Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BringMeFly">
-<meta name="twitter:description" content="Update it when i have time.">
+<meta name="twitter:description" content="The article has been encrypted, please enter your password to view.">
     
     <link rel="alternative" href="/atom.xml" title="Yezo13" type="application/atom+xml">
     
@@ -47,15 +47,23 @@
     <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
     <script>
     var yiliaConfig = {
-        fancybox: true,
-        animate: true,
-        isHome: false,
-        isPost: true,
-        isArchive: false,
-        isTag: false,
-        isCategory: false,
-        open_in_new: false
-    }
+            fancybox: true,
+            animate: true,
+            isHome: false,
+            isPost: true,
+            isArchive: false,
+            isTag: false,
+            isCategory: false,
+            open_in_new: false
+        },
+        (function() {
+            if ('{{ page.password }}') {
+                if (prompt('Please insert password for this article') !== '{{ page.password }}') {
+                    alert('Please try again');
+                    history.back();
+                }
+            }
+        })();
     </script>
 </head></html>
 <body>
@@ -287,17 +295,20 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Update it when i have time.</p>
-<a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<div id="hbe-security">
+  <div class="hbe-input-container">
+  <input type="password" class="hbe-form-control" id="pass" placeholder="Please enter the password to read the blog.">
+    <label for="pass">Please enter the password to read the blog.</label>
+    <div class="bottom-line"></div>
+  </div>
+</div>
+<div id="decryptionError" style="display: none;">Incorrect Password!</div>
+<div id="noContentError" style="display: none;">No content to display!</div>
+<div id="encrypt-blog" style="display:none">
+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
+</div>
+<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
       
     </div>
     
@@ -308,7 +319,7 @@
         <p><span>本文标题:</span><a href="/2019/02/27/Personal/hello-world/">BringMeFly</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 yezo13 的个人博客">yezo13</a></p>
         <p><span>发布时间:</span>2019年02月27日 - 17时14分</p>
-        <p><span>最后更新:</span>2019年03月10日 - 18时39分</p>
+        <p><span>最后更新:</span>2019年07月03日 - 12时11分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/02/27/Personal/hello-world/" title="BringMeFly">http://yoursite.com/2019/02/27/Personal/hello-world/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/02/27/Personal/hello-world/　　作者: yezo13" title></span>
@@ -340,7 +351,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
