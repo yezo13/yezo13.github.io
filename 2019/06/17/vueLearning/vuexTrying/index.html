@@ -58,14 +58,6 @@
         isCategory: false,
         open_in_new: false
     };
-    (function() {
-        if ('{{ page.password }}') {
-            if (prompt('Please insert password for this article') !== '{{ page.password }}') {
-                alert('Please try again');
-                history.back();
-            }
-        }
-    })();
     </script>
 </head></html>
 <body>
